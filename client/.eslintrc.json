@@ -19,7 +19,7 @@
   "rules": {
       "no-debugger": "off",
       "prettier/prettier": "off",
-      "no-console": 0,
+      "no-console": "warn",
       "quotes": [2, "single", { "avoidEscape": true }],
       "class-methods-use-this": "off",
       "@typescript-eslint/rule-name": "off",
