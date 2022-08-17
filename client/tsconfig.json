@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
-    "module": "es6",
+    "module": "ESNext",
     "target": "es5",
     "moduleResolution": "node",
     "allowJs": true,
@@ -13,5 +13,5 @@
     "skipLibCheck": true,
     "sourceMap": true,
   },
-  "files": ["src/index.ts", "./module.d.ts"]
+  "exclude": ["node_modules"]
 }
