@@ -1,6 +1,6 @@
-import app from './app.js';
-import mongoose from 'mongoose';
-import { PORT, MongoConnect } from './general/config.js';
+const app = require('./app');
+const mongoose = require('mongoose');
+const { PORT, MongoConnect } = require('./general/config');
 
 const mongoDB = MongoConnect;
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });

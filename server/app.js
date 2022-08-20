@@ -1,7 +1,7 @@
-import express from 'express';
-import logger from 'morgan';
+const express = require('express');
+const logger = require('morgan');
 
-import Recipe from './models/recipes/recipe.js';
+const Recipe = require('./models/recipes/recipe');
 
 const app = express();
 
@@ -16,4 +16,4 @@ app.use((req, res) => {
   res.status(404).send('404 NOT FOUND');
 });
 
-export default app;
+module.exports = app;
