@@ -1,8 +1,8 @@
 const app = require('./app');
 const mongoose = require('mongoose');
-const { PORT, MongoConnect } = require('./general/config');
+const { PORT, MONGO_CONNECT_QUERY } = require('./general/config');
 
-const mongoDB = MongoConnect;
+const mongoDB = MONGO_CONNECT_QUERY;
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
 
 const { connection } = mongoose;

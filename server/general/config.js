@@ -5,7 +5,7 @@ vars.config({
   path: path.join(__dirname, '../vars.env'),
 });
 
-const PORT = 3000;
-const MongoConnect = process.env.CONNECTION_QUERY;
+const PORT = process.env.PORT;
+const MONGO_CONNECT_QUERY = process.env.CONNECTION_QUERY;
 
-module.exports = { PORT, MongoConnect };
+module.exports = { PORT, MONGO_CONNECT_QUERY };
