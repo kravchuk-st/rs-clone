@@ -1,6 +1,6 @@
 const Recipe = require('./recipe.model');
 
-const get = async (recipeId) => {
+const getRecipe = async (recipeId) => {
   const recipe = await Recipe.findOne({ id: recipeId });
   if (!recipe) {
     throw new Error(`Recipe for id ${recipeId} not found`);
@@ -9,4 +9,4 @@ const get = async (recipeId) => {
   return recipe;
 };
 
-module.exports = { get };
+module.exports = { getRecipe };
