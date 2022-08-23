@@ -1,26 +1,19 @@
-import express from 'express';
-import morgan from 'morgan';
-import { PORT } from './general/config.js';
+const express = require('express');
+const logger = require('morgan');
+
+const Recipe = require('./models/recipes/recipe');
 
 const app = express();
 
-app.use(morgan('tiny'));
+app.use(logger('tiny'));
 
-app.get('/', (req, res) => {
-  res.json({
-    id: 1,
-    name: 'Phil',
-  });
+app.get('/recipes', async (req, res) => {
+  const recipes = await Recipe.find();
+  res.send(recipes);
 });
 
 app.use((req, res) => {
   res.status(404).send('404 NOT FOUND');
 });
 
-app.listen(PORT, (error) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log(`Server is listening on ${PORT}`);
-  }
-});
+module.exports = app;
