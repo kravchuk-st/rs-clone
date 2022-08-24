@@ -9,4 +9,13 @@ const getRecipe = async (recipeId) => {
   return recipe;
 };
 
-module.exports = { getRecipe };
+const getDistinct = async (recipePath) => {
+  const distinctRecipePathValues = await Recipe.distinct(recipePath);
+  if (!distinctRecipePathValues) {
+    throw new Error(`Transfered recipe path was not found`);
+  }
+
+  return distinctRecipePathValues;
+};
+
+module.exports = { getRecipe, getDistinct };
