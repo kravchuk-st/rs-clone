@@ -4,7 +4,7 @@
   position: relative;
 
   .search__input {
-    padding: 8px 15px;
+    padding: 6px 15px;
     width: 100%;
     outline: none;
     border: 1px solid $color-main;
@@ -48,10 +48,7 @@
     }
 
     .card__title {
-      font-family: 'Kadwa', sans-serif;
-      font-weight: 700;
-      font-size: 11px;
-      line-height: 2;
+      font: $kadwa-bold-sm;
       color: $color-text;
       text-transform: uppercase;
     }

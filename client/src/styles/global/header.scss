@@ -9,14 +9,12 @@
 
   .btn {
     padding: 10px 15px;
-    font-family: 'Karla', sans-serif;
-    font-size: 14px;
+    font: $kadwa-regular-md;
   }
 }
 
-.logo h1 {
-  font-size: 24px;
-  font-weight: 800;
+.logo {
+  font: $karla-bolder;
   color: $color-text;
   text-decoration: none;
 
@@ -31,7 +29,7 @@
   column-gap: 53px;
   
   .nav__link {
-    font-size: 16px;
+    font: $kadwa-regular-lg;
     color: $color-text;
   }
 }
