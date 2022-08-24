@@ -1,19 +1,20 @@
 const express = require('express');
 const logger = require('morgan');
 
-const Recipe = require('./models/recipes/recipe');
+const recipeRouter = require('./models/recipes/recipe.router');
+const { StatusCodes } = require('http-status-codes');
+const errorHandler = require('./errors/errorHandler');
 
 const app = express();
 
 app.use(logger('tiny'));
 
-app.get('/recipes', async (req, res) => {
-  const recipes = await Recipe.find();
-  res.send(recipes);
-});
+app.use('/recipes', recipeRouter);
 
 app.use((req, res) => {
-  res.status(404).send('404 NOT FOUND');
+  res.status(StatusCodes.NOT_FOUND).send('404 NOT FOUND');
 });
+
+app.use(errorHandler);
 
 module.exports = app;
