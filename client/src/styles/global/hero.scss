@@ -1,0 +1,59 @@
+.search {
+  margin: 0 auto;
+  max-width: 499px;
+  position: relative;
+
+  .search__input {
+    padding: 8px 15px;
+    width: 100%;
+    outline: none;
+    border: 1px solid $color-main;
+    border-radius: 20px;
+  }
+
+  .search__btn {
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    z-index: 5;
+    transform: translateY(-50%);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 16 16' id='search'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+}
+
+.hero__theme {
+  margin-top: 52px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  column-gap: 35px;
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 4px;
+    
+    .card__img {
+      width: 55px;
+      height: 55px;
+      object-fit: cover;
+      border: 1px solid $color-main;
+      border-radius: 50%;
+    }
+
+    .card__title {
+      font-family: 'Kadwa', sans-serif;
+      font-weight: 700;
+      font-size: 11px;
+      line-height: 2;
+      color: $color-text;
+      text-transform: uppercase;
+    }
+  }
+}
