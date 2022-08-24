@@ -51,10 +51,6 @@ const config = {
         test: /\.(svg|ttf|woff|woff2|png|jpe?g|gif)$/i,
         type: isProduction ? 'asset' : 'asset/resource',
       },
-      {
-        test: /\.html$/i,
-        loader: 'html-loader',
-      },
     ],
   },
   resolve: {

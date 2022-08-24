@@ -1,0 +1,44 @@
+.header {
+  padding: 25px 0;
+}
+
+.header__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .btn {
+    padding: 10px 15px;
+    font-family: 'Karla', sans-serif;
+    font-size: 14px;
+  }
+}
+
+.logo h1 {
+  font-size: 24px;
+  font-weight: 800;
+  color: $color-text;
+  text-decoration: none;
+
+  span {
+    color: $color-main;
+  }
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  column-gap: 53px;
+  
+  .nav__link {
+    font-size: 16px;
+    color: $color-text;
+  }
+}
+
+.header__login {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  column-gap: 25px;
+}
