@@ -16,12 +16,15 @@ const RecipeSchema = new Schema({
   preparationMinutes: Number,
   cookingMinutes: Number,
   aggregateLikes: Number,
+  healthScore: Number,
   pricePerServing: Number,
   extendedIngredients: [
     {
       id: Number,
       aisle: String,
       image: String,
+      name: String,
+      nameClean: String,
       original: String,
       originalName: String,
       amount: Number,
@@ -49,6 +52,7 @@ const RecipeSchema = new Schema({
   summary: String,
   cuisines: [String],
   dishTypes: [String],
+  diets: [String],
   instructions: String,
   analyzedInstructions: [
     {
