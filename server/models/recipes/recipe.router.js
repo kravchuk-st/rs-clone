@@ -30,13 +30,18 @@ router.get('/distinct/:propertyPath', async (req, res, next) => {
 });
 
 router.get('/:id', async (req, res, next) => {
-  const recipeId = Number(req.params.id);
-  if (!recipeId) next();
+  try {
+    if (isNaN(req.params.id)) throw new QueryError(StatusCodes.BAD_REQUEST, 'Invalid recipe ID');
 
-  await recipeService
-    .getRecipeById(recipeId)
-    .then((recipe) => res.status(StatusCodes.OK).send(recipe))
-    .catch((err) => next(err));
+    const recipeId = Number(req.params.id);
+
+    await recipeService
+      .getRecipeById(recipeId)
+      .then((recipe) => res.status(StatusCodes.OK).send(recipe))
+      .catch((err) => next(err));
+  } catch (err) {
+    next(err);
+  }
 });
 
 module.exports = router;
