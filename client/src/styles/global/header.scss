@@ -9,14 +9,15 @@
 
   .btn {
     padding: 10px 15px;
-    font-family: 'Karla', sans-serif;
-    font-size: 14px;
+    font-family: $font-family-main;
+    font-size: $font-size-sm;
   }
 }
 
-.logo h1 {
-  font-size: 24px;
-  font-weight: 800;
+.logo {
+  font-family: $font-family-secondary;
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bolder;
   color: $color-text;
   text-decoration: none;
 
@@ -31,7 +32,9 @@
   column-gap: 53px;
   
   .nav__link {
-    font-size: 16px;
+    font-family: $font-family-main;
+    font-size: $font-size-md;
+    font-weight: $font-weight-normal;
     color: $color-text;
   }
 }
@@ -41,4 +44,8 @@
   justify-content: flex-end;
   align-items: center;
   column-gap: 25px;
+}
+
+.login__name {
+  font-weight: $font-weight-bold;
 }
