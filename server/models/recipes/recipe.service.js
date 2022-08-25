@@ -11,7 +11,7 @@ const getRecipes = async (pageNumber, recipesPerPage) => {
 
 const getRecipeById = async (recipeId) => {
   const recipe = await Recipe.findOne({ id: recipeId });
-  if (!recipe) {
+  if (!recipe || recipe.length === 0) {
     throw new QueryError(StatusCodes.NOT_FOUND, `Recipe for id ${recipeId} not found`);
   }
 
@@ -20,8 +20,8 @@ const getRecipeById = async (recipeId) => {
 
 const getDistinctProps = async (recipePath) => {
   const distinctRecipePathValues = await Recipe.distinct(recipePath);
-  if (!distinctRecipePathValues) {
-    throw new QueryError(StatusCodes.NOT_FOUND, `Transfered recipe path was not found`);
+  if (!distinctRecipePathValues || distinctRecipePathValues.length === 0) {
+    throw new QueryError(StatusCodes.NOT_FOUND, `Provided recipe property path was not found`);
   }
 
   return distinctRecipePathValues;

@@ -1,14 +1,15 @@
 const router = require('express').Router();
+const { StatusCodes } = require('http-status-codes');
+
 const recipeService = require('./recipe.service');
 const QueryError = require('../../errors/errorEmitter');
+const capitalizePath = require('../../utils/utils');
 
 const { PAGE_NUMBER, ITEMS_PER_PAGE } = require('../../general/config');
 
-const { StatusCodes } = require('http-status-codes');
-
 router.get('/', async (req, res, next) => {
-  const pageNumber = req.query.page || PAGE_NUMBER;
-  const recipesPerPage = req.query.limit || ITEMS_PER_PAGE;
+  const pageNumber = req.query.page ?? PAGE_NUMBER;
+  const recipesPerPage = req.query.limit ?? ITEMS_PER_PAGE;
 
   await recipeService
     .getRecipes(pageNumber, recipesPerPage)
@@ -16,12 +17,14 @@ router.get('/', async (req, res, next) => {
     .catch((err) => next(err));
 });
 
-router.get('/distinct', async (req, res, next) => {
-  const recipePath = req.query.recipePath;
-  if (!recipePath) next(new QueryError(StatusCodes.BAD_REQUEST, 'Invalid query parameters'));
+router.get('/distinct/:propertyPath', async (req, res, next) => {
+  const propertyPath = req.params.propertyPath;
+  if (propertyPath === undefined) next(new QueryError(StatusCodes.BAD_REQUEST, 'Invalid property path'));
+
+  const propertyPathProcessed = capitalizePath(propertyPath);
 
   await recipeService
-    .getDistinctProps(recipePath)
+    .getDistinctProps(propertyPathProcessed)
     .then((value) => res.status(StatusCodes.OK).send(value))
     .catch((err) => next(err));
 });
