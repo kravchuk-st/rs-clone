@@ -2,22 +2,25 @@
 @import './normalize.scss';
 
 body {
-  font: $kadwa-regular-md;
+  font-family: $font-family-main;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-normal;
+  line-height: 1.3;
   text-align: center;
   color: $color-text;
   background-color: white;
 }
 
 h2 {
-  font-family: 'Kadwa', sans-serif;
-  font-weight: 400;
-  font-size: 32px;
+  font-family: $font-family-main;
+  font-weight: $font-weight-normal;
+  font-size: $font-size-4xl;
 }
 
 h3 {
-  font-family: 'Kadwa', sans-serif;
-  font-weight: 400;
-  font-size: 26px;
+  font-family: $font-family-main;
+  font-weight: $font-weight-normal;
+  font-size: $font-size-xl;
 }
 
 .btn-reset {
@@ -29,9 +32,9 @@ h3 {
 }
 
 .btn {
-  font-family: 'Karla', sans-serif;
-  font-weight: 400;
-  font-size: 20px;
+  font-family: $font-family-secondary;
+  font-weight: $font-weight-normal;
+  font-size: $font-size-lg;
   border-radius: 10px;
 }
 

@@ -1,6 +1,6 @@
 .search {
   margin: 0 auto;
-  max-width: 499px;
+  max-width: 500px;
   position: relative;
 
   .search__input {
@@ -33,13 +33,13 @@
   align-items: flex-start;
   column-gap: 35px;
 
-  .card {
+  .category {
     display: flex;
     flex-direction: column;
     align-items: center;
     row-gap: 4px;
     
-    .card__img {
+    .category__img {
       width: 55px;
       height: 55px;
       object-fit: cover;
@@ -47,8 +47,10 @@
       border-radius: 50%;
     }
 
-    .card__title {
-      font: $kadwa-bold-sm;
+    .category__title {
+      font-family: $font-family-main;
+      font-size: $font-size-xs;
+      font-weight: $font-weight-bold;
       color: $color-text;
       text-transform: uppercase;
     }

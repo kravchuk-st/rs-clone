@@ -9,12 +9,15 @@
 
   .btn {
     padding: 10px 15px;
-    font: $kadwa-regular-md;
+    font-family: $font-family-main;
+    font-size: $font-size-sm;
   }
 }
 
 .logo {
-  font: $karla-bolder;
+  font-family: $font-family-secondary;
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bolder;
   color: $color-text;
   text-decoration: none;
 
@@ -29,7 +32,9 @@
   column-gap: 53px;
   
   .nav__link {
-    font: $kadwa-regular-lg;
+    font-family: $font-family-main;
+    font-size: $font-size-md;
+    font-weight: $font-weight-normal;
     color: $color-text;
   }
 }
@@ -39,4 +44,8 @@
   justify-content: flex-end;
   align-items: center;
   column-gap: 25px;
+}
+
+.login__name {
+  font-weight: $font-weight-bold;
 }
