@@ -1,13 +1,16 @@
 .profile {
   width: 100%;
+  max-width: 300px;
   border-radius: 20px;
-  border: 1px solid #d54216;
+  border: 1px solid $color-main;
   overflow: hidden;
 }
 
 .profile__general {
   padding: 20px 20px 10px;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+
 }
 
 .profile__avatar {
@@ -24,10 +27,12 @@
 
 .profile__name {
   @include font-rule($font-size-lg, $font-weight-bold, $font-family-main);
+  margin-top: 15px;
 }
 
 .profile__motto {
   @include font-rule($font-size-md);
+  margin-top: 15px;
 }
 
 .profile__info {
@@ -45,6 +50,7 @@
 }
 
 .fav-categories {
+  text-align: justify;
   font-size: 0;
 }
 
