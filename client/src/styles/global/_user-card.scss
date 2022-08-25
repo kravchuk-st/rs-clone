@@ -1,0 +1,59 @@
+.profile {
+  width: 100%;
+  border-radius: 20px;
+  border: 1px solid #d54216;
+  overflow: hidden;
+}
+
+.profile__general {
+  padding: 20px 20px 10px;
+  text-align: center;
+}
+
+.profile__avatar {
+  background-color: rgba($color-main, 0.2);
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: $avatar-size-max;
+  width: 100%;
+  aspect-ratio: 1/1;
+  align-self: center;
+}
+
+.profile__name {
+  @include font-rule($font-size-lg, $font-weight-bold, $font-family-main);
+}
+
+.profile__motto {
+  @include font-rule($font-size-md);
+}
+
+.profile__info {
+  background-color: rgba($color-main, 0.2);
+  padding: 20px 20px 10px;
+}
+
+.profile__info__item {
+  @include font-rule($font-size-sm);
+  margin-bottom: 10px;
+}
+
+.profile__info__interests {
+  margin-bottom: 10px;
+}
+
+.fav-categories {
+  font-size: 0;
+}
+
+.category-tag {
+  font-size: 14px;
+  color: $color-tag-dark;
+  border: solid 1px $color-tag-dark;
+  background-color: $color-tag-light;
+  padding: 10px;
+  margin: 3px;
+  display: inline-block;
+}

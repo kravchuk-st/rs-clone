@@ -1,5 +1,5 @@
-@import './reset.scss';
-@import './normalize.scss';
+@import './reset';
+@import './normalize';
 
 body {
   font-family: $font-family-main;
@@ -53,4 +53,8 @@ h3 {
 
 section {
   padding: 25px 0;
+}
+
+.category-tag {
+  
 }
