@@ -4,52 +4,52 @@
   border-radius: 20px;
   border: 1px solid $color-main;
   overflow: hidden;
+  
+  &__general {
+    padding: 20px 20px 10px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  &__avatar {
+    background-color: rgba($color-main, 0.2);
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: $avatar-size-max;
+    width: 100%;
+    aspect-ratio: 1/1;
+    align-self: center;
+  }
+  
+  &__name {
+    @include font-rule($font-size-lg, $font-weight-bold, $font-family-main);
+    margin-top: 15px;
+  }
+  
+  &__motto {
+    @include font-rule($font-size-md);
+    margin-top: 15px;
+  }
+  
+  &__info {
+    background-color: rgba($color-main, 0.2);
+    padding: 20px 20px 10px;
+    text-align: left;
+  }
 }
 
-.profile__general {
-  padding: 20px 20px 10px;
-  display: flex;
-  flex-direction: column;
-}
-
-.profile__avatar {
-  background-color: rgba($color-main, 0.2);
-  border-radius: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  max-width: $avatar-size-max;
-  width: 100%;
-  aspect-ratio: 1/1;
-  align-self: center;
-}
-
-.profile__name {
-  @include font-rule($font-size-lg, $font-weight-bold, $font-family-main);
-  margin-top: 15px;
-}
-
-.profile__motto {
-  @include font-rule($font-size-md);
-  margin-top: 15px;
-}
-
-.profile__info {
-  background-color: rgba($color-main, 0.2);
-  padding: 20px 20px 10px;
-}
-
-.profile__info__item {
+.info__item {
   @include font-rule($font-size-sm);
   margin-bottom: 10px;
 }
 
-.profile__info__interests {
+.interests {
   margin-bottom: 10px;
 }
 
 .fav-categories {
-  text-align: justify;
   font-size: 0;
 }
 
