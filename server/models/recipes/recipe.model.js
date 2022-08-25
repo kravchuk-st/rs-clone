@@ -8,6 +8,7 @@ const RecipeSchema = new Schema({
     required: true,
   },
   vegetarian: Boolean,
+  vegan: Boolean,
   glutenFree: Boolean,
   dairyFree: Boolean,
   veryHealthy: Boolean,
@@ -49,6 +50,16 @@ const RecipeSchema = new Schema({
   sourceUrl: String,
   image: String,
   imageType: String,
+  nutrition: {
+    nutrients: [
+      {
+        name: String,
+        amount: Number,
+        unit: String,
+        percentOfDailyNeeds: Number,
+      },
+    ],
+  },
   summary: String,
   cuisines: [String],
   dishTypes: [String],
