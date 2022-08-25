@@ -17,4 +17,9 @@ const getRecipes = async (pageNumber?: number, recipesPerPage?: number): Promise
   return (response.json() as unknown) as IRecipe[];
 };
 
-export { getRecipes };
+const getRecipeById = async (recipeId: number): Promise<IRecipe> => {
+  const response = await fetch(`${BASE_URL}${ENDPOINTS.recipes}/${recipeId}`);
+  return (response.json() as unknown) as IRecipe;
+};
+
+export { getRecipes, getRecipeById };
