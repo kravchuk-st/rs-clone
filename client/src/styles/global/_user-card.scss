@@ -1,0 +1,64 @@
+.profile {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 20px;
+  border: 1px solid $color-main;
+  overflow: hidden;
+  
+  &__general {
+    padding: 20px 20px 10px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  &__avatar {
+    background-color: rgba($color-main, 0.2);
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: $avatar-size-max;
+    width: 100%;
+    aspect-ratio: 1/1;
+    align-self: center;
+  }
+  
+  &__name {
+    @include font-rule($font-size-lg, $font-weight-bold, $font-family-main);
+    margin-top: 15px;
+  }
+  
+  &__motto {
+    @include font-rule($font-size-md);
+    margin-top: 15px;
+  }
+  
+  &__info {
+    background-color: rgba($color-main, 0.2);
+    padding: 20px 20px 10px;
+    text-align: left;
+  }
+}
+
+.info__item {
+  @include font-rule($font-size-sm);
+  margin-bottom: 10px;
+}
+
+.interests {
+  margin-bottom: 10px;
+}
+
+.categories {
+  font-size: 0;
+}
+
+.categories__item {
+  font-size: $font-size-sm;
+  color: $color-tag-dark;
+  border: solid 1px $color-tag-dark;
+  background-color: $color-tag-light;
+  padding: 10px;
+  margin: $category-item-margin;
+  display: inline-block;
+}
