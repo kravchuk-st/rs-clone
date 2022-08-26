@@ -1,25 +1,30 @@
 import { BASE_URL, ENDPOINTS } from '../config/config.js';
-import { IRecipe } from '../types.js';
+import { IRecipe, IQueryOptions } from '../types.js';
 
-const getRecipes = async (pageNumber?: number, recipesPerPage?: number): Promise<IRecipe[]> => {
-  const queryPropsArray: string[] = [];
+import transformOptionsToQuery from '../helpers/utils';
 
-  if (pageNumber !== undefined) {
-    queryPropsArray.push(`page=${pageNumber}`);
+const getRecipes = async (queryOptions?: IQueryOptions): Promise<IRecipe[]> => {
+  let queryString = '';
+
+  if (queryOptions && Object.keys(queryOptions).length !== 0) {
+    queryString = transformOptionsToQuery(queryOptions as IQueryOptions);
   }
-  if (recipesPerPage !== undefined) {
-    queryPropsArray.push(`limit=${recipesPerPage}`);
-  }
 
-  const queryProps = queryPropsArray.length !== 0 ? '?' + queryPropsArray.join('&') : '';
+  const response = await fetch(`${BASE_URL}${ENDPOINTS.recipes}/${queryString}`);
 
-  const response = await fetch(`${BASE_URL}${ENDPOINTS.recipes}${queryProps}`);
   return (response.json() as unknown) as IRecipe[];
 };
 
 const getRecipeById = async (recipeId: number): Promise<IRecipe> => {
   const response = await fetch(`${BASE_URL}${ENDPOINTS.recipes}/${recipeId}`);
+
   return (response.json() as unknown) as IRecipe;
 };
 
-export { getRecipes, getRecipeById };
+const getDistinctProps = async (recipePath: string): Promise<string[] | number[]> => {
+  const response = await fetch(`${BASE_URL}${ENDPOINTS.recipes}/distinct/${recipePath}`);
+
+  return (response.json() as unknown) as string[] | number[];
+};
+
+export { getRecipes, getRecipeById, getDistinctProps };
