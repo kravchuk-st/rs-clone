@@ -8,6 +8,7 @@ const RecipeSchema = new Schema({
     required: true,
   },
   vegetarian: Boolean,
+  vegan: Boolean,
   glutenFree: Boolean,
   dairyFree: Boolean,
   veryHealthy: Boolean,
@@ -16,12 +17,15 @@ const RecipeSchema = new Schema({
   preparationMinutes: Number,
   cookingMinutes: Number,
   aggregateLikes: Number,
+  healthScore: Number,
   pricePerServing: Number,
   extendedIngredients: [
     {
       id: Number,
       aisle: String,
       image: String,
+      name: String,
+      nameClean: String,
       original: String,
       originalName: String,
       amount: Number,
@@ -46,9 +50,20 @@ const RecipeSchema = new Schema({
   sourceUrl: String,
   image: String,
   imageType: String,
+  nutrition: {
+    nutrients: [
+      {
+        name: String,
+        amount: Number,
+        unit: String,
+        percentOfDailyNeeds: Number,
+      },
+    ],
+  },
   summary: String,
   cuisines: [String],
   dishTypes: [String],
+  diets: [String],
   instructions: String,
   analyzedInstructions: [
     {
