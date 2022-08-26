@@ -61,6 +61,10 @@ const queryMap = {
     'nutrition.nutrients',
     { $elemMatch: { name: 'Protein', amount: { $lte: Number(passedValue) || MAX_PROTEINS } } },
   ],
+  search: (passedValue) => {
+    const searchOptions = passedValue.split(',').join('|');
+    return ['title', { $regex: searchOptions, $options: 'i' }];
+  },
 };
 
 module.exports = queryMap;
