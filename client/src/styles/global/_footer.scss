@@ -1,0 +1,24 @@
+.footer {
+  padding: 25px 0;
+  font-family: $font-family-secondary;
+  font-size: $font-size-md;
+  background-color: #fec58b;
+}
+
+.footer__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer__authors {
+  font-weight: $font-weight-bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 15px;
+}
+
+.author__item {
+  color: $color-text;
+}
