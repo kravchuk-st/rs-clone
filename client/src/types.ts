@@ -80,4 +80,27 @@ interface IRecipe {
   analyzedInstructions: IInstructions[];
 }
 
-export { IRecipe };
+interface IQueryOptions {
+  page?: number;
+  limit?: number;
+  vegetarian?: boolean;
+  vegan?: boolean;
+  'gluten-free'?: boolean;
+  'dairy-free'?: boolean;
+  cheap?: boolean;
+  'very-popular'?: boolean;
+  'min-health-score'?: number;
+  'max-ready'?: number;
+  'serving-price'?: [number, number];
+  ingredients?: string[];
+  cuisines?: string[];
+  'dish-types'?: string[];
+  diets?: string[];
+  'max-calories'?: number;
+  'max-carbs'?: number;
+  'max-fats'?: number;
+  'max-proteins'?: number;
+  search?: string[];
+}
+
+export { IRecipe, IQueryOptions };
