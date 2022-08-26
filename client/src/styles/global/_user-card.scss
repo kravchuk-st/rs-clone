@@ -49,16 +49,16 @@
   margin-bottom: 10px;
 }
 
-.fav-categories {
+.categories {
   font-size: 0;
 }
 
-.category-tag {
+.categories__item {
   font-size: $font-size-sm;
   color: $color-tag-dark;
   border: solid 1px $color-tag-dark;
   background-color: $color-tag-light;
   padding: 10px;
-  margin: $tag-margin;
+  margin: $category-item-margin;
   display: inline-block;
 }
