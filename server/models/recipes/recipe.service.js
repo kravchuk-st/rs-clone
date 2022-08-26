@@ -3,8 +3,10 @@ const QueryError = require('../../errors/errorEmitter');
 
 const { StatusCodes } = require('http-status-codes');
 
-const getRecipes = async (pageNumber, recipesPerPage) => {
-  return await Recipe.find()
+const getRecipes = async (selector) => {
+  let { page: pageNumber, limit: recipesPerPage, ...restSelectors } = selector;
+
+  return await Recipe.find(restSelectors)
     .skip(pageNumber * recipesPerPage)
     .limit(recipesPerPage);
 };

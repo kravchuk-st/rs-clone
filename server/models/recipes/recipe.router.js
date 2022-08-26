@@ -3,16 +3,13 @@ const { StatusCodes } = require('http-status-codes');
 
 const recipeService = require('./recipe.service');
 const QueryError = require('../../errors/errorEmitter');
-const capitalizePath = require('../../utils/utils');
-
-const { PAGE_NUMBER, ITEMS_PER_PAGE } = require('../../general/config');
+const Utils = require('../../utils/utils');
 
 router.get('/', async (req, res, next) => {
-  const pageNumber = req.query.page ?? PAGE_NUMBER;
-  const recipesPerPage = req.query.limit ?? ITEMS_PER_PAGE;
+  const mongoSelector = Utils.transformQueryToSelector(req.query);
 
   await recipeService
-    .getRecipes(pageNumber, recipesPerPage)
+    .getRecipes(mongoSelector)
     .then((value) => res.status(StatusCodes.OK).send(value))
     .catch((err) => next(err));
 });
@@ -21,7 +18,7 @@ router.get('/distinct/:propertyPath', async (req, res, next) => {
   const propertyPath = req.params.propertyPath;
   if (propertyPath === undefined) next(new QueryError(StatusCodes.BAD_REQUEST, 'Invalid property path'));
 
-  const propertyPathProcessed = capitalizePath(propertyPath);
+  const propertyPathProcessed = Utils.capitalizePath(propertyPath);
 
   await recipeService
     .getDistinctProps(propertyPathProcessed)
