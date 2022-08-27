@@ -45,7 +45,7 @@
     border-bottom: none;
     transition: all 0.3s ease-in-out;
     &.is-active {
-      color: #fff;
+      color: $color-btn-light;
       background-color: $color-btn;
     }
   };

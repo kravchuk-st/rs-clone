@@ -24,7 +24,7 @@
   }
   
   &__name {
-    @include font-rule($font-size-lg, $font-weight-bold, $font-family-main);
+    @include font-rule($font-size-lg, $font-weight-bold, $font-family-secondary);
     margin-top: 15px;
   }
   
