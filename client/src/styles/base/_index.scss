@@ -12,13 +12,13 @@ body {
 }
 
 h2 {
-  font-family: $font-family-main;
-  font-weight: $font-weight-normal;
+  font-family: $font-family-secondary;
+  font-weight: $font-weight-bold;
   font-size: $font-size-4xl;
 }
 
 h3 {
-  font-family: $font-family-main;
+  font-family: $font-family-secondary;
   font-weight: $font-weight-normal;
   font-size: $font-size-xl;
 }
@@ -32,15 +32,18 @@ h3 {
 }
 
 .btn {
-  font-family: $font-family-secondary;
+  font-family: $font-family-main;
   font-weight: $font-weight-normal;
   font-size: $font-size-lg;
+  line-height: 1.15;
   border-radius: 10px;
+  display: inline-block;
 }
 
 .btn-active {
   padding: 10px 45px;
   color: #fff;
+  border-radius: 20px;
   background-color: $color-btn;
 }
 

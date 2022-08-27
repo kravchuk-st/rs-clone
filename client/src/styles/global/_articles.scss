@@ -27,7 +27,6 @@
   }
 
   .article__date {
-    font-family: $font-family-secondary;
     font-size: $font-size-xs;
   }
 
@@ -38,12 +37,13 @@
   .article__summary {
     margin-top: 15px;
     flex: 1 0 auto;
-    font-family: $font-family-secondary;
   }
 
   .article__btn {
     width: max-content;
-    font-family: $font-family-secondary;
+    font-family: $font-family-main;
+    font-weight: $font-weight-bold;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
     color: $color-text-active;
   }

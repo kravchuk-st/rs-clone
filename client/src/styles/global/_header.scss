@@ -9,8 +9,8 @@
 
   .btn {
     padding: 10px 15px;
-    font-family: $font-family-main;
     font-size: $font-size-sm;
+    border-radius: 10px;
   }
 }
 
@@ -32,7 +32,7 @@
   column-gap: 53px;
   
   .nav__link {
-    font-family: $font-family-main;
+    font-family: $font-family-secondary;
     font-size: $font-size-md;
     font-weight: $font-weight-normal;
     color: $color-text;

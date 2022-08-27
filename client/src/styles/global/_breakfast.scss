@@ -1,0 +1,197 @@
+.breakfast {
+  padding: 0;
+
+  .title {
+    text-align: left;
+    font-weight: $font-weight-bold;
+  }
+
+  .btn {
+    margin-top: 35px;
+  }
+}
+
+.breakfast__content {
+  margin: 25px 0;
+  width: 95%;
+  padding: 40px 30px 30px;
+  background-color: $color-bg-breakfast;
+  border-radius: 40px;
+  box-shadow: 7px 7px 36px -10px rgba(0, 0, 0, 0.25);
+}
+
+.resipes__list {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 40px;
+  row-gap: 50px;
+}
+
+.resipe__item {
+  padding: 20px 0;
+  background: #f8f8f8;
+  box-shadow: 0px 10px 34px -10px rgba(0, 0, 0, 0.15);
+  border-radius: 15px;
+}
+
+.card__header {
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .card__dish {
+    font-weight: $font-weight-bold;
+  }
+}
+
+.card__img {
+  margin-top: 10px;
+  width: 100%;
+  height: auto;
+}
+
+.card__date {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 15px;
+
+  .time__title,
+  .calories__title,
+  .rating__title {
+    display: none;
+    font-size: $font-size-xs;
+    font-weight: $font-weight-bold;
+  }
+
+  .time__info,
+  .calories__info,
+  .rating__info {
+    font-size: $font-size-xs;
+    font-weight: $font-weight-bold;
+    background-position: left center;
+    background-repeat: no-repeat;
+  }
+
+  .time__info {
+    padding-left: 20px;
+    background-size: 13px 13px;
+    background-image: url(../assets/svg/clock.svg);
+  }
+
+  .calories__info {
+    padding-left: 18px;
+    background-size: 15px 15px;
+    background-image: url(../assets/svg/fire.svg);
+  }
+
+  .rating__info {
+    padding-left: 16px;
+    background-size: 12px 11px;
+    background-image: url(../assets/svg/star.svg);
+  }
+}
+
+.data__time {
+  text-align: left;
+}
+
+.data__calories {
+  text-align: center;
+}
+
+.data__rating {
+  text-align: right;
+}
+
+.card__body {
+  padding: 0 15px;
+}
+
+.card__title {
+  margin-top: 15px;
+  font-weight: $font-weight-bold;
+  text-align: center;
+}
+
+.card__text {
+  margin-top: 10px;
+  font-size: $font-size-xs;
+  text-align: left;
+}
+
+.card_lg {
+  padding: 0 20px 0 0;
+  grid-column: 2 span;
+  display: grid;
+  grid-template-areas: 
+    "card-img card-header"
+    "card-img card-body"
+    "card-img card-date";
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 25px;
+
+  .card__img {
+    grid-area: card-img;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px 0px 0px 15px;
+  }
+
+  .card__header {
+    grid-area: card-header;
+    padding: 0;
+
+    .favorit {
+      width: 30px;
+      height: 30px;
+    }
+  }
+
+  .card__body {
+    grid-area: card-body;
+    padding: 0;
+
+    .card__title {
+      margin-top: 0;
+      font-size: $font-size-3xl;
+      text-align: left;
+    }
+
+    .card__text {
+      margin-top: 30px;
+      font-size: $font-size-md;
+    }
+  }
+
+  .card__date {
+    grid-area: card-date;
+    margin-top: 0;
+    margin-left: 5px;
+    justify-content: flex-start;
+    column-gap: 30px;
+
+    .time__title,
+    .calories__title,
+    .rating__title {
+      margin-bottom: 5px;
+      display: block;
+    }
+
+    .time__info,
+    .calories__info {
+      padding: 0;
+      font-weight: $font-weight-normal;
+      background: none;
+    }
+
+    .rating__info {
+      font-weight: $font-weight-normal;
+    }
+  }
+}
