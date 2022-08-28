@@ -1,0 +1,29 @@
+.dinner {
+  padding: 0;
+
+  .title {
+    text-align: left;
+    font-weight: $font-weight-bold;
+  }
+
+  .btn {
+    margin-top: 35px;
+  }
+}
+
+.dinner__content {
+  margin: 25px 0;
+  width: 95%;
+  padding: 40px 30px 30px;
+  background-color: $color-bg-dinner;
+  border-radius: 40px;
+  box-shadow: 7px 7px 36px -10px rgba(0, 0, 0, 0.25);
+}
+
+.dinner__list {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 40px;
+  row-gap: 50px;
+}
