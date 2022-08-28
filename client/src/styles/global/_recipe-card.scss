@@ -19,7 +19,8 @@
 .card__img {
   margin-top: 10px;
   width: 100%;
-  height: auto;
+  height: 165px;
+  object-fit: cover;
 }
 
 .card__meta {
