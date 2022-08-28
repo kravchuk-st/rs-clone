@@ -80,6 +80,8 @@ interface IRecipe {
   analyzedInstructions: IInstructions[];
 }
 
+type SortOptions = 'popularity' | 'date' | 'rating' | 'price';
+
 interface IQueryOptions {
   page?: number;
   limit?: number;
@@ -101,6 +103,8 @@ interface IQueryOptions {
   'max-fats'?: number;
   'max-proteins'?: number;
   search?: string[];
+  sort?: SortOptions;
+  'sort-dir': 1 | -1;
 }
 
 export { IRecipe, IQueryOptions };
