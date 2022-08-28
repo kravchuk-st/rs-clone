@@ -14,7 +14,7 @@ app.use(cors());
 app.use('/recipes', recipeRouter);
 
 app.use((req, res) => {
-  res.status(StatusCodes.NOT_FOUND).send('404 NOT FOUND');
+  res.status(StatusCodes.NOT_FOUND).send('404 Not found');
 });
 
 app.use(errorHandler);

@@ -61,9 +61,18 @@ const RecipeSchema = new Schema({
     ],
   },
   summary: String,
-  cuisines: [String],
-  dishTypes: [String],
-  diets: [String],
+  cuisines: {
+    type: [String],
+    set: (v) => v.map((element) => element.toLowerCase()),
+  },
+  dishTypes: {
+    type: [String],
+    set: (v) => v.map((element) => element.toLowerCase()),
+  },
+  diets: {
+    type: [String],
+    set: (v) => v.map((element) => element.toLowerCase()),
+  },
   instructions: String,
   analyzedInstructions: [
     {
