@@ -104,7 +104,7 @@ interface IQueryOptions {
   'max-proteins'?: number;
   search?: string[];
   sort?: SortOptions;
-  'sort-dir': 1 | -1;
+  'sort-dir'?: 1 | -1;
 }
 
 export { IRecipe, IQueryOptions };
