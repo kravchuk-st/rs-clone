@@ -1,6 +1,6 @@
 import { IQueryOptions } from '../types.js';
 
-const transformOptionsToQuery = (queryOptions: IQueryOptions) => {
+const transformOptionsToQueryString = (queryOptions: IQueryOptions) => {
   const queryStringArray: string[] = [];
 
   for (const [optionProp, optionValue] of Object.entries(queryOptions)) {
@@ -20,4 +20,4 @@ const transformOptionsToQuery = (queryOptions: IQueryOptions) => {
   return '?' + queryStringArray.join('&');
 };
 
-export default transformOptionsToQuery;
+export default transformOptionsToQueryString;
