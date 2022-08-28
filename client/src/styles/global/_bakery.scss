@@ -1,4 +1,4 @@
-.bakary {
+.bakery {
   padding: 0;
 
   .title {
@@ -11,17 +11,17 @@
   }
 }
 
-.bakary__content {
+.bakery__content {
   margin: 25px 0;
   margin-left: auto;
   width: 95%;
   padding: 40px 30px 30px;
-  background-color: $color-bg-bakary;
+  background-color: $color-bg-bakery;
   border-radius: 40px;
   box-shadow: 7px 7px 36px -10px rgba(0, 0, 0, 0.25);
 }
 
-.bakary__list {
+.bakery__list {
   margin-top: 40px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
