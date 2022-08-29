@@ -22,7 +22,7 @@
   background-size: 35px 15px;
   background-position: center right 20px;
   background-repeat: no-repeat;
-  border-radius: 20px;
+  border-radius: $border-radius-btn;
   transition: background-position .3s ease-in-out;
 
   &:hover {

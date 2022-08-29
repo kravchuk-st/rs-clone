@@ -7,6 +7,11 @@ const RecipeSchema = new Schema({
     type: Number,
     required: true,
   },
+  createdAt: {
+    type: Date,
+    immutable: true,
+    default: () => Date.now(),
+  },
   vegetarian: Boolean,
   vegan: Boolean,
   glutenFree: Boolean,
