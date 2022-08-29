@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recipes</title>
+</head>
+<body>
+  <%= require('html-loader!./src/partials/header.html').default %>
+  <main>
+    <div class="container">
+      <div class="search">
+        <input class="search__input" type="text" autocomplete="off" autofocus>
+        <button class="search__btn btn-reset"></button>
+      </div>
+    </div>
+    <div class="flex">
+      <div class="filters">
+        <h1 class="filters__header">Filters</h1>
+        <div class="filters__list filters-list">
+          <div class="filters-list_checkbox">
+            <div class="filter" id="general">
+              <input type="checkbox" id="vegeterian" value="vegeterian"> 
+              <label for="vegeterian">vegeterian</label> 
+              <input type="checkbox" id="vegan" value="vegan"> 
+              <label for="vegan">vegan</label>
+              <input type="checkbox" id="gluten-free" value="gluten-free"> 
+              <label for="gluten-free">gluten-free</label>
+              <input type="checkbox" id="dairy-free" value="dairy-free"> 
+              <label for="dairy-free">dairy-free</label>
+              <input type="checkbox" id="cheap" value="cheap"> 
+              <label for="cheap">cheap</label>
+              <input type="checkbox" id="popular" value="popular"> 
+              <label for="popular">popular</label>
+            </div>
+            <div class="filter" id="dish-type">
+              <h2>Dish type</h2>
+              <input type="checkbox" id="appetizer" value="appetizer"> 
+              <label for="appetizer">appetizer</label>
+              <input type="checkbox" id="dessert" value="dessert"> 
+              <label for="dessert">dessert</label>
+              <input type="checkbox" id="main-course" value="main course"> 
+              <label for="main-course">main course</label>
+              <input type="checkbox" id="breakfast" value="breakfast"> 
+              <label for="breakfast"> breakfast</label>
+              <input type="checkbox" id="soup" value="soup"> 
+              <label for="soup">soup</label>
+              <input type="checkbox" id="salad" value="salad"> 
+              <label for="salad">salad</label>
+              <input type="checkbox" id="snack" value="snack"> 
+              <label for="snack">snack</label>
+              <input type="checkbox" id="drink" value="drink"> 
+              <label for="drink">drink</label>
+            </div>
+            <div class="filter" id="ingredients">
+              <h2>Ingredients</h2>
+              <input type="checkbox" id="banana" value="banana"> 
+              <label for="banana">banana</label>
+              <input type="checkbox" id="apple" value="apple"> 
+              <label for="apple">apple</label>
+              <input type="checkbox" id="tomato" value="tomato"> 
+              <label for="tomato">tomato</label>
+              <input type="checkbox" id="carrot" value="carrot"> 
+              <label for="carrot">carrot</label>
+              <input type="checkbox" id="onion" value="onion"> 
+              <label for="onion">onion</label>
+              <input type="checkbox" id="strawberry" value="strawberry"> 
+              <label for="strawberry">strawberry</label>
+              <input type="checkbox" id="flour" value="flour"> 
+              <label for="flour">flour</label>
+              <input type="checkbox" id="china-seeds" value="china seeds"> 
+              <label for="china-seeds">china seeds</label>
+              <input type="checkbox" id="cabbage" value="cabbage"> 
+              <label for="cabbage">cabbage</label>
+              <input type="checkbox" id="milk" value="milk"> 
+              <label for="milk">milk</label>
+              <input type="checkbox" id="egg" value="egg"> 
+              <label for="egg">egg</label>
+              <input type="checkbox" id="pork" value="pork"> 
+              <label for="pork">pork</label>
+              <input type="checkbox" id="chicken" value="chicken"> 
+              <label for="chicken">chicken</label>
+              <input type="checkbox" id="beef" value="beef"> 
+              <label for="beef">beef</label>
+              <input type="checkbox" id="grapes" value="grapes"> 
+              <label for="grapes">grapes</label>
+              <input type="checkbox" id="alcohol" value="alcohol"> 
+              <label for="alcohol">alcohol</label>
+            </div>
+            <div class="filter" id="cuisine">
+              <h2>Cuisine</h2>
+            </div>
+            <div class="filter" id="diets">
+            </div>
+          </div>
+          <div class="filters-list_range">
+            <div class="filter" id="min-health-score">
+            </div>
+            <div class="filter" id="max-ready-time">
+            </div>
+            <div class="filter" id="price">
+            </div>
+            <h2>Nutrients</h2>
+            <div class="filter" id="calories">
+            </div>
+            <div class="filter" id="carbohydrates">
+            </div>
+            <div class="filter" id="fats">
+            </div>
+            <div class="filter" id="proteins">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <%= require('html-loader!./src/partials/footer.html').default %>
+
+</body>
+</html>
+
