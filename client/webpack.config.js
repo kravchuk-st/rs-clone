@@ -8,7 +8,9 @@ const isProduction = process.env.NODE_ENV == 'production';
 const stylesHandler = isProduction ? MiniCssExtractPlugin.loader : 'style-loader';
 
 const config = {
-  entry: './src/index.ts',
+  entry: {
+    index: './src/pages/main/index.ts',
+  },
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'index.js',
@@ -24,8 +26,9 @@ const config = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: 'index.html',
+      template: './src/pages/main/index.html',
       filename: 'index.html',
+      chunks: ['index'],
       inject: 'body',
     }),
     new EslintPlugin({
