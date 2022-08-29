@@ -67,4 +67,11 @@ const queryMap = {
   },
 };
 
-module.exports = queryMap;
+const sortMap = {
+  popularity: 'veryPopular',
+  date: 'createdAt',
+  rating: 'aggregateLikes',
+  price: 'pricePerServing',
+};
+
+module.exports = { queryMap, sortMap };

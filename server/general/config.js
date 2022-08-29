@@ -19,6 +19,7 @@ const MAX_CALORIES = 1500;
 const MAX_CARBS = 300;
 const MAX_FATS = 300;
 const MAX_PROTEINS = 300;
+const SORT_OPTION = 'veryPopular';
 
 module.exports = {
   PORT,
@@ -33,4 +34,5 @@ module.exports = {
   MAX_CARBS,
   MAX_FATS,
   MAX_PROTEINS,
+  SORT_OPTION,
 };
