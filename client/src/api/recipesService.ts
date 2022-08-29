@@ -1,30 +1,30 @@
 import { BASE_URL, ENDPOINTS } from '../config/config.js';
 import { IRecipe, IQueryOptions } from '../types.js';
 
-import transformOptionsToQuery from '../helpers/utils';
+import transformOptionsToQueryString from '../helpers/utils';
 
 const getRecipes = async (queryOptions?: IQueryOptions): Promise<IRecipe[]> => {
   let queryString = '';
 
   if (queryOptions && Object.keys(queryOptions).length !== 0) {
-    queryString = transformOptionsToQuery(queryOptions as IQueryOptions);
+    queryString = transformOptionsToQueryString(queryOptions as IQueryOptions);
   }
 
   const response = await fetch(`${BASE_URL}${ENDPOINTS.recipes}/${queryString}`);
 
-  return (response.json() as unknown) as IRecipe[];
+  return ((await response.json()) as unknown) as IRecipe[];
 };
 
 const getRecipeById = async (recipeId: number): Promise<IRecipe> => {
   const response = await fetch(`${BASE_URL}${ENDPOINTS.recipes}/${recipeId}`);
 
-  return (response.json() as unknown) as IRecipe;
+  return ((await response.json()) as unknown) as IRecipe;
 };
 
 const getDistinctProps = async (recipePath: string): Promise<string[] | number[]> => {
   const response = await fetch(`${BASE_URL}${ENDPOINTS.recipes}/distinct/${recipePath}`);
 
-  return (response.json() as unknown) as string[] | number[];
+  return ((await response.json()) as unknown) as string[] | number[];
 };
 
 export { getRecipes, getRecipeById, getDistinctProps };
