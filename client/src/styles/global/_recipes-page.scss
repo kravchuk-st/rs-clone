@@ -1,0 +1,115 @@
+.search__input {
+  margin-bottom: 50px;
+}
+
+.card-wrapper{
+  max-width: 265px;
+}
+
+.recipes-container {
+  width: 80%;
+  flex-grow: 1;
+}
+
+.filters {
+  max-width: 20%;
+  @include font-rule($font-size-sm);
+  &__header {
+    @include font-rule($font-size-sm, bold);
+    text-align: left;
+    margin-bottom: 5px;
+    &_main{
+      @include font-rule($font-size-xxl, bold, $font-family-secondary);
+      margin-bottom: 10px;
+      height: 50px;
+    }
+  }
+  &__list {
+    padding: 20px;
+    border: 1px solid $color-main;
+    border-radius: $border-radius-basic;
+  }
+}
+
+.filter {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.chb-wrapper{
+  display: flex;
+  padding: 5px 0;
+}
+
+input[type="checkbox"] {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+
+input[type="checkbox"]+label {
+  display: inline-flex;
+  align-items: center;
+  user-select: none;
+  cursor: pointer;
+}
+
+input[type="checkbox"]+label::before {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  flex-grow: 0;
+  border: 1px solid $color-btn;
+  margin-right: 12px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 100% 100%;
+}
+
+input[type="checkbox"]:checked+label::before {
+  border-color: $color-btn;
+  background-color: #fff;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 78.369 78.369' style='enable-background:new 0 0 78.369 78.369%3B' xml:space='preserve'%3E%3Cg%3E%3Cpath d='M78.049 19.015L29.458 67.606c-0.428 0.428-1.121 0.428-1.548 0L0.32 40.015c-0.427-0.426-0.427-1.119 0-1.547l6.704-6.704c0.428-0.427 1.121-0.427 1.548 0l20.113 20.112l41.113-41.113c0.429-0.427 1.12-0.427 1.548 0l6.703 6.704C78.477 17.894 78.477 18.586 78.049 19.015z'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.scrolling-area{
+  overflow-y: scroll;
+  height: 240px;
+}
+
+.scrolling-area::-webkit-scrollbar{
+  width: 0.5rem;
+}
+
+.scrolling-area::-webkit-scrollbar-track{
+  background-color: $color-bg-card;
+}
+
+.scrolling-area::-webkit-scrollbar-thumb{
+  background-color: $color-main;
+  min-height: 5px;
+}
+
+.scrolling-area::-webkit-scrollbar-thumb:hover{
+  background-color: rgba($color-main, 0.7);
+}
+
+.recipes-container__header {
+  height: 50px;
+}
+
+#sort-method-select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance:none;
+  appearance: none;
+  background-color: $color-main;
+  padding: 5px 10px;
+}
+#sort-method-select::-ms-expand{
+  display: none;
+}
+
