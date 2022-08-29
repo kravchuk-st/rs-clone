@@ -1,7 +1,7 @@
 import { BASE_URL, ENDPOINTS } from '../config/config.js';
 import { IRecipe, IQueryOptions } from '../types.js';
 
-import transformOptionsToQueryString from '../helpers/utils';
+import transformOptionsToQueryString from '../helpers/transformOptionsToQueryString';
 
 const getRecipes = async (queryOptions?: IQueryOptions): Promise<IRecipe[]> => {
   let queryString = '';
