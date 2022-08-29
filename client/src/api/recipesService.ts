@@ -1,5 +1,5 @@
-import { BASE_URL, ENDPOINTS } from '../config/config.js';
-import { IRecipe, IQueryOptions } from '../types.js';
+import { BASE_URL, ENDPOINTS } from '../config/api.config';
+import { IRecipe, IQueryOptions } from '../types';
 
 import transformOptionsToQueryString from '../helpers/transformOptionsToQueryString';
 
