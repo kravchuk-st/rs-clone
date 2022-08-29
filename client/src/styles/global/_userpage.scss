@@ -4,6 +4,8 @@
 
 .controls {
   max-width: 300px;
+  width: 20%;
+  min-width: 200px;
 }
 
 .buttons {
@@ -28,6 +30,7 @@
 .content {
   margin-left: 20px;
   flex-grow: 1;
+  width: 70%;
 }
 
 .tabs__nav {
@@ -44,6 +47,10 @@
     border-radius: 10px 10px 0 0;
     border-bottom: none;
     transition: all 0.3s ease-in-out;
+    &>img{
+      width: 16px;
+      height: 16px;
+    }
     &.is-active {
       color: $color-btn-light;
       background-color: $color-btn;
@@ -56,4 +63,8 @@
   &.is-active{
     display: block;
   }
+}
+
+.recipes__list_user{
+  padding: 0 25px;
 }
