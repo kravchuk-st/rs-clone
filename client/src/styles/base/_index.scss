@@ -36,14 +36,14 @@ h3 {
   font-weight: $font-weight-normal;
   font-size: $font-size-lg;
   line-height: 1.15;
-  border-radius: 10px;
+  border-radius: $border-radius-btn;
   display: inline-block;
 }
 
 .btn-active {
   padding: 10px 45px;
   color:  $color-btn-light;
-  border-radius: 20px;
+  border-radius: $border-radius-btn;
   background-color: $color-btn;
 }
 

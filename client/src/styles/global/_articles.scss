@@ -17,7 +17,7 @@
     width: 230px;
     height: 220px;
     object-fit: cover;
-    border-radius: 20px;
+    border-radius: $border-radius-basic;
   }
 
   .article__content {
@@ -52,5 +52,5 @@
 .articles__btn_more {
   margin-top: 40px;
   display: inline-block;
-  border-radius: 20px;
+  border-radius: $border-radius-btn;
 }

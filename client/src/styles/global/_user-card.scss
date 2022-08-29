@@ -1,7 +1,7 @@
 .profile {
   width: 100%;
   max-width: 300px;
-  border-radius: 20px;
+  border-radius: $border-radius-basic;
   border: 1px solid $color-main;
   overflow: hidden;
   
