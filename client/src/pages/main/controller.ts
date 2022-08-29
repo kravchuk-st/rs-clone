@@ -1,13 +1,17 @@
 import { renderRecipeCard } from './render';
+import * as recipesSerivice from '../../api/recipesService';
+import { initBreakfastQueryOptions } from './config';
 
-function loadRecipes() {
+async function loadRecipes() {
   const breakfastContainer = document.querySelector('.breakfast') as HTMLElement;
   const breakfastContainerList = breakfastContainer.querySelector('.recipes__list') as HTMLUListElement;
-  const recipeCards = [];
 
-  for (let i = 0; i < 5; i++) {
-    recipeCards.push(renderRecipeCard());
-  }
+  const recipesData = await recipesSerivice.getRecipes(initBreakfastQueryOptions);
+
+  const recipeCards = recipesData.map((recipe, recipeIndex) => {
+    const size = recipeIndex === 1 ? 'large' : 'normal';
+    return renderRecipeCard(recipe, size);
+  });
 
   breakfastContainerList.append(...recipeCards);
 }
