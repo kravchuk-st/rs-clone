@@ -1,5 +1,5 @@
 .card {
-  padding: 20px 0;
+  padding: 20px 0 30px;
   background: $color-bg-card;
   box-shadow: 0px 10px 34px -10px rgba(0, 0, 0, 0.15);
   border-radius: 15px;
@@ -28,6 +28,7 @@
 
   .card__dish {
     font-weight: $font-weight-bold;
+    font-size: $font-size-md;
   }
 }
 
@@ -39,7 +40,7 @@
 }
 
 .card__meta {
-  margin-top: 10px;
+  margin-top: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -49,16 +50,16 @@
   .calories__title,
   .rating__title {
     display: none;
-    font-size: $font-size-xs;
+    font-size: $font-size-sm;
     font-weight: $font-weight-bold;
   }
 
   .time__info,
   .calories__info,
   .rating__info {
-    font-size: $font-size-xs;
+    font-size: $font-size-sm;
     font-weight: $font-weight-bold;
-    background-position: left center;
+    background-position: left top 1px;
     background-repeat: no-repeat;
   }
 
@@ -105,7 +106,7 @@
 
 .card__text {
   margin-top: 10px;
-  font-size: $font-size-xs;
+  font-size: $font-size-sm;
   text-align: left;
   overflow: hidden;
   text-overflow: ellipsis;
