@@ -1,0 +1,44 @@
+.slider {
+  background-color: $color-bg-slider;
+}
+
+.slider__content {
+  height: auto;
+  position: relative;
+}
+
+.swiper {
+  margin: 20px auto;
+  width: 100%;
+  max-width: 870px;
+  height: 100%;
+  text-align: center;
+}
+
+.swiper-slide {
+  box-shadow: none;
+}
+
+.swiper__btn_next,
+.swiper__btn_prev {
+  width: 23px;
+  height: 37px;
+  position: absolute;
+  top: 50%;
+  z-index: 10;
+  background-image: url(../assets/svg/arrow.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  cursor: pointer;
+}
+
+.swiper__btn_next {
+  right: calc(50% - 485px);
+  transform: translateY(-50%);
+}
+
+.swiper__btn_prev {
+  left: calc(50% - 485px);
+  transform: translateY(-50%) rotate(180deg);
+}
