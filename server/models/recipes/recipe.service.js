@@ -4,9 +4,10 @@ const QueryError = require('../../errors/errorEmitter');
 const { StatusCodes } = require('http-status-codes');
 
 const getRecipes = async (selector) => {
-  let { page: pageNumber, limit: recipesPerPage, ...restSelectors } = selector;
+  let { page: pageNumber, limit: recipesPerPage, sortOption, sortDirection, ...restSelectors } = selector;
 
-  return await Recipe.find(restSelectors)
+  return Recipe.find(restSelectors)
+    .sort({ [sortOption]: sortDirection })
     .skip(pageNumber * recipesPerPage)
     .limit(recipesPerPage);
 };

@@ -1,7 +1,7 @@
 .profile {
   width: 100%;
   max-width: 300px;
-  border-radius: 20px;
+  border-radius: $border-radius-basic;
   border: 1px solid $color-main;
   overflow: hidden;
   
@@ -24,7 +24,7 @@
   }
   
   &__name {
-    @include font-rule($font-size-lg, $font-weight-bold, $font-family-main);
+    @include font-rule($font-size-lg, $font-weight-bold, $font-family-secondary);
     margin-top: 15px;
   }
   
@@ -51,14 +51,13 @@
 
 .categories {
   font-size: 0;
-}
-
-.categories__item {
-  font-size: $font-size-sm;
-  color: $color-tag-dark;
-  border: solid 1px $color-tag-dark;
-  background-color: $color-tag-light;
-  padding: 10px;
-  margin: $category-item-margin;
-  display: inline-block;
+  &__item{
+    @include font-rule($font-size-sm);
+    color: $color-tag-dark;
+    border: solid 1px $color-tag-dark;
+    background-color: $color-tag-light;
+    padding: 10px;
+    margin: $category-item-margin;
+    display: inline-block;
+  }
 }
