@@ -10,10 +10,11 @@ const stylesHandler = isProduction ? MiniCssExtractPlugin.loader : 'style-loader
 const config = {
   entry: {
     index: './src/pages/main/index.ts',
+    user: './src/pages/user/index.ts',
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'index.js',
+    filename: '[name].bundle.js',
     assetModuleFilename: 'assets/[hash][ext][query]',
     clean: {
       keep: /\.git/,
@@ -29,6 +30,12 @@ const config = {
       template: './src/pages/main/index.html',
       filename: 'index.html',
       chunks: ['index'],
+      inject: 'body',
+    }),
+    new HtmlWebpackPlugin({
+      template: './src/pages/user/user-page.html',
+      filename: 'user-page.html',
+      chunks: ['user'],
       inject: 'body',
     }),
     new EslintPlugin({
