@@ -214,23 +214,65 @@
               </div>
             </div>
             <div class="filters-list_range">
-              <div class="filter" id="min-health-score">
+              <h2 class="filters__header">Minimum health score</h2>
+              <div class="range-filter-wrapper">
+                <div class="range-filter" id="health-score"></div>
+                <div class="range-filter__extremums">
+                  <span id="health-score-lower">0</span>
+                  <span id="health-score-higher">10</span>
+                </div>
               </div>
-              <div class="filter" id="max-ready-time">
+              <h2 class="filters__header">Maximim ready time</h2>
+              <div class="range-filter-wrapper">
+                <div class="range-filter" id="max-ready-time"></div>
+                <div class="range-filter__extremums">
+                  <div><span id="time-lower">0</span>min</div>
+                  <div><span id="time-higher">360</span>min</div>
+                </div>
               </div>
-              <div class="filter" id="price">
+              <h2 class="filters__header">Price per serving</h2>
+              <div class="range-filter-wrapper">
+                <div class="range-filter" id="price"></div>
+                <div class="range-filter__extremums">
+                  <div><span id="price-lower">1</span>$</div>
+                  <div><span id="price-higher">1000</span>$</div>
+                </div>
               </div>
-              <h2>Nutrients</h2>
-              <div class="filter" id="calories">
+              <h2 class="filters__header">Nutrients</h2>
+              <h3 class="filters__subheader">Calories</h3>
+              <div class="range-filter-wrapper">
+                <div class="range-filter" id="calories"></div>
+                <div class="range-filter__extremums">
+                  <div><span id="calories-lower">10</span>kcal</div>
+                  <div><span id="calories-higher">1500</span>kcal</div>
+                </div>
               </div>
-              <div class="filter" id="carbohydrates">
               </div>
-              <div class="filter" id="fats">
+              <h3 class="filters__subheader">Carbohydrates</h3>
+              <div class="range-filter-wrapper">
+                <div class="range-filter" id="carbohydrates"></div>
+                <div class="range-filter__extremums">
+                  <div><span id="carbohydrates-lower">0</span>g</div>
+                  <div><span id="carbohydrates-higher">1000</span>g</div>
+                </div>
               </div>
-              <div class="filter" id="proteins">
-              </div>
+              <h3 class="filters__subheader">Fats</h3>
+                <div class="range-filter-wrapper">
+                  <div class="range-filter" id="fats"></div>
+                  <div class="range-filter__extremums">
+                    <div><span id="fats-lower">0</span>g</div>
+                    <div><span id="fats-higher">600</span>g</div>
+                  </div>
+                </div>
+              <h3 class="filters__subheader">Proteins</h3>
+                <div class="range-filter-wrapper">
+                  <div class="range-filter" id="proteins"></div>
+                  <div class="range-filter__extremums">
+                    <div><span id="proteins-lower">0</span>g</div>
+                    <div><span id="proteins-higher">1000</span>g</div>
+                  </div>
+                </div>
             </div>
-          </div>
         </div>
         <div class="recipes-container">
           <div class="recipes-container__header">
@@ -260,6 +302,5 @@
     </div>
   </main>
   <%= require('html-loader!./src/partials/footer.html').default %>
-  <script src="./src/features/nouislider.min.js"></script>
 </body>
 </html>

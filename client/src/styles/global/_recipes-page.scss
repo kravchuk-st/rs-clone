@@ -17,12 +17,17 @@
   &__header {
     @include font-rule($font-size-sm, bold);
     text-align: left;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
     &_main{
       @include font-rule($font-size-xxl, bold, $font-family-secondary);
       margin-bottom: 10px;
       height: 50px;
     }
+  }
+  &__subheader{
+    @include font-rule($font-size-sm);
+    text-align: left;
+    margin-bottom: 10px;
   }
   &__list {
     padding: 20px;
@@ -100,6 +105,7 @@ input[type="checkbox"]:checked+label::before {
 .recipes-container__header {
   height: 50px;
 }
+
 
 #sort-method-select {
   -webkit-appearance: none;
