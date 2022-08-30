@@ -277,13 +277,30 @@
         </section>
         <section class="recipes-container">
           <div class="recipes-container__header section__header">
-            <label for="sort-method-select">Sort by:</label>
-            <select name="sorting-method" id="sort-method-select">
-              <option disabled value="popular-first">Popular first</option>
-              <option value="recent-first">Recent first</option>
-              <option value="rated-first">Most rated first</option>
-              <option value="cheap-first">Cheap first</option>
-            </select>
+            <div class="select-container">
+              <div>Sort by:</div>
+              <div class="select-box">
+                <div class="options-container">
+                  <div class="option">
+                    <input type="radio" class="radio" id="popular-first" name="sort-method">
+                    <label for="popular-first">Popular first</label>
+                  </div>
+                  <div class="option">
+                    <input type="radio" class="radio" id="recent-first" name="sort-method">
+                    <label for="recent-first">Recent first</label>
+                  </div>
+                  <div class="option">
+                    <input type="radio" class="radio" id="rated-first" name="sort-method">
+                    <label for="rated-first">Most rated first</label>
+                  </div>
+                  <div class="option">
+                    <input type="radio" class="radio" id="cheap-first" name="sort-method">
+                    <label for="cheap-first">Cheap first</label>
+                  </div>
+                </div>
+                <div id="selected">Popular first </div>
+              </div>
+            </div>
           </div>
           <div class="recipes">
             <ul class="recipes__list list-reset recipes__list_2-col">

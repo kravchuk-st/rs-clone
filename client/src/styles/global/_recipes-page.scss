@@ -121,15 +121,79 @@ input[type="checkbox"]:checked+label::before {
   background-color: rgba($color-main, 0.7);
 }
 
-#sort-method-select {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  -ms-appearance:none;
-  appearance: none;
+.select-container{
+  display: flex;
+  padding-top: 20px;
+}
+
+.select-box{
+  display: flex;
+  width: 150px;
+  flex-direction: column-reverse;
+  margin-left: 5px;
+  & label {
+    cursor: pointer;
+  }
+}
+
+.options-container {
+  max-height: 0px;
+  opacity: 0;
+  @include font-rule($font-size-xs);
+  z-index: 1;
+  width: 100%;
+  border: 1px solid $color-main;
+  background-color: $color-btn-light;
+  transition: all 0.3 ease-in-out;
+  border-radius: 0 0 5px 5px;
+  overflow: hidden;
+  &.is-active{
+    opacity: 1;
+    max-height: fit-content;
+  }
+  &.is-active + #selected{
+    border-radius: 5px 5px 0 0;
+  }
+  &.is-active + #selected::after{
+    transform: rotateX(180deg);
+    top: -10px;
+  }
+}
+
+#selected {
+  @include font-rule($font-size-xs);
   background-color: $color-main;
-  padding: 5px 10px;
+  color: $color-btn-light;
+  position: relative;
+  border-radius: 5px;
+  &::after{
+    content:'';
+    background: url('../assets/svg/chevron-down.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 10px;
+    height: 100%;
+    position: absolute;
+    right: 5px;
+    top: 10px;
+    transition: all 0.3s ease-in-out;
+  }
 }
-#sort-method-select::-ms-expand{
-  display: none;
+
+.option,
+#selected {
+  padding: 5px 20px;
+  cursor: pointer;
 }
+
+.option{
+  & .radio {
+    display: none;
+  }
+  &:hover{
+    background: $color-main;
+    color: $color-btn-light;
+  }
+}
+
 
