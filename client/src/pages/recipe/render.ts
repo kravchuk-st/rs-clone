@@ -37,10 +37,18 @@ function renderRecipe(recipeData: ILoadRecipePage, equipmentList: string[]) {
             <img class="info-icon" src=${infoSvg} alt="">
             <div class="info__top">
               <ul class="info__numbers list-reset">
-                <li class="number__item">Cooking time:&nbsp; <span class="number_time">${recipeData.readyInMinutes}</span> min</li>
-                <li class="number__item">Servings:&nbsp; <span class="number_servings">${recipeData.servings}</span></li>
-                <li class="number__item">Price per serving:&nbsp; $<span class="number_price">${servingCost}</span></li>
-                <li class="number__item">Health score:&nbsp; <span class="number_health">${recipeData.healthScore}</span></li>
+                <li class="number__item">Cooking time:&nbsp; <span class="number_time">
+                  ${recipeData.readyInMinutes}</span> min
+                </li>
+                <li class="number__item">Servings:&nbsp; <span class="number_servings">
+                  ${recipeData.servings}</span>
+                </li>
+                <li class="number__item">Price per serving:&nbsp; $<span class="number_price">
+                  ${servingCost}
+                </span></li>
+                <li class="number__item">Health score:&nbsp; <span class="number_health">
+                  ${recipeData.healthScore}
+                </span></li>
               </ul>
               <ul class="info__categories list-reset">
                 ${categories.innerHTML}
