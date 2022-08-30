@@ -8,10 +8,13 @@ const isProduction = process.env.NODE_ENV == 'production';
 const stylesHandler = isProduction ? MiniCssExtractPlugin.loader : 'style-loader';
 
 const config = {
-  entry: './src/index.ts',
+  entry: {
+    index: './src/index.ts',
+    recipe: './src/pages/recipe/index.ts',
+  },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'index.js',
+    filename: '[name].bundle.js',
     assetModuleFilename: 'assets/[hash][ext][query]',
     clean: {
       keep: /\.git/,
@@ -26,6 +29,13 @@ const config = {
     new HtmlWebpackPlugin({
       template: 'index.html',
       filename: 'index.html',
+      chunks: ['index'],
+      inject: 'body',
+    }),
+    new HtmlWebpackPlugin({
+      template: './src/pages/recipe/index.html',
+      filename: 'recipe.html',
+      chunks: ['recipe'],
       inject: 'body',
     }),
     new EslintPlugin({
