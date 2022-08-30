@@ -7,6 +7,7 @@
 }
 
 .card:not(.card_lg) {
+  height: auto;
   display: flex;
   flex-direction: column;
 
@@ -17,6 +18,15 @@
 
     .card__title {
       flex: 1 0 auto;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -moz-box;
+      -moz-box-orient: vertical;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      line-clamp: 2;
+      box-orient: vertical;
     }
   }
 }
