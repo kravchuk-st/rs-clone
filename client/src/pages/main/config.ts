@@ -6,4 +6,13 @@ const initBreakfastQueryOptions: IQueryOptions = {
   'dish-types': ['morning meal', 'breakfast'],
 };
 
-export { initBreakfastQueryOptions };
+const loadConfig = {
+  breakfast: {
+    containerClass: 'breakfast',
+    listClass: 'recipes__list',
+    queryOptions: initBreakfastQueryOptions,
+    largeCardIndex: 1,
+  },
+};
+
+export { loadConfig };
