@@ -1,0 +1,46 @@
+#health-score,
+#max-ready-time,
+#price,
+#calories,
+#carbohydrates,
+#fats,
+#proteins {
+  height: 10px;
+  box-shadow: none;
+  .noUi-handle {
+    box-shadow: none;
+    height: 15px;
+    width: 15px;
+    top: -6px;
+    right: -9px;
+    border-radius: 100%;
+    border: solid 1px $color-main;
+  }
+  .noUi-handle::before,
+  .noUi-handle::after{
+    display: none;
+  }
+  .noUi-connect {
+    background: $color-main;
+  }
+  &.noUi-target {
+    height: 3px;
+    background-color: $color-main;
+    border: none;
+  }
+}
+
+.range-filter {
+  &__extremums {
+    margin-top: 5px;
+    display: flex;
+    justify-content: space-between;
+    & span{
+      margin-right: 3px;
+    }
+  }
+}
+
+.range-filter-wrapper {
+  margin-bottom: 15px;
+}
