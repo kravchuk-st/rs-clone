@@ -107,4 +107,13 @@ interface IQueryOptions {
   'sort-dir'?: 1 | -1;
 }
 
-export { IRecipe, IQueryOptions };
+interface ILoadConfig {
+  containerClass: string;
+  listClass: string;
+  listElemType: string;
+  cardClassList: string[];
+  queryOptions: IQueryOptions;
+  largeCardIndex: number;
+}
+
+export { IRecipe, IQueryOptions, ILoadConfig };

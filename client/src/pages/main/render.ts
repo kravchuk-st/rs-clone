@@ -4,12 +4,17 @@ import { IRecipe } from '../../types';
 
 import heartImg from '../../assets/svg/heart.svg';
 
-function renderRecipeCard(recipeData: IRecipe, size: 'normal' | 'large'): HTMLElement {
+function renderRecipeCard(
+  recipeData: IRecipe,
+  size: 'normal' | 'large',
+  classList: string[],
+  elemType: string
+): HTMLElement {
   const dishType = capitalize(recipeData.dishTypes[0]) || '';
   const calories = recipeData.nutrition.nutrients[0].amount;
 
-  const cardElementClassNames = size === 'normal' ? ['recipe__item', 'card'] : ['recipe__item', 'card', 'card_lg'];
-  const cardElement = createElementWithClass('li', ...cardElementClassNames);
+  const cardElementClassNames = size === 'normal' ? classList.concat('card') : classList.concat(['card', 'card_lg']);
+  const cardElement = createElementWithClass(elemType, ...cardElementClassNames);
   cardElement.innerHTML = `
     <div class="card__header">
       <p class="card__dish">${dishType}</p>
