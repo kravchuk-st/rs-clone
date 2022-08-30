@@ -10,272 +10,273 @@
   <%= require('html-loader!./src/partials/header.html').default %>
   <main>
     <div class="container">
-      <div class="search">
+      <div class="search search_recipes">
         <input class="search__input" type="text" autocomplete="off" autofocus>
         <button class="search__btn btn-reset"></button>
-      </div>    
-      <div class="flex">
-        <div class="filters">
-          <h1 class="filters__header_main">Filters</h1>
+      </div>   
+      <div class="flex col-gap-70">
+        <section class="filters">
+          <h1 class="filters__header section__header">Filters</h1>
           <div class="filters__list filters-list">
-            <div class="filters-list_checkbox">
-              <div class="filter" id="general">
-                <div class="chb-wrapper">
+            <ul class="filters-list_checkbox checkbox-list">
+              <li class="checkbox-list__item filter" id="general">
+                <div class="checkbox-wrapper">
                   <input type="checkbox" id="vegeterian" value="vegeterian"> 
                   <label for="vegeterian">vegeterian</label> 
                 </div> 
-                <div class="chb-wrapper">
+                <div class="checkbox-wrapper">
                   <input type="checkbox" id="vegan" value="vegan"> 
                   <label for="vegan">vegan</label>
                 </div>
-                <div class="chb-wrapper">
+                <div class="checkbox-wrapper">
                   <input type="checkbox" id="gluten-free" value="gluten-free"> 
                   <label for="gluten-free">gluten-free</label>
                 </div>
-                <div class="chb-wrapper">
+                <div class="checkbox-wrapper">
                   <input type="checkbox" id="dairy-free" value="dairy-free"> 
                   <label for="dairy-free">dairy-free</label>
                 </div>
-                <div class="chb-wrapper">
+                <div class="checkbox-wrapper">
                   <input type="checkbox" id="cheap" value="cheap"> 
                   <label for="cheap">cheap</label>
                 </div>
-                <div class="chb-wrapper">
+                <div class="checkbox-wrapper">
                   <input type="checkbox" id="popular" value="popular"> 
                   <label for="popular">popular</label> 
                 </div>
-              </div>
-              <div class="filter" id="dishTypes">
-                <h2 class="filters__header">Dish types</h2>
-                <div class="chb-wrapper">
+              </li>
+              <li class="checkbox-list__item filter" id="dishTypes">
+                <h2 class="filter__title">Dish types</h2>
+                <div class="checkbox-wrapper">
                   <input type="checkbox" id="appetizer" value="appetizer"> 
                   <label for="appetizer">appetizer</label>
                 </div>
-                <div class="chb-wrapper">
+                <div class="checkbox-wrapper">
                   <input type="checkbox" id="dessert" value="dessert"> 
                   <label for="dessert">dessert</label>
                 </div>
-                <div class="chb-wrapper">
+                <div class="checkbox-wrapper">
                   <input type="checkbox" id="main-course" value="main course"> 
                   <label for="main-course">main course</label>
                 </div>
-                <div class="chb-wrapper">
+                <div class="checkbox-wrapper">
                   <input type="checkbox" id="breakfast" value="breakfast"> 
                   <label for="breakfast"> breakfast</label>
                 </div>
-                <div class="chb-wrapper">
+                <div class="checkbox-wrapper">
                   <input type="checkbox" id="soup" value="soup"> 
                   <label for="soup">soup</label>
                 </div>
-                <div class="chb-wrapper">
+                <div class="checkbox-wrapper">
                   <input type="checkbox" id="salad" value="salad"> 
                   <label for="salad">salad</label>
                 </div>
-                <div class="chb-wrapper">
+                <div class="checkbox-wrapper">
                   <input type="checkbox" id="snack" value="snack"> 
                   <label for="snack">snack</label>
                 </div>
-                <div class="chb-wrapper"> 
+                <div class="checkbox-wrapper"> 
                   <input type="checkbox" id="drink" value="drink"> 
                   <label for="drink">drink</label>
                 </div>
-              </div>
-              <div class="filter" id="ingredients">
-                <h2 class="filters__header">Ingredients</h2>
+              </li>
+              <li class="checkbox-list__item filter" id="ingredients">
+                <h2 class="filter__title">Ingredients</h2>
                 <div class="scrolling-area">
-                  <div class="chb-wrapper">
+                  <div class="checkbox-wrapper">
                     <input type="checkbox" id="banana" value="banana"> 
                     <label for="banana">banana</label>
                   </div>
-                  <div class="chb-wrapper">
+                  <div class="checkbox-wrapper">
                     <input type="checkbox" id="apple" value="apple"> 
                     <label for="apple">apple</label>
                   </div>
-                  <div class="chb-wrapper">
+                  <div class="checkbox-wrapper">
                     <input type="checkbox" id="tomato" value="tomato"> 
                     <label for="tomato">tomato</label>
                   </div>
-                  <div class="chb-wrapper">
+                  <div class="checkbox-wrapper">
                     <input type="checkbox" id="carrot" value="carrot"> 
                     <label for="carrot">carrot</label>
                   </div>
-                  <div class="chb-wrapper"> 
+                  <div class="checkbox-wrapper"> 
                     <input type="checkbox" id="onion" value="onion"> 
                     <label for="onion">onion</label>
                   </div>
-                  <div class="chb-wrapper"> 
+                  <div class="checkbox-wrapper"> 
                     <input type="checkbox" id="strawberry" value="strawberry"> 
                     <label for="strawberry">strawberry</label>
                   </div>
-                  <div class="chb-wrapper"> 
+                  <div class="checkbox-wrapper"> 
                     <input type="checkbox" id="flour" value="flour"> 
                     <label for="flour">flour</label>
                   </div>
-                  <div class="chb-wrapper"> 
+                  <div class="checkbox-wrapper"> 
                     <input type="checkbox" id="china-seeds" value="china seeds"> 
                     <label for="china-seeds">china seeds</label>
                   </div>
-                  <div class="chb-wrapper">
+                  <div class="checkbox-wrapper">
                     <input type="checkbox" id="cabbage" value="cabbage"> 
                     <label for="cabbage">cabbage</label>
                   </div>
-                  <div class="chb-wrapper"> 
+                  <div class="checkbox-wrapper"> 
                     <input type="checkbox" id="milk" value="milk"> 
                     <label for="milk">milk</label>
                   </div>
-                  <div class="chb-wrapper"> 
+                  <div class="checkbox-wrapper"> 
                     <input type="checkbox" id="egg" value="egg"> 
                     <label for="egg">egg</label>
                   </div>
-                  <div class="chb-wrapper"> 
+                  <div class="checkbox-wrapper"> 
                     <input type="checkbox" id="pork" value="pork"> 
                     <label for="pork">pork</label>
                   </div>
-                  <div class="chb-wrapper"> 
+                  <div class="checkbox-wrapper"> 
                     <input type="checkbox" id="chicken" value="chicken"> 
                     <label for="chicken">chicken</label>
                   </div>
-                  <div class="chb-wrapper"> 
+                  <div class="checkbox-wrapper"> 
                     <input type="checkbox" id="beef" value="beef"> 
                     <label for="beef">beef</label>
                   </div>
-                  <div class="chb-wrapper"> 
+                  <div class="checkbox-wrapper"> 
                     <input type="checkbox" id="grapes" value="grapes"> 
                     <label for="grapes">grapes</label>
                   </div>
-                  <div class="chb-wrapper"> 
+                  <div class="checkbox-wrapper"> 
                     <input type="checkbox" id="alcohol" value="alcohol"> 
                     <label for="alcohol">alcohol</label>
                   </div>
                 </div>
-
-              </div>
-              <div class="filter" id="cuisines">
-                <h2 class="filters__header">Cuisines</h2>
-                <div class="chb-wrapper">
+              </li>
+              <li class="checkbox-list__item filter" id="cuisines">
+                <h2 class="filter__title">Cuisines</h2>
+                <div class="checkbox-wrapper">
                   <input type="checkbox" id="european" value="european"> 
                   <label for="european">European</label>
                 </div>
-                <div class="chb-wrapper">
+                <div class="checkbox-wrapper">
                   <input type="checkbox" id="american" value="american"> 
                   <label for="american">American</label>
                 </div>
-                <div class="chb-wrapper">
+                <div class="checkbox-wrapper">
                   <input type="checkbox" id="asian" value="asian"> 
                   <label for="asian">Asian</label>
                 </div>
-                <div class="chb-wrapper">
+                <div class="checkbox-wrapper">
                   <input type="checkbox" id="middle-eastern" value="middle-eastern"> 
                   <label for="middle-eastern">Middle Eastern</label>
                 </div>
-                <div class="chb-wrapper">
+                <div class="checkbox-wrapper">
                   <input type="checkbox" id="mexican" value="mexican"> 
                   <label for="mexican">Mexican</label>
                 </div>
-                <div class="chb-wrapper">
+                <div class="checkbox-wrapper">
                   <input type="checkbox" id="georgian" value="georgian"> 
                   <label for="georgian">Georgian</label>
                 </div>
-                <div class="chb-wrapper">
+                <div class="checkbox-wrapper">
                   <input type="checkbox" id="ukrainian" value="ukrainian"> 
                   <label for="ukrainian">Ukrainian</label>
                 </div>
-                <div class="chb-wrapper">
+                <div class="checkbox-wrapper">
                   <input type="checkbox" id="russian" value="russian"> 
                   <label for="russian">Russian</label>
                 </div>
-              </div>
-              <div class="filter" id="diets">
-                <h2 class="filters__header">Diets</h2>
-                <div class="chb-wrapper">
+              </li>
+              <li class="checkbox-list__item filter" id="diets">
+                <h2 class="filter__title">Diets</h2>
+                <div class="checkbox-wrapper">
                   <input type="checkbox" id="lacto-ovo-vegetarian" value="lacto ovo vegetarian"> 
                   <label for="lacto-ovo-vegetarian">lacto ovo vegetarian </label>
                 </div>
-                <div class="chb-wrapper">
+                <div class="checkbox-wrapper">
                   <input type="checkbox" id="dairy-free" value="dairy-free"> 
                   <label for="dairy-free">dairy free</label>
                 </div>
-                <div class="chb-wrapper">
+                <div class="checkbox-wrapper">
                   <input type="checkbox" id="gluten-free" value="gluten-free"> 
                   <label for="gluten-free">gluten free</label>
                 </div>
-                <div class="chb-wrapper">
+                <div class="checkbox-wrapper">
                   <input type="checkbox" id="primal" value="primal"> 
                   <label for="primal">primal</label>
                 </div>
-                <div class="chb-wrapper">
+                <div class="checkbox-wrapper">
                   <input type="checkbox" id="paleolithic" value="paleolithic"> 
                   <label for="paleolithic">paleolithic</label>
                 </div>
-                <div class="chb-wrapper">
+                <div class="checkbox-wrapper">
                   <input type="checkbox" id="fodmap-friendly" value="fodmap friendly"> 
                   <label for="fodmap-friendly">fodmap friendly</label>
                 </div>
-              </div>
-            </div>
-            <div class="filters-list_range">
-              <h2 class="filters__header">Minimum health score</h2>
-              <div class="range-filter-wrapper">
+              </li>
+            </ul>
+            <ul class="filters-list_range range-list">
+              <li class="range-list__item filter">
+                <h2 class="filter__title">Minimum health score</h2>
                 <div class="range-filter" id="health-score"></div>
                 <div class="range-filter__extremums">
                   <span id="health-score-lower">0</span>
                   <span id="health-score-higher">10</span>
                 </div>
-              </div>
-              <h2 class="filters__header">Maximim ready time</h2>
-              <div class="range-filter-wrapper">
+              </li>
+              <li class="range-list__item filter">
+                <h2 class="filter__title">Maximim ready time</h2>
                 <div class="range-filter" id="max-ready-time"></div>
                 <div class="range-filter__extremums">
                   <div><span id="time-lower">0</span>min</div>
                   <div><span id="time-higher">360</span>min</div>
                 </div>
-              </div>
-              <h2 class="filters__header">Price per serving</h2>
-              <div class="range-filter-wrapper">
+              </li>
+              <li class="range-list__item filter">
+                <h2 class="filter__title">Price per serving</h2>
                 <div class="range-filter" id="price"></div>
                 <div class="range-filter__extremums">
                   <div><span id="price-lower">1</span>$</div>
                   <div><span id="price-higher">1000</span>$</div>
                 </div>
-              </div>
-              <h2 class="filters__header">Nutrients</h2>
-              <h3 class="filters__subheader">Calories</h3>
-              <div class="range-filter-wrapper">
+              </li>
+            </ul class="filters-list_range range-list">
+              <h2 class="filter__title">Nutrients</h2>
+            <ul>
+              <li class="range-list__item filter">
+                <h3 class="filter__subheading">Calories</h3>
                 <div class="range-filter" id="calories"></div>
                 <div class="range-filter__extremums">
                   <div><span id="calories-lower">10</span>kcal</div>
                   <div><span id="calories-higher">1500</span>kcal</div>
                 </div>
-              </div>
-              </div>
-              <h3 class="filters__subheader">Carbohydrates</h3>
-              <div class="range-filter-wrapper">
+              </li>
+              <li class="range-list__item filter">
+                <h3 class="filter__subheading">Carbohydrates</h3>
                 <div class="range-filter" id="carbohydrates"></div>
                 <div class="range-filter__extremums">
                   <div><span id="carbohydrates-lower">0</span>g</div>
                   <div><span id="carbohydrates-higher">1000</span>g</div>
                 </div>
-              </div>
-              <h3 class="filters__subheader">Fats</h3>
-                <div class="range-filter-wrapper">
-                  <div class="range-filter" id="fats"></div>
-                  <div class="range-filter__extremums">
-                    <div><span id="fats-lower">0</span>g</div>
-                    <div><span id="fats-higher">600</span>g</div>
-                  </div>
+              </li>
+              <li class="range-list__item filter">
+                <h3 class="filter__subheading">Fats</h3>
+                <div class="range-filter" id="fats"></div>
+                <div class="range-filter__extremums">
+                  <div><span id="fats-lower">0</span>g</div>
+                  <div><span id="fats-higher">600</span>g</div>
                 </div>
-              <h3 class="filters__subheader">Proteins</h3>
-                <div class="range-filter-wrapper">
-                  <div class="range-filter" id="proteins"></div>
-                  <div class="range-filter__extremums">
-                    <div><span id="proteins-lower">0</span>g</div>
-                    <div><span id="proteins-higher">1000</span>g</div>
-                  </div>
+              </li>
+              <li class="range-list__item filter">
+                <h3 class="filter__subheading">Proteins</h3>
+                <div class="range-filter" id="proteins"></div>
+                <div class="range-filter__extremums">
+                  <div><span id="proteins-lower">0</span>g</div>
+                  <div><span id="proteins-higher">1000</span>g</div>
                 </div>
-            </div>
-        </div>
-        <div class="recipes-container">
-          <div class="recipes-container__header">
+              </li>
+            </ul>
+          </div>
+        </section>
+        <section class="recipes-container">
+          <div class="recipes-container__header section__header">
             <label for="sort-method-select">Sort by:</label>
             <select name="sorting-method" id="sort-method-select">
               <option disabled value="popular-first">Popular first</option>
@@ -285,22 +286,23 @@
             </select>
           </div>
           <div class="recipes">
-            <ul class="recipes__list list-reset recipes__list_user flex">
-              <div class="card-wrapper">
+            <ul class="recipes__list list-reset recipes__list_2-col">
+              <div class="card-wrapper card-wrapper_centered">
                 <%= require('html-loader!./src/partials/recipe-card.html').default %>
               </div>
-              <div class="card-wrapper">
+              <div class="card-wrapper card-wrapper_centered">
                 <%= require('html-loader!./src/partials/recipe-card.html').default %>
               </div>
-              <div class="card-wrapper">
+              <div class="card-wrapper card-wrapper_centered">
                 <%= require('html-loader!./src/partials/recipe-card.html').default %>
               </div>
             </ul>
           </div>
-        </div>
+        </section>
       </div>
     </div>
   </main>
   <%= require('html-loader!./src/partials/footer.html').default %>
+  <script src="./src/features/nouislider.min.js"></script>
 </body>
 </html>

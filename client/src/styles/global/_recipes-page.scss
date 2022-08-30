@@ -1,4 +1,4 @@
-.search__input {
+.search_recipes {
   margin-bottom: 50px;
 }
 
@@ -6,28 +6,35 @@
   max-width: 265px;
 }
 
+.col-gap-70{
+  column-gap: 70px;
+}
+
+.recipes {
+  border-top: 1px solid $color-main;
+}
 .recipes-container {
-  width: 80%;
+  width: 75%;
   flex-grow: 1;
 }
 
+.recipes__list_2-col{
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.card-wrapper_centered{
+  justify-self: center;
+}
+
+.section__header{
+  height: 50px;
+}
+
 .filters {
-  max-width: 20%;
+  width: 30%;
   @include font-rule($font-size-sm);
-  &__header {
-    @include font-rule($font-size-sm, bold);
-    text-align: left;
-    margin-bottom: 10px;
-    &_main{
-      @include font-rule($font-size-xxl, bold, $font-family-secondary);
-      margin-bottom: 10px;
-      height: 50px;
-    }
-  }
-  &__subheader{
-    @include font-rule($font-size-sm);
-    text-align: left;
-    margin-bottom: 10px;
+  &__header{
+    @include font-rule($font-size-xxl, bold, $font-family-secondary);
   }
   &__list {
     padding: 20px;
@@ -36,13 +43,25 @@
   }
 }
 
+.checkbox-list__item,
+.range-list__item,
 .filter {
   display: flex;
   flex-direction: column;
   margin-bottom: 20px;
+  &__title {
+    @include font-rule($font-size-sm, bold);
+    text-align: left;
+    margin-bottom: 10px;
+  }
+  &__subheading{
+    @include font-rule($font-size-sm);
+    text-align: left;
+    margin-bottom: 10px;
+  }
 }
 
-.chb-wrapper{
+.checkbox-wrapper{
   display: flex;
   padding: 5px 0;
 }
@@ -101,11 +120,6 @@ input[type="checkbox"]:checked+label::before {
 .scrolling-area::-webkit-scrollbar-thumb:hover{
   background-color: rgba($color-main, 0.7);
 }
-
-.recipes-container__header {
-  height: 50px;
-}
-
 
 #sort-method-select {
   -webkit-appearance: none;
