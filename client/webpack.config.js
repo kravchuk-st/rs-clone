@@ -9,7 +9,8 @@ const stylesHandler = isProduction ? MiniCssExtractPlugin.loader : 'style-loader
 
 const config = {
   entry: {
-    index: './src/index.ts',
+    index: './src/pages/main/index.ts',
+    user: './src/pages/user/index.ts',
     recipe: './src/pages/recipe/index.ts',
   },
   output: {
@@ -27,9 +28,15 @@ const config = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: 'index.html',
+      template: './src/pages/main/index.html',
       filename: 'index.html',
       chunks: ['index'],
+      inject: 'body',
+    }),
+    new HtmlWebpackPlugin({
+      template: './src/pages/user/user-page.html',
+      filename: 'user-page.html',
+      chunks: ['user'],
       inject: 'body',
     }),
     new HtmlWebpackPlugin({
