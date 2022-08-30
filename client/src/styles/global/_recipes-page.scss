@@ -1,0 +1,197 @@
+.search_recipes {
+  margin-bottom: 50px;
+}
+
+.card-wrapper{
+  max-width: 265px;
+}
+
+.col-gap-70{
+  column-gap: 70px;
+}
+
+.recipes {
+  border-top: 1px solid $color-main;
+}
+.recipes-container {
+  width: 75%;
+  flex-grow: 1;
+}
+
+.recipes__list_2-col{
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.card-wrapper_centered{
+  justify-self: center;
+}
+
+.section__header{
+  height: 50px;
+}
+
+.filters {
+  width: 30%;
+  @include font-rule($font-size-sm);
+  &__header{
+    @include font-rule($font-size-xxl, bold, $font-family-secondary);
+  }
+  &__list {
+    padding: 20px;
+    border: 1px solid $color-main;
+    border-radius: $border-radius-basic;
+  }
+}
+
+.checkbox-list__item,
+.range-list__item,
+.filter {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  &__title {
+    @include font-rule($font-size-sm, bold);
+    text-align: left;
+    margin-bottom: 10px;
+  }
+  &__subheading{
+    @include font-rule($font-size-sm);
+    text-align: left;
+    margin-bottom: 10px;
+  }
+}
+
+.checkbox-wrapper{
+  display: flex;
+  padding: 5px 0;
+}
+
+input[type="checkbox"] {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+
+input[type="checkbox"]+label {
+  display: inline-flex;
+  align-items: center;
+  user-select: none;
+  cursor: pointer;
+}
+
+input[type="checkbox"]+label::before {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  flex-grow: 0;
+  border: 1px solid $color-btn;
+  margin-right: 12px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 100% 100%;
+}
+
+input[type="checkbox"]:checked+label::before {
+  border-color: $color-btn;
+  background-color: $color-btn-light;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 78.369 78.369' style='enable-background:new 0 0 78.369 78.369%3B' xml:space='preserve'%3E%3Cg%3E%3Cpath d='M78.049 19.015L29.458 67.606c-0.428 0.428-1.121 0.428-1.548 0L0.32 40.015c-0.427-0.426-0.427-1.119 0-1.547l6.704-6.704c0.428-0.427 1.121-0.427 1.548 0l20.113 20.112l41.113-41.113c0.429-0.427 1.12-0.427 1.548 0l6.703 6.704C78.477 17.894 78.477 18.586 78.049 19.015z'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.scrolling-area{
+  overflow-y: scroll;
+  height: 240px;
+}
+
+.scrolling-area::-webkit-scrollbar{
+  width: 0.5rem;
+}
+
+.scrolling-area::-webkit-scrollbar-track{
+  background-color: $color-bg-card;
+}
+
+.scrolling-area::-webkit-scrollbar-thumb{
+  background-color: $color-main;
+  min-height: 5px;
+}
+
+.scrolling-area::-webkit-scrollbar-thumb:hover{
+  background-color: rgba($color-main, 0.7);
+}
+
+.select-container{
+  display: flex;
+  padding-top: 20px;
+}
+
+.select-box{
+  display: flex;
+  width: 150px;
+  flex-direction: column-reverse;
+  margin-left: 5px;
+  & label {
+    cursor: pointer;
+  }
+}
+
+.options-container {
+  max-height: 0px;
+  opacity: 0;
+  @include font-rule($font-size-xs);
+  z-index: 1;
+  width: 100%;
+  border: 1px solid $color-main;
+  background-color: $color-btn-light;
+  transition: all 0.3 ease-in-out;
+  border-radius: 0 0 5px 5px;
+  overflow: hidden;
+  &.is-active{
+    opacity: 1;
+    max-height: fit-content;
+  }
+  &.is-active + #selected{
+    border-radius: 5px 5px 0 0;
+  }
+  &.is-active + #selected::after{
+    transform: rotateX(180deg);
+    top: -10px;
+  }
+}
+
+#selected {
+  @include font-rule($font-size-xs);
+  background-color: $color-main;
+  color: $color-btn-light;
+  position: relative;
+  border-radius: 5px;
+  &::after{
+    content:'';
+    background: url('../assets/svg/chevron-down.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 10px;
+    height: 100%;
+    position: absolute;
+    right: 5px;
+    top: 10px;
+    transition: all 0.3s ease-in-out;
+  }
+}
+
+.option,
+#selected {
+  padding: 5px 20px;
+  cursor: pointer;
+}
+
+.option{
+  & .radio {
+    display: none;
+  }
+  &:hover{
+    background: $color-main;
+    color: $color-btn-light;
+  }
+}
