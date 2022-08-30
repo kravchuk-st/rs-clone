@@ -1,19 +1,28 @@
 import { renderRecipeCard } from './render';
 import * as recipesSerivice from '../../api/recipesService';
-import { initBreakfastQueryOptions } from './config';
+import { ILoadConfig } from '../../types';
+import { loadConfig } from './config';
 
-async function loadRecipes() {
-  const breakfastContainer = document.querySelector('.breakfast') as HTMLElement;
-  const breakfastContainerList = breakfastContainer.querySelector('.recipes__list') as HTMLUListElement;
-
-  const recipesData = await recipesSerivice.getRecipes(initBreakfastQueryOptions);
-
-  const recipeCards = recipesData.map((recipe, recipeIndex) => {
-    const size = recipeIndex === 1 ? 'large' : 'normal';
-    return renderRecipeCard(recipe, size);
-  });
-
-  breakfastContainerList.append(...recipeCards);
+async function loadRecipesMainPage() {
+  await loadRecipesToSection(loadConfig.popular);
+  await loadRecipesToSection(loadConfig.breakfast);
+  await loadRecipesToSection(loadConfig.lunch);
+  await loadRecipesToSection(loadConfig.dinner);
+  await loadRecipesToSection(loadConfig.bakery);
 }
 
-export { loadRecipes };
+async function loadRecipesToSection(loadConfig: ILoadConfig) {
+  const sectionContainer = document.querySelector(`.${loadConfig.containerClass}`) as HTMLElement;
+  const sectionContainerList = sectionContainer.querySelector(`.${loadConfig.listClass}`) as HTMLUListElement;
+
+  const recipesData = await recipesSerivice.getRecipes(loadConfig.queryOptions);
+
+  const recipeCards = recipesData.map((recipe, recipeIndex) => {
+    const size = recipeIndex === loadConfig.largeCardIndex ? 'large' : 'normal';
+    return renderRecipeCard(recipe, size, loadConfig.cardClassList, loadConfig.listElemType);
+  });
+
+  sectionContainerList.append(...recipeCards);
+}
+
+export { loadRecipesMainPage };

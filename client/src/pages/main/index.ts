@@ -5,4 +5,4 @@ import * as Controller from './controller';
 
 slider;
 tabHandler();
-Controller.loadRecipes();
+Controller.loadRecipesMainPage();

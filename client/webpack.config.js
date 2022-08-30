@@ -11,6 +11,7 @@ const config = {
   entry: {
     index: './src/pages/main/index.ts',
     user: './src/pages/user/index.ts',
+    recipe: './src/pages/recipe/index.ts',
     recipes: './src/pages/recipes/index.ts',
   },
   output: {
@@ -37,6 +38,12 @@ const config = {
       template: './src/pages/user/user-page.html',
       filename: 'user-page.html',
       chunks: ['user'],
+      inject: 'body',
+    }),
+    new HtmlWebpackPlugin({
+      template: './src/pages/recipe/index.html',
+      filename: 'recipe.html',
+      chunks: ['recipe'],
       inject: 'body',
     }),
     new HtmlWebpackPlugin({
