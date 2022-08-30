@@ -116,4 +116,6 @@ interface ILoadRecipeCard {
   largeCardIndex: number;
 }
 
-export { IRecipe, IQueryOptions, ILoadRecipeCard };
+type ILoadRecipePage = IRecipe;
+
+export { IRecipe, IQueryOptions, ILoadRecipeCard, ILoadRecipePage, IIngredientMeta, INutrient, IInstructions };
