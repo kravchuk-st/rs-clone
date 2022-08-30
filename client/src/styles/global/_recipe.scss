@@ -1,0 +1,188 @@
+.recipe__title {
+  font-family: $font-family-secondary;
+  font-weight: $font-weight-bold;
+  font-size: $font-size-4xl;
+  text-transform: capitalize;
+}
+
+.recipe__content {
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.recipe__ingredients {
+  text-align: left;
+
+  .btn-active {
+    margin-top: 30px;
+    border-radius: 10px;
+  }
+}
+
+.ingredients__header {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+}
+
+.ingredients__title {
+  font-weight: $font-weight-bold;
+}
+
+.ingredients__btn {
+  width: 30px;
+  height: 30px;
+  font-size: $font-size-lg;
+  font-weight: $font-weight-bold;
+  line-height: 26px;
+  color: $color-btn;
+  border: 2px solid $color-btn;
+  border-radius: 50%;
+}
+
+.ingredients__amount {
+  font-size: $font-size-lg;
+}
+
+.ingredients__list {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+input[type="checkbox"] {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+
+input[type="checkbox"] +label {
+  display: inline-flex;
+  align-items: center;
+  user-select: none;
+  cursor: pointer;
+}
+
+input[type="checkbox"]+label::before {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  flex-grow: 0;
+  border: 1px solid $color-btn;
+  margin-right: 12px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 100% 100%;
+}
+
+input[type="checkbox"]:checked+label::before {
+  border-color: $color-btn;
+  background-color: #fff;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 78.369 78.369' style='enable-background:new 0 0 78.369 78.369%3B' xml:space='preserve'%3E%3Cg%3E%3Cpath d='M78.049 19.015L29.458 67.606c-0.428 0.428-1.121 0.428-1.548 0L0.32 40.015c-0.427-0.426-0.427-1.119 0-1.547l6.704-6.704c0.428-0.427 1.121-0.427 1.548 0l20.113 20.112l41.113-41.113c0.429-0.427 1.12-0.427 1.548 0l6.703 6.704C78.477 17.894 78.477 18.586 78.049 19.015z'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.recipe__nutrients {
+  margin-top: 35px;
+  display: flex;
+  align-items: center;
+  column-gap: 20px;
+}
+
+.nutrients__item {
+  padding: 15px 0 5px;
+  width: 70px;
+  font-weight: $font-weight-bold;
+  text-align: center;
+  background-color: rgba(255, 125, 52, 0.2);
+  border: 1px solid $color-btn;
+  border-radius: 30px;
+
+  .nutrients__calories,
+  .nutrients__protein,
+  .nutrients__fat {
+    margin: 5px auto 0;
+    width: 50px;
+    height: 50px;
+    font-size: 16px;
+    font-weight: $font-weight-normal;
+    line-height: 50px;
+    border-radius: 50%;
+    background-color: $color-tag-light;
+  }
+}
+
+.recipe__img,
+.recipe__info {
+  width: 100%;
+  max-width: 455px;
+  height: auto;
+  border: 2px solid $color-btn;
+  border-radius: 20px;
+}
+
+.recipe__info {
+  margin-top: 50px;
+  padding: 25px 40px;
+  position: relative;
+}
+
+.info-icon{
+  position: absolute;
+  top: 0;
+  left: 20px;
+  z-index: 5;
+  transform: translateY(-50%);
+}
+
+.info__top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.info__numbers {
+  text-align: left;
+
+  .number__item:not(:first-child) {
+    margin-top: 10px;
+  }
+}
+
+.info__categories {
+  display: grid;
+  row-gap: 5px;
+}
+
+.category__item  {
+  padding: 3px 10px;
+  font-weight: $font-weight-bold;
+  color: #f76700;
+  border: 1px solid #f76700;
+}
+
+.info__equipment,
+.equipment__list {
+  display: flex;
+  column-gap: 15px;
+  row-gap: 10px;
+}
+
+.info__equipment {
+  margin-top: 15px;
+}
+
+.equipment__list {
+  flex-wrap: wrap;
+}
+
+.equipment__item {
+  padding: 5px 10px;
+  min-width: 90px;
+  column-gap: 10px;
+  font-weight: $font-weight-bold;
+  color: $color-info;
+  border: 1px solid $color-info;
+}
