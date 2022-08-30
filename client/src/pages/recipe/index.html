@@ -7,9 +7,11 @@
   <title>Recipe</title>
 </head>
 <body>
-  <%= require('html-loader!../../partials/header.html').default %>
-  <main id="main">
-  </main>
-  <%= require('html-loader!../../partials/footer.html').default %>
+  <div class="wrapper">
+    <%= require('html-loader!../../partials/header.html').default %>
+    <main class="recipe-main" id="main">
+    </main>
+    <%= require('html-loader!../../partials/footer.html').default %>
+  </div>
 </body>
 </html>
