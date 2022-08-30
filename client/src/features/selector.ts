@@ -1,4 +1,4 @@
-const selectorHandler = (): void => {
+const selectHandler = (): void => {
   const selected = document.querySelector('#selected');
   const optionsContainer = document.querySelector('.options-container');
   const optionsList = document.querySelectorAll('.option');
@@ -16,4 +16,4 @@ const selectorHandler = (): void => {
   });
 };
 
-export default selectorHandler;
+export default selectHandler;

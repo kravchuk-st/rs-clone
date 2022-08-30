@@ -1,5 +1,5 @@
 import '../../styles/main.scss';
-import selectorHandler from '../../features/selector';
+import selectHandler from '../../features/selector';
 import '../../features/range-filters';
 
-selectorHandler();
+selectHandler();

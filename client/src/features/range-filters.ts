@@ -1,8 +1,8 @@
 import * as noUiSlider from 'noUiSlider';
 
 const healthScoreRangeFilter = document.getElementById('health-score') as noUiSlider.target;
-const maxRedyTimeFilter = document.getElementById('max-ready-time') as noUiSlider.target;
-const priseFilter = document.getElementById('price') as noUiSlider.target;
+const maxReadyTimeFilter = document.getElementById('max-ready-time') as noUiSlider.target;
+const priceFilter = document.getElementById('price') as noUiSlider.target;
 const caloriesFilter = document.getElementById('calories') as noUiSlider.target;
 const carbohydratesFilter = document.getElementById('carbohydrates') as noUiSlider.target;
 const fatsFilter = document.getElementById('fats') as noUiSlider.target;
@@ -15,12 +15,12 @@ const filters = [
     maxRangeElement: document.getElementById('health-score-higher'),
   },
   {
-    element: maxRedyTimeFilter,
+    element: maxReadyTimeFilter,
     minRangeElement: document.getElementById('time-lower'),
     maxRangeElement: document.getElementById('time-higher'),
   },
   {
-    element: priseFilter,
+    element: priceFilter,
     minRangeElement: document.getElementById('price-lower'),
     maxRangeElement: document.getElementById('price-higher'),
   },
