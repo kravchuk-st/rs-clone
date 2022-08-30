@@ -4,11 +4,11 @@ import { IRecipe } from '../../types';
 
 import heartImg from '../../assets/svg/heart.svg';
 
-function renderRecipeCard(recipeData: IRecipe, size: 'normal' | 'large'): HTMLElement {
+function renderRecipeCard(recipeData: IRecipe, size: 'normal' | 'large', classList: string[]): HTMLElement {
   const dishType = capitalize(recipeData.dishTypes[0]) || '';
   const calories = recipeData.nutrition.nutrients[0].amount;
 
-  const cardElementClassNames = size === 'normal' ? ['recipe__item', 'card'] : ['recipe__item', 'card', 'card_lg'];
+  const cardElementClassNames = size === 'normal' ? classList.concat('card') : classList.concat(['card', 'card_lg']);
   const cardElement = createElementWithClass('li', ...cardElementClassNames);
   cardElement.innerHTML = `
     <div class="card__header">

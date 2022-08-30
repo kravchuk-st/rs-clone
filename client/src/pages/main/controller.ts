@@ -5,6 +5,9 @@ import { loadConfig } from './config';
 
 async function loadRecipesMainPage() {
   await loadRecipesToSection(loadConfig.breakfast);
+  await loadRecipesToSection(loadConfig.lunch);
+  await loadRecipesToSection(loadConfig.dinner);
+  await loadRecipesToSection(loadConfig.bakery);
 }
 
 async function loadRecipesToSection(loadConfig: ILoadConfig) {
@@ -15,7 +18,7 @@ async function loadRecipesToSection(loadConfig: ILoadConfig) {
 
   const recipeCards = recipesData.map((recipe, recipeIndex) => {
     const size = recipeIndex === loadConfig.largeCardIndex ? 'large' : 'normal';
-    return renderRecipeCard(recipe, size);
+    return renderRecipeCard(recipe, size, loadConfig.cardClassList);
   });
 
   sectionContainerList.append(...recipeCards);

@@ -110,6 +110,7 @@ interface IQueryOptions {
 interface ILoadConfig {
   containerClass: string;
   listClass: string;
+  cardClassList: string[];
   queryOptions: IQueryOptions;
   largeCardIndex: number;
 }
