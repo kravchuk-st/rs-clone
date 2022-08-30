@@ -7,12 +7,12 @@
   <title>User page</title>
 </head>
 <body>
-  <%= require('html-loader!../partials/header.html').default %>
+  <%= require('html-loader!../../partials/header.html').default %>
   <main>
     <div class="container">
       <div class="flex">
         <div class="controls">
-          <%= require('html-loader!../partials/user-card.html').default %>
+          <%= require('html-loader!../../partials/user-card.html').default %>
           <div class="buttons mt-20">
             <a href="#" class="btn-reset btn btn_outlined buttons__item">Edit profile info</a>
             <a href="#" class="btn-reset btn btn_outlined buttons__item">Articles</a>
@@ -42,15 +42,15 @@
             <div class="tabs__content tabs-content">
               <div class="tabs-content__item is-active" data-tab-content="saved" >
                 <ul class="recipes__list list-reset recipes__list_user">
-                  <%= require('html-loader!../partials/recipe-card.html').default %>
-                  <%= require('html-loader!../partials/recipe-card.html').default %>
+                  <%= require('html-loader!../../partials/recipe-card.html').default %>
+                  <%= require('html-loader!../../partials/recipe-card.html').default %>
                 </ul>
               </div>
                 <div class="tabs-content__item" data-tab-content="favorites" >
                   <section class="articles">
                       <div class="articles__list">
-                        <%= require('html-loader!../partials/article.html').default %>
-                        <%= require('html-loader!../partials/article.html').default %>
+                        <%= require('html-loader!../../partials/article.html').default %>
+                        <%= require('html-loader!../../partials/article.html').default %>
                       </div>
                   </section>
                 </div>
