@@ -11,6 +11,7 @@ const config = {
   entry: {
     index: './src/pages/main/index.ts',
     user: './src/pages/user/index.ts',
+    recipes: './src/pages/recipes/index.ts',
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -36,6 +37,12 @@ const config = {
       template: './src/pages/user/user-page.html',
       filename: 'user-page.html',
       chunks: ['user'],
+      inject: 'body',
+    }),
+    new HtmlWebpackPlugin({
+      template: './src/pages/recipes/recipes.html',
+      filename: 'recipes.html',
+      chunks: ['recipes'],
       inject: 'body',
     }),
     new EslintPlugin({

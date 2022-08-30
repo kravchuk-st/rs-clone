@@ -7,7 +7,7 @@
   <title>Recipes</title>
 </head>
 <body>
-  <%= require('html-loader!./src/partials/header.html').default %>
+  <%= require('html-loader!../../../src/partials/header.html').default %>
   <main>
     <div class="container">
       <div class="search search_recipes">
@@ -305,13 +305,13 @@
           <div class="recipes">
             <ul class="recipes__list list-reset recipes__list_2-col">
               <div class="card-wrapper card-wrapper_centered">
-                <%= require('html-loader!./src/partials/recipe-card.html').default %>
+                <%= require('html-loader!../../partials/recipe-card.html').default %>
               </div>
               <div class="card-wrapper card-wrapper_centered">
-                <%= require('html-loader!./src/partials/recipe-card.html').default %>
+                <%= require('html-loader!../../partials/recipe-card.html').default %>
               </div>
               <div class="card-wrapper card-wrapper_centered">
-                <%= require('html-loader!./src/partials/recipe-card.html').default %>
+                <%= require('html-loader!../../partials/recipe-card.html').default %>
               </div>
             </ul>
           </div>
@@ -319,7 +319,7 @@
       </div>
     </div>
   </main>
-  <%= require('html-loader!./src/partials/footer.html').default %>
+  <%= require('html-loader!../../../src/partials/footer.html').default %>
   <script src="./src/features/nouislider.min.js"></script>
 </body>
 </html>
