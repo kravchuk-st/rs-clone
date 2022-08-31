@@ -1,0 +1,48 @@
+<div class="popup">
+  <div class="popup__body">
+    <div class="popup__content">
+      <div class="forms">
+        <nav class="forms__tabs forms-tabs">
+          <a href="/" class="tabs-nav__item forms-tabs__item is-active" data-tab-name="sign-in">Sign in</a>
+          <a href="/" class="tabs-nav__item forms-tabs__item" data-tab-name="sign-up">Sign up</a>
+        </nav>
+        <div class="forms__content">
+          <form class="tabs-content__item is-active" data-tab-content="sign-in" action="/" method="POST" id="sign-in">
+            <div class="form-field">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email">
+            </div>
+            <div class="form-field">
+              <label for="password">Password</label>
+              <input type="password" id="password" name="password">
+            </div>
+            <div class="checkbox-wrapper form-field">
+              <input type="checkbox" id="remember" checked> 
+              <label for="remember">Keep me signed in</label>
+            </div>
+            <a href="#" class="btn-active btn-reset form__btn" type="submit">Sign in</a>
+          </form>
+          <form class="tabs-content__item" data-tab-content="sign-up" action="/" method="POST" id="sign-in">
+            <div class="form-field">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email">
+            </div>
+            <div class="form-field">
+              <label for="password">Password</label>
+              <input type="password" id="password" name="password">
+            </div>
+            <div class="form-field">
+              <label for="password">Confirm password</label>
+              <input type="password" id="password" name="password">
+            </div>
+            <div class="checkbox-wrapper form-field">
+              <input type="checkbox" id="confirm" checked> 
+              <label for="confirm">I accept terms and conditions of use</label>
+            </div>
+            <a href="#" class="btn-active btn-reset form__btn" type="submit">Sign up</a>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
