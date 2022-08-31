@@ -1,6 +1,9 @@
 import { ILoadRecipePage, IIngredientMeta, INutrient } from '../../types';
 import createElementWithClass from '../../helpers/createElementWithClass';
 import infoSvg from '../../assets/svg/info-circle.svg';
+import round from '../../helpers/round';
+
+const PRICE_COEFFICIENT = 100;
 
 function renderRecipe(recipeData: ILoadRecipePage, equipmentList: string[]) {
   const main = document.querySelector('#main') as HTMLElement;
@@ -10,7 +13,7 @@ function renderRecipe(recipeData: ILoadRecipePage, equipmentList: string[]) {
   const nutrients = renderNutrients(recipeData.nutrition.nutrients);
   const categories = renderList(recipeData.diets, 'category__item');
   const equipment = renderList(equipmentList, 'equipment__item');
-  const servingCost = (recipeData.pricePerServing / 100).toFixed(2);
+  const servingCost = (recipeData.pricePerServing / PRICE_COEFFICIENT).toFixed(2);
 
   recipeContainer.innerHTML = `
     <div class="container">
@@ -35,7 +38,7 @@ function renderRecipe(recipeData: ILoadRecipePage, equipmentList: string[]) {
           <img class="recipe__img" src=${recipeData.image} alt=${recipeData.title}>
           <div class="recipe__info">
             <img class="info-icon" src=${infoSvg} alt="">
-            <div class="info__top">
+            <div class="info__main">
               <ul class="info__numbers list-reset">
                 <li class="number__item">Cooking time:&nbsp; <span class="number_time">
                   ${recipeData.readyInMinutes} min</span>
@@ -113,15 +116,15 @@ function renderNutrients(nutrients: INutrient[]): string {
   <div class="nutrients recipe__nutrients">
     <div class="nutrients__item">
       <p>Calories</p>
-      <p class="nutrients__calories">${Math.round(nutrients[0].amount)}</p>
+      <p class="nutrients__calories">${round(nutrients[0].amount)}</p>
     </div>
     <div class="nutrients__item">
       <p>Protein</p>
-      <p class="nutrients__protein">${Math.round(nutrients[8].amount)}g</p>
+      <p class="nutrients__protein">${round(nutrients[8].amount)}g</p>
     </div>
     <div class="nutrients__item">
       <p>Fat</p>
-      <p class="nutrients__fat">${Math.round(nutrients[1].amount)}g</p>
+      <p class="nutrients__fat">${round(nutrients[1].amount)}g</p>
     </div>
   </div>
   `;
