@@ -38,12 +38,12 @@ function renderRecipe(recipeData: ILoadRecipePage, equipmentList: string[]) {
             <div class="info__top">
               <ul class="info__numbers list-reset">
                 <li class="number__item">Cooking time:&nbsp; <span class="number_time">
-                  ${recipeData.readyInMinutes}</span> min
+                  ${recipeData.readyInMinutes} min</span>
                 </li>
                 <li class="number__item">Servings:&nbsp; <span class="number_servings">
                   ${recipeData.servings}</span>
                 </li>
-                <li class="number__item">Price per serving:&nbsp; $<span class="number_price">
+                <li class="number__item">Price per serving:&nbsp; <span class="number_price">$
                   ${servingCost}
                 </span></li>
                 <li class="number__item">Health score:&nbsp; <span class="number_health">
