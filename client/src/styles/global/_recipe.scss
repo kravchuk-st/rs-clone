@@ -1,3 +1,13 @@
+.wrapper {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.recipe-main {
+  flex-grow: 1;
+}
+
 .recipe__title {
   font-family: $font-family-secondary;
   font-weight: $font-weight-bold;
@@ -9,6 +19,7 @@
   margin-top: 40px;
   display: flex;
   justify-content: space-between;
+  column-gap: 30px;
 }
 
 .recipe__ingredients {
@@ -118,7 +129,7 @@ input[type="checkbox"]:checked+label::before {
 .recipe__img,
 .recipe__info {
   width: 100%;
-  max-width: 455px;
+  max-width: 500px;
   height: auto;
   border: 2px solid $color-btn;
   border-radius: 20px;
@@ -126,7 +137,7 @@ input[type="checkbox"]:checked+label::before {
 
 .recipe__info {
   margin-top: 50px;
-  padding: 25px 40px;
+  padding: 25px 35px;
   position: relative;
 }
 
@@ -138,13 +149,22 @@ input[type="checkbox"]:checked+label::before {
   transform: translateY(-50%);
 }
 
-.info__top {
+.info__main {
   display: flex;
   justify-content: space-between;
 }
 
 .info__numbers {
   text-align: left;
+  min-width: 200px;
+
+  .number__item {
+    font-weight: $font-weight-bold;
+
+    span {
+      font-weight: $font-weight-normal;
+    }
+  }
 
   .number__item:not(:first-child) {
     margin-top: 10px;
@@ -152,12 +172,15 @@ input[type="checkbox"]:checked+label::before {
 }
 
 .info__categories {
-  display: grid;
+  display: flex;
+  flex-wrap: wrap;
   row-gap: 5px;
+  column-gap: 10px;
 }
 
 .category__item  {
   padding: 3px 10px;
+  height: max-content;
   font-weight: $font-weight-bold;
   color: #f76700;
   border: 1px solid #f76700;
@@ -166,12 +189,11 @@ input[type="checkbox"]:checked+label::before {
 .info__equipment,
 .equipment__list {
   display: flex;
-  column-gap: 15px;
-  row-gap: 10px;
+  gap: 10px;
 }
 
 .info__equipment {
-  margin-top: 15px;
+  margin-top: 10px;
 }
 
 .equipment__list {

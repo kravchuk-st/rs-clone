@@ -1,6 +1,6 @@
 import { renderRecipeCard } from './render';
 import * as recipesSerivice from '../../api/recipesService';
-import { ILoadConfig } from '../../types';
+import { ILoadRecipeCard } from '../../types';
 import { loadConfig } from './config';
 
 async function loadRecipesMainPage() {
@@ -11,7 +11,7 @@ async function loadRecipesMainPage() {
   await loadRecipesToSection(loadConfig.bakery);
 }
 
-async function loadRecipesToSection(loadConfig: ILoadConfig) {
+async function loadRecipesToSection(loadConfig: ILoadRecipeCard) {
   const sectionContainer = document.querySelector(`.${loadConfig.containerClass}`) as HTMLElement;
   const sectionContainerList = sectionContainer.querySelector(`.${loadConfig.listClass}`) as HTMLUListElement;
 

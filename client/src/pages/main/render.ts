@@ -14,7 +14,9 @@ function renderRecipeCard(
   const calories = recipeData.nutrition.nutrients[0].amount;
 
   const cardElementClassNames = size === 'normal' ? classList.concat('card') : classList.concat(['card', 'card_lg']);
-  const cardElement = createElementWithClass(elemType, ...cardElementClassNames);
+  const cardElement = createElementWithClass(elemType, ...cardElementClassNames) as HTMLAnchorElement;
+  cardElement.href = `./recipe.html?id=${recipeData.id}`;
+  cardElement.id = String(recipeData.id);
   cardElement.innerHTML = `
     <div class="card__header">
       <p class="card__dish">${dishType}</p>
