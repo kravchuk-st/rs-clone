@@ -12,6 +12,7 @@ export const tabHandler = (): void => {
     });
   };
   const setActiveTab = (e: Event): void => {
+    e.preventDefault();
     tabNavs.forEach(element => element.classList.remove('is-active'));
     (e.target as HTMLElement).classList.add('is-active');
     tabContents.forEach(element => element.classList.remove('is-active)'));
