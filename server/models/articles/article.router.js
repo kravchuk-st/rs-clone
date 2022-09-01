@@ -2,9 +2,7 @@ const router = require('express').Router();
 const { StatusCodes } = require('http-status-codes');
 
 const articleService = require('./article.service');
-const QueryError = require('../../errors/errorEmitter');
 const Utils = require('../../utils/utils');
-const errorMessages = require('../../errors/errorMessages.config');
 
 const { articlesSelector } = require('../../general/selector.config');
 const { articlesQueryMap } = require('../../general/queryMap');
