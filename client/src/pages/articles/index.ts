@@ -1,6 +1,6 @@
 import selectHandler from '../../features/selector';
 import '../../styles/main.scss';
-import { loadArticlesPage } from './controller';
+import { loadArticlesPage, addListeners } from './controller';
 
-loadArticlesPage();
+loadArticlesPage().then(() => addListeners());
 selectHandler();
