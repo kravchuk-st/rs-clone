@@ -1,6 +1,7 @@
 const {
   PAGE_NUMBER,
-  ITEMS_PER_PAGE,
+  RECIPES_PER_PAGE,
+  ARTICLES_PER_PAGE,
   MIN_HEALTH_SCORE,
   MAX_READY_TIME,
   MIN_SERVING_PRICE,
@@ -9,11 +10,11 @@ const {
   MAX_CARBS,
   MAX_FATS,
   MAX_PROTEINS,
-} = require('./config');
+} = require('./constants');
 
-const queryMap = {
+const recipesQueryMap = {
   page: (pageValue) => ['page', Number(pageValue) || PAGE_NUMBER],
-  limit: (limitValue) => ['limit', Number(limitValue) || ITEMS_PER_PAGE],
+  limit: (limitValue) => ['limit', Number(limitValue) || RECIPES_PER_PAGE],
   vegetarian: (passedValue) => ['vegetarian', passedValue === 'true' ? true : false],
   vegan: (passedValue) => ['vegan', passedValue === 'true' ? true : false],
   'gluten-free': (passedValue) => ['glutenFree', passedValue === 'true' ? true : false],
@@ -67,11 +68,21 @@ const queryMap = {
   },
 };
 
-const sortMap = {
+const recipesSortMap = {
   popularity: 'veryPopular',
   date: 'createdAt',
   rating: 'aggregateLikes',
   price: 'pricePerServing',
 };
 
-module.exports = { queryMap, sortMap };
+const articlesQueryMap = {
+  page: (pageValue) => ['page', Number(pageValue) || PAGE_NUMBER],
+  limit: (limitValue) => ['limit', Number(limitValue) || ARTICLES_PER_PAGE],
+  category: (passedValue) => ['category', { $in: passedValue }],
+  search: (passedValue) => {
+    const searchOptions = passedValue.split(',').join('|');
+    return ['title', { $regex: searchOptions, $options: 'i' }];
+  },
+};
+
+module.exports = { recipesQueryMap, recipesSortMap, articlesQueryMap };
