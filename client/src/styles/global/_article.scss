@@ -1,0 +1,83 @@
+.article__btns {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  column-gap: 20px;
+
+  .btn_outlined {
+    padding: 10px 45px 10px 25px;
+    border-radius: 10px;
+  }
+
+  .article__btn_favorite,
+  .article__btn_save {
+    background-size: 16px 16px;
+    background-position: center right 15px;
+    background-repeat: no-repeat;
+  }
+
+  .article__btn_favorite {
+    background-image: url(../assets/svg/heart-color.svg);
+  }
+
+  .article__btn_save {
+    background-image: url(../assets/svg/save-color.svg);
+  }
+}
+
+.article-main__title {
+  margin: 35px auto 0;
+  max-width: 510px;
+}
+
+.article-main__img {
+  margin: 35px auto 0;
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+}
+
+.article__meta {
+  margin-top: 30px;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.article__categories {
+  .categories__item {
+    margin: 0 0 0 10px;
+    color: $color-info;
+    border-color: $color-info;
+  }
+}
+
+.article__descr {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 25px;
+}
+
+.article__text {
+  font-size: $font-size-lg;
+  line-height: 1.8;
+  text-align: justify;
+}
+
+.relevant-recipes__title {
+  font-weight: $font-weight-normal;
+}
+
+.elevant-recipes__list {
+  margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 15px;
+
+  .recipe__item {
+    max-width: 260px;
+  }
+}

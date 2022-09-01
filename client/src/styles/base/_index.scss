@@ -11,6 +11,12 @@ body {
   background-color: $color-body-bg;
 }
 
+h1 {
+  font-family: $font-family-secondary;
+  font-weight: $font-weight-bold;
+  font-size: $font-size-4xl;
+}
+
 h2 {
   font-family: $font-family-secondary;
   font-weight: $font-weight-bold;
@@ -52,6 +58,37 @@ h3 {
   color: $color-btn;
   background-color: $color-btn-light;
   border: solid 1px $color-btn;
+}
+
+.card .favorite-btn {
+  width: 25px;
+  height: 25px;
+  background-size: contain;
+  background-image: url(../assets/svg/heart.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+
+  &.is-active {
+    background-image: url(../assets/svg/heart-fill.svg);
+  }
+}
+
+.favorite-article.favorite-btn.is-active,
+.btn_outlined.favorite-btn.is-active {
+  background-image: url(../assets/svg/heart-fill.svg);
+}
+
+.btn-active.favorite-btn.is-active {
+  background-image: url(../assets/svg/heart-fill-light.svg);
+}
+
+.save-article.save-btn.is-active,
+.btn_outlined.save-btn.is-active {
+  background-image: url(../assets/svg/save-fill.svg);
+}
+
+.btn-active.save-btn.is-active {
+  background-image: url(../assets/svg/save-fill-light.svg);
 }
 
 .container {
