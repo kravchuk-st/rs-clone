@@ -1,6 +1,3 @@
-const { PAGE_NUMBER, ITEMS_PER_PAGE, SORT_OPTION } = require('../general/config');
-const { queryMap, sortMap } = require('../general/queryMap');
-
 const capitalizePath = (path) => {
   const pathSplitted = path.split('-');
   const pathProcessed = pathSplitted.map((pathPart, index) => {
@@ -12,13 +9,8 @@ const capitalizePath = (path) => {
   return pathProcessed.join('');
 };
 
-const transformQueryToSelector = (queryObject) => {
-  const selector = {
-    page: Number(queryObject.page) || PAGE_NUMBER,
-    limit: Number(queryObject.limit) || ITEMS_PER_PAGE,
-    sortOption: sortMap[queryObject.sort] || SORT_OPTION,
-    sortDirection: Number(queryObject['sort-dir']) || -1,
-  };
+const transformQueryToSelector = (queryObject, selectorMaker, queryMap) => {
+  const selector = selectorMaker(queryObject);
 
   for (let [property, value] of Object.entries(queryObject)) {
     if (queryMap[property] === undefined) continue;
