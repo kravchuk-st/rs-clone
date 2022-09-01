@@ -5,8 +5,11 @@ const recipeService = require('./recipe.service');
 const QueryError = require('../../errors/errorEmitter');
 const Utils = require('../../utils/utils');
 
+const { recipesSelector } = require('../../general/selector.config');
+const { recipesQueryMap } = require('../../general/queryMap');
+
 router.get('/', async (req, res, next) => {
-  const mongoSelector = Utils.transformQueryToSelector(req.query);
+  const mongoSelector = Utils.transformQueryToSelector(req.query, recipesSelector, recipesQueryMap);
 
   await recipeService
     .getRecipes(mongoSelector)
