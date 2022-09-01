@@ -10,17 +10,17 @@
           <form class="tabs-content__item is-active" data-tab-content="sign-in" action="/" method="POST" id="sign-in">
             <div class="form-field">
               <label for="email">Email</label>
-              <input type="email" id="email" name="email">
+              <input type="email" id="email" name="email"  required>
             </div>
             <div class="form-field">
               <label for="password">Password</label>
-              <input type="password" id="password" name="password">
+              <input type="password" id="password" name="password" required>
             </div>
             <div class="checkbox-wrapper form-field">
-              <input type="checkbox" id="remember" checked> 
+              <input type="checkbox" id="remember" checked required> 
               <label for="remember">Keep me signed in</label>
             </div>
-            <a href="#" class="btn-active btn-reset form__btn" type="submit">Sign in</a>
+            <button href="#" class="btn-active btn-reset form__btn" type="submit">Sign in</button>
           </form>
           <form class="tabs-content__item" data-tab-content="sign-up" action="/" method="POST" id="sign-in">
             <div class="form-field">
@@ -29,17 +29,17 @@
             </div>
             <div class="form-field">
               <label for="password">Password</label>
-              <input type="password" id="password" name="password">
+              <input type="password" id="password" name="password"  required>
             </div>
             <div class="form-field">
-              <label for="password">Confirm password</label>
-              <input type="password" id="password" name="password">
+              <label for="password-confirm">Confirm password</label>
+              <input type="password" id="password-confirm" name="password"  required>
             </div>
             <div class="checkbox-wrapper form-field">
-              <input type="checkbox" id="confirm" checked> 
+              <input type="checkbox" id="confirm" checked required> 
               <label for="confirm">I accept <a href="/" class="form-field__link"> terms and conditions of use</a></label>
             </div>
-            <a href="#" class="btn-active btn-reset form__btn" type="submit">Sign up</a>
+            <button href="#" class="btn-active btn-reset form__btn" type="submit">Sign up</button>
           </form>
         </div>
       </div>
