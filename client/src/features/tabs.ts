@@ -12,10 +12,14 @@ export const tabHandler = (): void => {
     });
   };
   const setActiveTab = (e: Event): void => {
+    e.preventDefault();
     tabNavs.forEach(element => element.classList.remove('is-active'));
-    (e.target as HTMLElement).classList.add('is-active');
-    tabContents.forEach(element => element.classList.remove('is-active)'));
-    activeTabName = (e.target as HTMLElement).getAttribute('data-tab-name') as string;
+    const activeTab = (e.target as HTMLElement).classList.contains('tabs-nav__item')
+      ? (e.target as HTMLElement)
+      : (e.target as HTMLElement).closest('.tabs-nav__item');
+    activeTab?.classList.add('is-active');
+    tabContents.forEach(element => element.classList.remove('is-active'));
+    activeTabName = activeTab?.getAttribute('data-tab-name') as string;
     showActiveTabContent(activeTabName);
   };
 };

@@ -1,6 +1,7 @@
 $color-body-bg: #ffffff;
 $color-text: #333;
 $color-text-active: #fc8203;
+$color-text-inactive: #afafaf;
 $color-main: #d54216;
 $color-btn: #d54215;
 $color-info: #647ac9;
@@ -15,6 +16,7 @@ $color-bg-footer: #fec58b;
 $color-tag-dark: #cc4b00;
 $color-tag-light: #ffffff;
 $color-btn-light: #ffffff;
+$color-overlay: #333333;
 
 $font-family-main: "Karla", sans-serif;
 $font-family-secondary: "Kadwa", sans-serif;
@@ -38,3 +40,9 @@ $category-item-margin: 3px;
 
 $border-radius-basic: 10px;
 $border-radius-btn: 20px;
+
+$animation-duration-basic: 0.3s;
+$animation-duration-popup: $animation-duration-basic;
+
+$animation-timing-function-basic: ease-in-out;
+$animation-timing-function-popup: $animation-timing-function-basic;
