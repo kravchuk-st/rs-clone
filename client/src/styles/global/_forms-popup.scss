@@ -10,12 +10,14 @@
   visibility: hidden;
   overflow-y: auto;
   transition: all $animation-duration-popup $animation-timing-function-popup;
+  cursor: pointer;
   &.is-open {
     opacity: 1;
     visibility: visible;
     & .popup__content {
       opacity: 1;
       transform: translateX(0);
+      cursor: default;
     }
   }
   &__body {
