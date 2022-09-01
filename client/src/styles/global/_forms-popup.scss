@@ -45,6 +45,7 @@
     @include font-rule($font-size-xl, bold, $font-family-secondary);
     margin-right: 15px;
     display: inline-block;
+    color: $color-text-inactive;
     &.is-active{
       color: $color-text;
       background-color: $color-body-bg;
