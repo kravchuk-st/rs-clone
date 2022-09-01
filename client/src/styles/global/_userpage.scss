@@ -43,7 +43,7 @@
     font-size: $font-size-md;
     border-radius: 10px 10px 0 0;
     border-bottom: none;
-    transition: all 0.3s ease-in-out;
+    transition: all $animation-duration-basic ease-in-out;
 
     &>img{
       width: 16px;

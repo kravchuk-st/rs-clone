@@ -9,7 +9,7 @@
   opacity: 0;
   visibility: hidden;
   overflow-y: auto;
-  transition: all $animation-duration-popup $animation-timing-function-popup;
+  transition: all $animation-duration-popup ease-in-out;
   cursor: pointer;
   &.is-open {
     opacity: 1;
@@ -34,7 +34,7 @@
     border-radius: $border-radius-basic;
     opacity: 0;
     transform: translateX(100%);
-    transition: all $animation-duration-popup $animation-timing-function-popup;
+    transition: all $animation-duration-popup ease-in-out;
   }
 }
 

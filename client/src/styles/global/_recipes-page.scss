@@ -156,7 +156,7 @@ input[type="checkbox"]:checked+label::before {
   border: 1px solid $color-main;
   border-top: none;
   background-color: $color-btn-light;
-  transition: opacity .3s ease-in-out;
+  transition: opacity $animation-duration-basic ease-in-out;
   border-radius: 0 0 5px 5px;
   overflow: hidden;
   &.is-active{
@@ -188,7 +188,7 @@ input[type="checkbox"]:checked+label::before {
     right: 10px;
     top: 50%;
     transform: translateY(-50%);
-    transition: transform 0.3s ease-in-out;
+    transition: transform $animation-duration-basic ease-in-out;
   }
 }
 
