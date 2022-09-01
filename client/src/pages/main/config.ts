@@ -1,6 +1,6 @@
-import { IQueryOptions } from '../../types';
+import { IArticleQueryOptions, IRecipeQueryOptions } from '../../types';
 
-const initPopularQueryOptions: IQueryOptions = {
+const initPopularQueryOptions: IRecipeQueryOptions = {
   page: 0,
   limit: 9,
   'very-popular': true,
@@ -8,31 +8,37 @@ const initPopularQueryOptions: IQueryOptions = {
   'sort-dir': -1,
 };
 
-const initBreakfastQueryOptions: IQueryOptions = {
+const initBreakfastQueryOptions: IRecipeQueryOptions = {
   page: 0,
   limit: 5,
   'dish-types': ['morning meal', 'breakfast'],
 };
 
-const initLunchQueryOptions: IQueryOptions = {
+const initLunchQueryOptions: IRecipeQueryOptions = {
   page: 0,
   limit: 5,
   'dish-types': ['lunch'],
 };
 
-const initDinnerQueryOptions: IQueryOptions = {
+const initDinnerQueryOptions: IRecipeQueryOptions = {
   page: 0,
   limit: 5,
   'dish-types': ['dinner'],
 };
 
-const initBakeryQueryOptions: IQueryOptions = {
+const initBakeryQueryOptions: IRecipeQueryOptions = {
   page: 0,
   limit: 5,
   'dish-types': ['bakery'],
 };
 
-const loadConfig = {
+const initArticlesQueryOptions: IArticleQueryOptions = {
+  page: 0,
+  limit: 3,
+  category: 'cooking tips',
+};
+
+const recipesLoadConfig = {
   popular: {
     containerClass: 'slider',
     listClass: 'swiper-wrapper',
@@ -75,4 +81,11 @@ const loadConfig = {
   },
 };
 
-export { loadConfig };
+const articlesLoadConfig = {
+  containerClass: 'articles',
+  listClass: 'articles__list',
+  articleClassList: ['article'],
+  queryOptions: initArticlesQueryOptions,
+};
+
+export { recipesLoadConfig, articlesLoadConfig };
