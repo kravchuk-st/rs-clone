@@ -208,3 +208,7 @@ input[type="checkbox"]:checked+label::before {
   color: $color-info;
   border: 1px solid $color-info;
 }
+
+.equipment__text {
+  font-weight: $font-weight-bold;
+}

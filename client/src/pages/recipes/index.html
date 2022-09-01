@@ -9,11 +9,8 @@
 <body>
   <%= require('html-loader!../../../src/partials/header.html').default %>
   <main>
-    <div class="container">
-      <div class="search search_recipes">
-        <input class="search__input" type="text" autocomplete="off" autofocus>
-        <button class="search__btn btn-reset"></button>
-      </div>   
+    <%= require('html-loader!../../partials/search.html').default %>
+    <div class="container">   
       <div class="flex col-gap-70">
         <section class="filters">
           <h1 class="filters__header section__header">Filters</h1>
