@@ -41,5 +41,8 @@ $category-item-margin: 3px;
 $border-radius-basic: 10px;
 $border-radius-btn: 20px;
 
-$animation-duration-popup: 0.3s;
-$animation-timing-function-popup: ease-in-out
+$animation-duration-basic: 0.3s;
+$animation-duration-popup: $animation-duration-basic;
+
+$animation-timing-function-basic: ease-in-out;
+$animation-timing-function-popup: $animation-timing-function-basic;
