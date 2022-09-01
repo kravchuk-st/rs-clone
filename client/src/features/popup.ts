@@ -1,6 +1,6 @@
 const popupHandler = () => {
-  const layover = document.querySelector('.popup__body');
-  layover?.addEventListener('click', closeParentPopup);
+  const underlayer = document.querySelector('.popup__body');
+  underlayer?.addEventListener('click', closeParentPopup);
 };
 
 const closeParentPopup = (e: Event) => {
