@@ -46,6 +46,9 @@
     margin-right: 15px;
     display: inline-block;
     color: $color-text-inactive;
+    & a {
+      color: inherit;
+    }
     &.is-active{
       color: $color-text;
       background-color: $color-body-bg;
