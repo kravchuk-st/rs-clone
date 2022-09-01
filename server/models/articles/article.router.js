@@ -19,18 +19,10 @@ router.get('/', async (req, res, next) => {
 });
 
 router.get('/:id', async (req, res, next) => {
-  try {
-    if (isNaN(req.params.id)) throw new QueryError(StatusCodes.BAD_REQUEST, errorMessages.articles.invalidId);
-
-    const articleId = Number(req.params.id);
-
-    await articleService
-      .getArticleById(articleId)
-      .then((article) => res.status(StatusCodes.OK).send(article))
-      .catch((err) => next(err));
-  } catch (err) {
-    next(err);
-  }
+  await articleService
+    .getArticleById(req.params.id)
+    .then((article) => res.status(StatusCodes.OK).send(article))
+    .catch((err) => next(err));
 });
 
 module.exports = router;
