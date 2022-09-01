@@ -15,7 +15,7 @@ const getArticles = async (queryOptions?: IArticleQueryOptions): Promise<IArticl
   return ((await response.json()) as unknown) as IArticle[];
 };
 
-const getArticlesById = async (articleId: number): Promise<IArticle> => {
+const getArticlesById = async (articleId: string): Promise<IArticle> => {
   const response = await fetch(`${BASE_URL}${ENDPOINTS.articles}/${articleId}`);
 
   return ((await response.json()) as unknown) as IArticle;
