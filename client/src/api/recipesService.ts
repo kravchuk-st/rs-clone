@@ -1,13 +1,13 @@
 import { BASE_URL, ENDPOINTS } from '../config/api.config';
-import { IRecipe, IQueryOptions } from '../types';
+import { IRecipe, IRecipeQueryOptions } from '../types';
 
 import transformOptionsToQueryString from '../helpers/transformOptionsToQueryString';
 
-const getRecipes = async (queryOptions?: IQueryOptions): Promise<IRecipe[]> => {
+const getRecipes = async (queryOptions?: IRecipeQueryOptions): Promise<IRecipe[]> => {
   let queryString = '';
 
   if (queryOptions && Object.keys(queryOptions).length !== 0) {
-    queryString = transformOptionsToQueryString(queryOptions as IQueryOptions);
+    queryString = transformOptionsToQueryString(queryOptions as IRecipeQueryOptions);
   }
 
   const response = await fetch(`${BASE_URL}${ENDPOINTS.recipes}/${queryString}`);
