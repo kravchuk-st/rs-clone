@@ -4,6 +4,7 @@ const { StatusCodes } = require('http-status-codes');
 const articleService = require('./article.service');
 const QueryError = require('../../errors/errorEmitter');
 const Utils = require('../../utils/utils');
+const errorMessages = require('../../errors/errorMessages.config');
 
 const { articlesSelector } = require('../../general/selector.config');
 const { articlesQueryMap } = require('../../general/queryMap');
@@ -19,7 +20,7 @@ router.get('/', async (req, res, next) => {
 
 router.get('/:id', async (req, res, next) => {
   try {
-    if (isNaN(req.params.id)) throw new QueryError(StatusCodes.BAD_REQUEST, 'Invalid article ID');
+    if (isNaN(req.params.id)) throw new QueryError(StatusCodes.BAD_REQUEST, errorMessages.articles.invalidId);
 
     const articleId = Number(req.params.id);
 

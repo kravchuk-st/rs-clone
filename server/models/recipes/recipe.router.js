@@ -4,6 +4,7 @@ const { StatusCodes } = require('http-status-codes');
 const recipeService = require('./recipe.service');
 const QueryError = require('../../errors/errorEmitter');
 const Utils = require('../../utils/utils');
+const errorMessages = require('../../errors/errorMessages.config');
 
 const { recipesSelector } = require('../../general/selector.config');
 const { recipesQueryMap } = require('../../general/queryMap');
@@ -19,7 +20,7 @@ router.get('/', async (req, res, next) => {
 
 router.get('/distinct/:propertyPath', async (req, res, next) => {
   const propertyPath = req.params.propertyPath;
-  if (propertyPath === undefined) next(new QueryError(StatusCodes.BAD_REQUEST, 'Invalid property path'));
+  if (propertyPath === undefined) next(new QueryError(StatusCodes.BAD_REQUEST, errorMessages.recipes.invalidProperty));
 
   const propertyPathProcessed = Utils.capitalizePath(propertyPath);
 
@@ -31,7 +32,7 @@ router.get('/distinct/:propertyPath', async (req, res, next) => {
 
 router.get('/:id', async (req, res, next) => {
   try {
-    if (isNaN(req.params.id)) throw new QueryError(StatusCodes.BAD_REQUEST, 'Invalid recipe ID');
+    if (isNaN(req.params.id)) throw new QueryError(StatusCodes.BAD_REQUEST, errorMessages.recipes.invalidId);
 
     const recipeId = Number(req.params.id);
 

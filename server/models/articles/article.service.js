@@ -1,5 +1,6 @@
 const Article = require('./article.model');
 const QueryError = require('../../errors/errorEmitter');
+const errorMessages = require('../../errors/errorMessages.config');
 
 const { StatusCodes } = require('http-status-codes');
 
@@ -14,7 +15,7 @@ const getArticles = async (selector) => {
 const getArticleById = async (articleId) => {
   const article = await Article.findById(articleId);
   if (!article || article.length === 0) {
-    throw new QueryError(StatusCodes.NOT_FOUND, `Article for id ${articleId} not found`);
+    throw new QueryError(StatusCodes.NOT_FOUND, errorMessages.articles.notFound(articleId));
   }
 
   return article;

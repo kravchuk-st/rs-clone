@@ -1,5 +1,6 @@
 const Recipe = require('./recipe.model');
 const QueryError = require('../../errors/errorEmitter');
+const errorMessages = require('../../errors/errorMessages.config');
 
 const { StatusCodes } = require('http-status-codes');
 
@@ -15,7 +16,7 @@ const getRecipes = async (selector) => {
 const getRecipeById = async (recipeId) => {
   const recipe = await Recipe.findOne({ id: recipeId });
   if (!recipe || recipe.length === 0) {
-    throw new QueryError(StatusCodes.NOT_FOUND, `Recipe for id ${recipeId} not found`);
+    throw new QueryError(StatusCodes.NOT_FOUND, errorMessages.recipes.notFound(recipeId));
   }
 
   return recipe;
@@ -24,7 +25,7 @@ const getRecipeById = async (recipeId) => {
 const getDistinctProps = async (recipePath) => {
   const distinctRecipePathValues = await Recipe.distinct(recipePath);
   if (!distinctRecipePathValues || distinctRecipePathValues.length === 0) {
-    throw new QueryError(StatusCodes.NOT_FOUND, `Provided recipe property path was not found`);
+    throw new QueryError(StatusCodes.NOT_FOUND, errorMessages.recipes.propertyNotFound);
   }
 
   return distinctRecipePathValues;
