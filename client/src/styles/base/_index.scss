@@ -11,6 +11,12 @@ body {
   background-color: $color-body-bg;
 }
 
+h1 {
+  font-family: $font-family-secondary;
+  font-weight: $font-weight-bold;
+  font-size: $font-size-4xl;
+}
+
 h2 {
   font-family: $font-family-secondary;
   font-weight: $font-weight-bold;
