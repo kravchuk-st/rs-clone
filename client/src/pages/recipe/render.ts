@@ -146,4 +146,4 @@ function renderList(listItems: string[] | undefined, listItemClass: string): HTM
   return list;
 }
 
-export { renderRecipe, renderInstructions };
+export { renderRecipe, renderInstructions, renderList };
