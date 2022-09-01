@@ -13,6 +13,8 @@ const config = {
     user: './src/pages/user/index.ts',
     recipe: './src/pages/recipe/index.ts',
     recipes: './src/pages/recipes/index.ts',
+    article: './src/pages/article/index.ts',
+    articles: './src/pages/articles/index.ts',
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -47,9 +49,24 @@ const config = {
       inject: 'body',
     }),
     new HtmlWebpackPlugin({
-      template: './src/pages/recipes/recipes.html',
+      template: './src/pages/recipes/index.html',
       filename: 'recipes.html',
       chunks: ['recipes'],
+      inject: 'body',
+    }),
+    new EslintPlugin({
+      extensions: 'ts',
+    }),
+    new HtmlWebpackPlugin({
+      template: './src/pages/article/index.html',
+      filename: 'article.html',
+      chunks: ['article'],
+      inject: 'body',
+    }),
+    new HtmlWebpackPlugin({
+      template: './src/pages/articles/index.html',
+      filename: 'articles.html',
+      chunks: ['articles'],
       inject: 'body',
     }),
     new EslintPlugin({

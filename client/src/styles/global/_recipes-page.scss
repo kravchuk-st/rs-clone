@@ -132,6 +132,7 @@ input[type="checkbox"]:checked+label::before {
 }
 
 .select-box{
+  position: relative;
   display: flex;
   width: 150px;
   flex-direction: column-reverse;
@@ -143,14 +144,19 @@ input[type="checkbox"]:checked+label::before {
 }
 
 .options-container {
+  padding: 0;
+  position: absolute;
+  top: 35px;
+  left: 0;
   max-height: 0px;
   opacity: 0;
   @include font-rule($font-size-xs);
   z-index: 1;
   width: 100%;
   border: 1px solid $color-main;
+  border-top: none;
   background-color: $color-btn-light;
-  transition: all 0.3 ease-in-out;
+  transition: opacity .3s ease-in-out;
   border-radius: 0 0 5px 5px;
   overflow: hidden;
   &.is-active{
@@ -188,8 +194,11 @@ input[type="checkbox"]:checked+label::before {
 
 .option,
 #selected {
+  margin: 0;
   padding: 10px 20px;
+  width: 100%;
   cursor: pointer;
+  border: none;
 }
 
 .option{

@@ -6,7 +6,7 @@
   overflow: hidden;
   
   &__general {
-    padding: 20px 20px 10px;
+    padding: 25px 20px 15px;
     display: flex;
     flex-direction: column;
   }
@@ -56,7 +56,7 @@
     color: $color-tag-dark;
     border: solid 1px $color-tag-dark;
     background-color: $color-tag-light;
-    padding: 10px;
+    padding: 5px 10px;
     margin: $category-item-margin;
     display: inline-block;
   }
