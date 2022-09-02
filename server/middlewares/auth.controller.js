@@ -18,7 +18,7 @@ function signup(req, res) {
   user
     .save()
     .then(() => res.status(StatusCodes.CREATED).send(successMessages.auth.register))
-    .catch((error) => res.status(StatusCodes.UNAUTHORIZED).send(error.message));
+    .catch(() => res.status(StatusCodes.BAD_REQUEST).send(errorMessages.user.userExists));
 }
 
 function signin(req, res) {
@@ -34,11 +34,11 @@ function signin(req, res) {
 
     const token = jwt.sign(
       {
-        id: user.id,
+        id: user._id,
       },
       JWT_SECRET,
       {
-        expiresIn: JWT_EXPIRES_IN,
+        expiresIn: Number(JWT_EXPIRES_IN),
       }
     );
 

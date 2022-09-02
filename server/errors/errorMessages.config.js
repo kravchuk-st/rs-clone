@@ -17,6 +17,8 @@ const errorMessages = {
   user: {
     unauthorized: 'Signup failure',
     invalidPassword: 'Invalid Password',
+    forbidden: 'Access denied',
+    userExists: 'User with such email already exists',
   },
 };
 
