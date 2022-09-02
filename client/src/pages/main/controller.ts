@@ -4,13 +4,13 @@ import * as articlesService from '../../api/articlesService';
 import { ILoadArticleCard, ILoadRecipeCard, IArticle, IRecipe } from '../../types';
 import { recipesLoadConfig, articlesLoadConfig } from './config';
 
-async function loadMainPageContent() {
-  await loadContent(recipesLoadConfig.popular, recipesSerivice.getRecipes);
-  await loadContent(articlesLoadConfig, articlesService.getArticles);
-  await loadContent(recipesLoadConfig.breakfast, recipesSerivice.getRecipes);
-  await loadContent(recipesLoadConfig.lunch, recipesSerivice.getRecipes);
-  await loadContent(recipesLoadConfig.dinner, recipesSerivice.getRecipes);
-  await loadContent(recipesLoadConfig.bakery, recipesSerivice.getRecipes);
+function loadMainPageContent() {
+  loadContent(recipesLoadConfig.popular, recipesSerivice.getRecipes);
+  loadContent(articlesLoadConfig, articlesService.getArticles);
+  loadContent(recipesLoadConfig.breakfast, recipesSerivice.getRecipes);
+  loadContent(recipesLoadConfig.lunch, recipesSerivice.getRecipes);
+  loadContent(recipesLoadConfig.dinner, recipesSerivice.getRecipes);
+  loadContent(recipesLoadConfig.bakery, recipesSerivice.getRecipes);
 }
 
 async function loadContent(
