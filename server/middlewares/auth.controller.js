@@ -6,7 +6,7 @@ const User = require('../models/users/user.model');
 const errorMessages = require('../errors/errorMessages.config');
 const successMessages = require('../general/successMessages');
 
-const { SALT_ROUNDS, JWT_SECRET, JWT_EXPIRES_IN } = require('../general/constants');
+const { SALT_ROUNDS, JWT_SECRET, JWT_EXPIRES_IN, MS_IN_SECOND } = require('../general/constants');
 
 function signup(req, res) {
   const user = new User({
@@ -17,7 +17,11 @@ function signup(req, res) {
 
   user
     .save()
-    .then(() => res.status(StatusCodes.CREATED).send(successMessages.auth.register))
+    .then((user) => {
+      const token = generateToken(user._id, JWT_SECRET, JWT_EXPIRES_IN);
+      res.cookie('token', token, { maxAge: Number(JWT_EXPIRES_IN * MS_IN_SECOND) });
+      res.status(StatusCodes.CREATED).send(successMessages.auth.register);
+    })
     .catch(() => res.status(StatusCodes.BAD_REQUEST).send(errorMessages.user.userExists));
 }
 
@@ -29,29 +33,41 @@ function signin(req, res) {
     if (!user) res.status(StatusCodes.NOTFOUND).send(errorMessages.general.notFound);
 
     const passwordIsValid = bcrypt.compareSync(req.body.password, user.password);
-    if (!passwordIsValid)
+    if (!passwordIsValid) {
       res.status(StatusCodes.UNAUTHORIZED).send({ accessToken: null, message: errorMessages.user.invalidPassword });
+    } else {
+      const token = generateToken(user._id, JWT_SECRET, JWT_EXPIRES_IN);
+      res.cookie('token', token, { maxAge: Number(JWT_EXPIRES_IN * MS_IN_SECOND) });
 
-    const token = jwt.sign(
-      {
-        id: user._id,
-      },
-      JWT_SECRET,
-      {
-        expiresIn: Number(JWT_EXPIRES_IN),
-      }
-    );
-
-    res.status(StatusCodes.OK).send({
-      user: {
-        id: user._id,
-        email: user.email,
-        name: user.name,
-      },
-      message: successMessages.auth.login,
-      accessToken: token,
-    });
+      res.status(StatusCodes.OK).send({
+        user: {
+          id: user._id,
+          email: user.email,
+          name: user.name,
+          articles: user.articles,
+          recipes: user.recipes,
+        },
+        message: successMessages.auth.login,
+      });
+    }
   });
 }
 
-module.exports = { signup, signin };
+function logout(req, res) {
+  res.clearCookie('token');
+  res.status(StatusCodes.NO_CONTENT).send(successMessages.auth.logout);
+}
+
+function generateToken(userId, secretKey, expirationTime) {
+  return jwt.sign(
+    {
+      id: userId,
+    },
+    secretKey,
+    {
+      expiresIn: Number(expirationTime),
+    }
+  );
+}
+
+module.exports = { signup, signin, logout };

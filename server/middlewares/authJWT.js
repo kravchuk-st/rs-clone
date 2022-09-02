@@ -6,8 +6,8 @@ const errorMessages = require('../errors/errorMessages.config');
 const { JWT_SECRET } = require('../general/constants');
 
 const verifyToken = (req, res, next) => {
-  if (req.headers?.authorization?.split(' ')[0] === 'JWT') {
-    jwt.verify(req.headers.authorization.split(' ')[1], JWT_SECRET, (error, decoded) => {
+  if (req.cookies?.token !== undefined) {
+    jwt.verify(req.cookies.token, JWT_SECRET, (error, decoded) => {
       if (error) {
         error.status = StatusCodes.FORBIDDEN;
         req.user = undefined;

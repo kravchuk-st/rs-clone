@@ -1,6 +1,7 @@
 const express = require('express');
 const logger = require('morgan');
-let cors = require('cors');
+const cors = require('cors');
+const cookieParser = require('cookie-parser');
 
 const recipesRouter = require('./models/recipes/recipe.router');
 const articlesRouter = require('./models/articles/article.router');
@@ -18,6 +19,7 @@ process.on('unhandledRejection', (error) => {
 
 app.use(logger('tiny'));
 app.use(cors());
+app.use(cookieParser());
 
 app.use(express.json());
 app.use(

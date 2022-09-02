@@ -6,6 +6,7 @@ const successMessages = {
   auth: {
     register: 'Registered successfully',
     login: 'Login successful',
+    logout: 'Logout successful',
   },
 };
 

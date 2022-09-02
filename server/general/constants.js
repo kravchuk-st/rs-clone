@@ -28,6 +28,8 @@ const SORT_OPTION = 'veryPopular';
 
 const ARTICLES_CATEGORY = 'cooking tips';
 
+const MS_IN_SECOND = 1000;
+
 module.exports = {
   PORT,
   MONGO_CONNECT_QUERY,
@@ -47,4 +49,5 @@ module.exports = {
   MAX_FATS,
   MAX_PROTEINS,
   SORT_OPTION,
+  MS_IN_SECOND,
 };
