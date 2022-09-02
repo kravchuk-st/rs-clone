@@ -5,7 +5,10 @@ const { PORT, MONGO_CONNECT_QUERY } = require('./general/config');
 const errorMessages = require('./errors/errorMessages.config');
 
 const mongoDB = MONGO_CONNECT_QUERY;
-mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose
+  .connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log('Connected to DB'))
+  .catch((error) => console.error(error));
 
 const { connection } = mongoose;
 

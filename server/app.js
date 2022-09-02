@@ -10,8 +10,19 @@ const errorMessages = require('./errors/errorMessages.config');
 
 const app = express();
 
+process.on('unhandledRejection', (error) => {
+  console.log('unhandledRejection', error.message);
+});
+
 app.use(logger('tiny'));
 app.use(cors());
+
+app.use(express.json());
+app.use(
+  express.urlencoded({
+    extended: true,
+  })
+);
 
 app.use('/recipes', recipesRouter);
 app.use('/articles', articlesRouter);
