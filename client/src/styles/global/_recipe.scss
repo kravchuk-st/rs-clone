@@ -152,6 +152,7 @@ input[type="checkbox"]:checked+label::before {
 .info__main {
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
 }
 
 .info__numbers {
@@ -174,8 +175,7 @@ input[type="checkbox"]:checked+label::before {
 .info__categories {
   display: flex;
   flex-wrap: wrap;
-  row-gap: 5px;
-  column-gap: 10px;
+  gap: 10px;
 }
 
 .category__item  {
