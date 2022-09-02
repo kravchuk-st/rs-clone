@@ -4,6 +4,7 @@ const { StatusCodes } = require('http-status-codes');
 
 const User = require('../models/users/user.model');
 const errorMessages = require('../errors/errorMessages.config');
+const successMessages = require('../general/successMessages');
 
 const { SALT_ROUNDS, JWT_SECRET, JWT_EXPIRES_IN } = require('../general/constants');
 
@@ -16,7 +17,7 @@ function signup(req, res) {
 
   user
     .save()
-    .then(() => res.status(StatusCodes.CREATED).send('Registered successfully'))
+    .then(() => res.status(StatusCodes.CREATED).send(successMessages.auth.register))
     .catch((error) => res.status(StatusCodes.UNAUTHORIZED).send(error.message));
 }
 
@@ -28,7 +29,8 @@ function signin(req, res) {
     if (!user) res.status(StatusCodes.NOTFOUND).send(errorMessages.general.notFound);
 
     const passwordIsValid = bcrypt.compareSync(req.body.password, user.password);
-    if (!passwordIsValid) res.status(StatusCodes.UNAUTHORIZED).send({ accessToken: null, message: 'Invalid Password' });
+    if (!passwordIsValid)
+      res.status(StatusCodes.UNAUTHORIZED).send({ accessToken: null, message: errorMessages.user.invalidPassword });
 
     const token = jwt.sign(
       {
@@ -46,7 +48,7 @@ function signin(req, res) {
         email: user.email,
         name: user.name,
       },
-      message: 'Login successful',
+      message: successMessages.auth.login,
       accessToken: token,
     });
   });

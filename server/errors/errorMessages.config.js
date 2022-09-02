@@ -16,6 +16,7 @@ const errorMessages = {
   },
   user: {
     unauthorized: 'Signup failure',
+    invalidPassword: 'Invalid Password',
   },
 };
 
