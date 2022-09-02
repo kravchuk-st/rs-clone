@@ -2,6 +2,7 @@ const errorMessages = {
   general: {
     notFound: '404 Not found',
     mongoConnection: 'MongoDB connection error:',
+    internal: 'Internal server error',
   },
   recipes: {
     invalidProperty: 'Invalid property path',

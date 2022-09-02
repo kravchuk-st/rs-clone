@@ -7,6 +7,8 @@ vars.config({
 
 const PORT = process.env.PORT;
 const MONGO_CONNECT_QUERY = process.env.CONNECTION_QUERY;
+const JWT_SECRET = process.env.JWT_SECRET;
+const JWT_EXPIRES_IN = process.env.JWT_EXPIRES_IN;
 
 const SALT_ROUNDS = 8;
 
@@ -29,6 +31,8 @@ const ARTICLES_CATEGORY = 'cooking tips';
 module.exports = {
   PORT,
   MONGO_CONNECT_QUERY,
+  JWT_SECRET,
+  JWT_EXPIRES_IN,
   SALT_ROUNDS,
   PAGE_NUMBER,
   RECIPES_PER_PAGE,
