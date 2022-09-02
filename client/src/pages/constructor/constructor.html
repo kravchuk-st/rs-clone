@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recipes</title>
+</head>
+
+<body>
+  <%= require('html-loader!../../partials/header.html').default %>
+  <main>
+    <section class="consrtuctor">
+      <div class="container">
+        <div class="constructor__content">
+          <h1 class="constructor__title title title-centered">Recipe constructor</h1>
+          <div class="constructor__subheader">Chosen ingredients</div>
+          <div class="constructor__body flex">
+            <div class="constructor__ingredients constructor-ingredients">
+              <div class="constructor-ingredients__box">
+                <div class="constructor-ingredients__item constructor-ingredient">
+                  <span class="constructor-ingredient__name">mango</span>
+                  <div class="constructor-ingredient__delete"></div>
+                </div>
+                <div class="constructor-ingredients__item constructor-ingredient">
+                  <span class="constructor-ingredient__name">egg</span>
+                  <div class="constructor-ingredient__delete"></div>
+                </div>
+                <div class="constructor-ingredients__item constructor-ingredient">
+                  <span class="constructor-ingredient__name">beef</span>
+                  <div class="constructor-ingredient__delete"></div>
+                </div>
+                <div class="constructor-ingredients__item constructor-ingredient">
+                  <span class="constructor-ingredient__name">flour</span>
+                  <div class="constructor-ingredient__delete"></div>
+                </div>
+                <div class="constructor-ingredients__item constructor-ingredient">
+                  <span class="constructor-ingredient__name">baking soda</span>
+                  <div class="constructor-ingredient__delete"></div>
+                </div>
+                <div class="constructor-ingredients__item constructor-ingredient">
+                  <span class="constructor-ingredient__name">lemon</span>
+                  <div class="constructor-ingredient__delete"></div>
+                </div>
+                <div class="constructor-ingredients__item constructor-ingredient">
+                  <span class="constructor-ingredient__name">citric acid</span>
+                  <div class="constructor-ingredient__delete"></div>
+                </div>
+                <div class="constructor-ingredients__item constructor-ingredient">
+                  <span class="constructor-ingredient__name">banana</span>
+                  <div class="constructor-ingredient__delete"></div>
+                </div>
+                <div class="constructor-ingredients__item constructor-ingredient">
+                  <span class="constructor-ingredient__name">pear</span>
+                  <div class="constructor-ingredient__delete"></div>
+                </div>
+              </div>
+            </div>
+            <div class="constructor__controls constructor-controls">
+              <button href="/" class="btn-active btn-reset">Add from your product list</button>
+              <span class="constructor-controls__or">or</span>
+              <div class="constructor-controls__select">
+                <input id="constructor-input" type="text" placeholder="start typing ingredient">
+                <div class="ingredient-options">
+                  <ul class="scrolling-area ">
+                    <li class="ingredient-options__item" id="ingredient-1-id">ingredient-1</li>
+                    <li class="ingredient-options__item" id="ingredient-2-id">ingredient-2</li>
+                    <li class="ingredient-options__item" id="ingredient-3-id">ingredient-3</li>
+                    <li class="ingredient-options__item" id="ingredient-4-id">ingredient-4</li>
+                    <li class="ingredient-options__item" id="ingredient-5-id">ingredient-5</li>
+                    <li class="ingredient-options__item" id="ingredient-6-id">ingredient-6</li>
+                    <li class="ingredient-options__item" id="ingredient-7-id">ingredient-7</li>
+                    <li class="ingredient-options__item" id="ingredient-8-id">ingredient-8</li>
+                    <li class="ingredient-options__item" id="ingredient-9-id">ingredient-9</li>
+                    <li class="ingredient-options__item" id="ingredient-10-id">ingredient-10</li>
+                    <li class="ingredient-options__item" id="ingredient-11-id">ingredient-11</li>
+                    <li class="ingredient-options__item" id="ingredient-12-id">ingredient-12</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <section class="constructor__results">
+            <section id="relevant" class="constructor-result__item result">
+              <div class="constructor__subheader">You have everything for following recipes:</div>
+              <ul class="recipes__list list-reset">
+                <%= require('html-loader!../../partials/recipe-card.html').default %>
+                <%= require('html-loader!../../partials/recipe-card.html').default %>
+              </ul>
+            </section>
+            <section id="lack-1" class="constructor-result__item result constructor-result_lacking">
+              <div class="constructor__subheader">Recipes you lack just 1 ingredient to cook:</div>
+              <ul class="recipes__list list-reset">
+                <%= require('html-loader!../../partials/recipe-card.html').default %>
+                <%= require('html-loader!../../partials/recipe-card.html').default %>
+                <%= require('html-loader!../../partials/recipe-card.html').default %>
+              </ul>
+            </section>
+            <section id="lack-2" class="constructor-result__item result constructor-result_lacking">
+              <div class="constructor__subheader">Add 2 more ingredients and cook:</div>
+              <ul class="recipes__list list-reset">
+                <%= require('html-loader!../../partials/recipe-card.html').default %>
+                <%= require('html-loader!../../partials/recipe-card.html').default %>
+                <%= require('html-loader!../../partials/recipe-card.html').default %>
+                <%= require('html-loader!../../partials/recipe-card.html').default %>
+                <%= require('html-loader!../../partials/recipe-card.html').default %>
+                <%= require('html-loader!../../partials/recipe-card.html').default %>
+                <%= require('html-loader!../../partials/recipe-card.html').default %>
+                <%= require('html-loader!../../partials/recipe-card.html').default %>
+              </ul>
+            </section>
+          </section>
+        </div>
+      </div>
+    </section>
+  </main>
+  <%= require('html-loader!../../partials/footer.html').default %>
+</body>
+
+</html>
