@@ -80,9 +80,20 @@ interface IRecipe {
   analyzedInstructions: IInstructions[];
 }
 
+interface IArticle {
+  _id: string;
+  postedAt: string;
+  title: string;
+  category: string[];
+  summary: string;
+  body: string[];
+  image: string;
+  relevantRecipes: number[];
+}
+
 type SortOptions = 'popularity' | 'date' | 'rating' | 'price';
 
-interface IQueryOptions {
+interface IRecipeQueryOptions {
   page?: number;
   limit?: number;
   vegetarian?: boolean;
@@ -107,15 +118,39 @@ interface IQueryOptions {
   'sort-dir'?: 1 | -1;
 }
 
+interface IArticleQueryOptions {
+  page?: number;
+  limit?: number;
+  category?: string;
+}
+
 interface ILoadRecipeCard {
   containerClass: string;
   listClass: string;
   listElemType: string;
   cardClassList: string[];
-  queryOptions: IQueryOptions;
+  queryOptions: IRecipeQueryOptions;
   largeCardIndex: number;
+}
+
+interface ILoadArticleCard {
+  containerClass: string;
+  listClass: string;
+  articleClassList: string[];
+  queryOptions: IArticleQueryOptions;
 }
 
 type ILoadRecipePage = IRecipe;
 
-export { IRecipe, IQueryOptions, ILoadRecipeCard, ILoadRecipePage, IIngredientMeta, INutrient, IInstructions };
+export {
+  IRecipe,
+  IRecipeQueryOptions,
+  IArticleQueryOptions,
+  ILoadRecipeCard,
+  ILoadRecipePage,
+  ILoadArticleCard,
+  IIngredientMeta,
+  INutrient,
+  IInstructions,
+  IArticle,
+};

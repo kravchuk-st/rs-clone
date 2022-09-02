@@ -7,6 +7,6 @@ import * as Controller from './controller';
 
 burgerMenu();
 slider;
-Controller.loadRecipesMainPage();
+Controller.loadMainPageContent();
 tabHandler();
 popupHandler();

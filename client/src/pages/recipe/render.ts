@@ -5,7 +5,7 @@ import round from '../../helpers/round';
 
 const PRICE_COEFFICIENT = 100;
 
-function renderRecipe(recipeData: ILoadRecipePage, equipmentList: string[]) {
+function renderRecipe(recipeData: ILoadRecipePage, equipmentList: string[] | undefined) {
   const main = document.querySelector('#main') as HTMLElement;
   const recipeContainer = createElementWithClass('section', 'recipe');
 
@@ -54,13 +54,13 @@ function renderRecipe(recipeData: ILoadRecipePage, equipmentList: string[]) {
                 </span></li>
               </ul>
               <ul class="info__categories list-reset">
-                ${categories.innerHTML}
+                ${categories?.innerHTML}
               </ul>
             </div>
             <div class="info__equipment">
               <span class="equipment__text">Equipment:</span>
               <ul class="equipment__list list-reset">
-                ${equipment.innerHTML}
+                ${equipment?.innerHTML || 'No equipment'}
               </ul>
             </div>
           </div>
@@ -82,7 +82,7 @@ function renderInstructions(instructions: string[]) {
     <div class="container">
       <h3 class="instruction__title">Instructions</h3>
       <ol class="instruction__list">
-        ${instructionsList.innerHTML}
+        ${instructionsList?.innerHTML}
       </ol>
       <div class="instruction__btns">
         <button class="instruction__btn_favorite btn-active btn-reset">Add to favorite recipes</button>
@@ -130,7 +130,9 @@ function renderNutrients(nutrients: INutrient[]): string {
   `;
 }
 
-function renderList(listItems: string[], listItemClass: string): HTMLElement {
+function renderList(listItems: string[] | undefined, listItemClass: string): HTMLElement | null {
+  if (listItems === undefined) return null;
+
   const list = document.createElement('div');
 
   const categories = listItems.map(item => {
@@ -144,4 +146,4 @@ function renderList(listItems: string[], listItemClass: string): HTMLElement {
   return list;
 }
 
-export { renderRecipe, renderInstructions };
+export { renderRecipe, renderInstructions, renderList };

@@ -1,6 +1,6 @@
 import createElementWithClass from '../../helpers/createElementWithClass';
 import capitalize from '../../helpers/capitalize';
-import { IRecipe } from '../../types';
+import { IArticle, IRecipe } from '../../types';
 
 import heartImg from '../../assets/svg/heart.svg';
 
@@ -46,4 +46,32 @@ function renderRecipeCard(
   return cardElement;
 }
 
-export { renderRecipeCard };
+function renderArticleCard(articleData: IArticle, articleClass: string[]): HTMLElement {
+  const date = new Date(articleData.postedAt).toLocaleDateString('en-us', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
+  const articleLink = `./article.html?id=${articleData._id}`;
+
+  const articleElement = createElementWithClass('article', ...articleClass) as HTMLElement;
+  articleElement.innerHTML = `
+    <img class="article__img" src=${articleData.image} alt="article preview">
+    <div class="article__content">
+      <div class="article__header">
+        <time class="article__date" datetime=${articleData.postedAt}>${date}</time>
+        <div class="article__btns">
+          <button class="save-article btn-reset save-btn"></button>
+          <button class="favorite-article btn-reset favorite-btn"></button>
+        </div>
+      </div>
+      <h3 class="article__title">${articleData.title}</h3>
+      <p class="article__summary">${articleData.summary}</p>
+      <a class="article__btn btn-reset" href=${articleLink}>contunue reading</a>
+    </div>
+  `;
+
+  return articleElement;
+}
+
+export { renderRecipeCard, renderArticleCard };

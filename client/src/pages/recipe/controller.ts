@@ -7,17 +7,19 @@ async function loadRecipe(recipeId: number) {
   const equipmentList = parseEquipmentList(recipeData.analyzedInstructions[0]);
   const instructionsList = parseInstructionsList(recipeData.analyzedInstructions[0]);
   renderRecipe(recipeData, equipmentList);
-  renderInstructions(instructionsList);
+  if (instructionsList) renderInstructions(instructionsList);
 }
 
-function parseEquipmentList(instructions: IInstructions): string[] {
+function parseEquipmentList(instructions: IInstructions | undefined): string[] | undefined {
+  if (!instructions) return undefined;
+
   const stepsEquipment = instructions.steps.map(step => step.equipment.map(equipmentItem => equipmentItem.name));
 
   return [...new Set(stepsEquipment.flat(1))];
 }
 
-function parseInstructionsList(instructions: IInstructions): string[] {
-  return instructions.steps.map(step => step.step);
+function parseInstructionsList(instructions: IInstructions | undefined): string[] | undefined {
+  return instructions?.steps.map(step => step.step);
 }
 
 export { loadRecipe };
