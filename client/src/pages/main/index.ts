@@ -5,6 +5,6 @@ import '../../styles/main.scss';
 import * as Controller from './controller';
 
 slider;
-Controller.loadRecipesMainPage();
+Controller.loadMainPageContent();
 tabHandler();
 popupHandler();

@@ -81,7 +81,8 @@ interface IRecipe {
 }
 
 interface IArticle {
-  postedAt: Date;
+  _id: string;
+  postedAt: string;
   title: string;
   category: string[];
   summary: string;
@@ -132,6 +133,13 @@ interface ILoadRecipeCard {
   largeCardIndex: number;
 }
 
+interface ILoadArticleCard {
+  containerClass: string;
+  listClass: string;
+  articleClassList: string[];
+  queryOptions: IArticleQueryOptions;
+}
+
 type ILoadRecipePage = IRecipe;
 
 export {
@@ -140,6 +148,7 @@ export {
   IArticleQueryOptions,
   ILoadRecipeCard,
   ILoadRecipePage,
+  ILoadArticleCard,
   IIngredientMeta,
   INutrient,
   IInstructions,

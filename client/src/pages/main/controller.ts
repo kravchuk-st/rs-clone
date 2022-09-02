@@ -1,28 +1,40 @@
-import { renderRecipeCard } from './render';
+import { renderRecipeCard, renderArticleCard } from './render';
 import * as recipesSerivice from '../../api/recipesService';
-import { ILoadRecipeCard } from '../../types';
-import { loadConfig } from './config';
+import * as articlesService from '../../api/articlesService';
+import { ILoadArticleCard, ILoadRecipeCard, IArticle, IRecipe } from '../../types';
+import { recipesLoadConfig, articlesLoadConfig } from './config';
 
-async function loadRecipesMainPage() {
-  await loadRecipesToSection(loadConfig.popular);
-  await loadRecipesToSection(loadConfig.breakfast);
-  await loadRecipesToSection(loadConfig.lunch);
-  await loadRecipesToSection(loadConfig.dinner);
-  await loadRecipesToSection(loadConfig.bakery);
+async function loadMainPageContent() {
+  await loadContent(recipesLoadConfig.popular, recipesSerivice.getRecipes);
+  await loadContent(articlesLoadConfig, articlesService.getArticles);
+  await loadContent(recipesLoadConfig.breakfast, recipesSerivice.getRecipes);
+  await loadContent(recipesLoadConfig.lunch, recipesSerivice.getRecipes);
+  await loadContent(recipesLoadConfig.dinner, recipesSerivice.getRecipes);
+  await loadContent(recipesLoadConfig.bakery, recipesSerivice.getRecipes);
 }
 
-async function loadRecipesToSection(loadConfig: ILoadRecipeCard) {
+async function loadContent(
+  loadConfig: ILoadRecipeCard | ILoadArticleCard,
+  contentLoadingService: typeof articlesService.getArticles | typeof recipesSerivice.getRecipes
+) {
   const sectionContainer = document.querySelector(`.${loadConfig.containerClass}`) as HTMLElement;
   const sectionContainerList = sectionContainer.querySelector(`.${loadConfig.listClass}`) as HTMLUListElement;
 
-  const recipesData = await recipesSerivice.getRecipes(loadConfig.queryOptions);
+  const itemsData = await contentLoadingService(loadConfig.queryOptions);
+  const itemsCards = renderItems(itemsData, loadConfig);
 
-  const recipeCards = recipesData.map((recipe, recipeIndex) => {
-    const size = recipeIndex === loadConfig.largeCardIndex ? 'large' : 'normal';
-    return renderRecipeCard(recipe, size, loadConfig.cardClassList, loadConfig.listElemType);
-  });
-
-  sectionContainerList.append(...recipeCards);
+  sectionContainerList.append(...itemsCards);
 }
 
-export { loadRecipesMainPage };
+function renderItems(itemsData: IArticle[] | IRecipe[], loadConfig: ILoadRecipeCard | ILoadArticleCard) {
+  return itemsData.map((item, itemIndex) => {
+    if ('largeCardIndex' in loadConfig) {
+      const size = itemIndex === loadConfig.largeCardIndex ? 'large' : 'normal';
+      return renderRecipeCard(item as IRecipe, size, loadConfig.cardClassList, loadConfig.listElemType);
+    }
+
+    return renderArticleCard(item as IArticle, loadConfig.articleClassList);
+  });
+}
+
+export { loadMainPageContent };

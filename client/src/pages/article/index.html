@@ -10,42 +10,6 @@
   <div class="wrapper">
     <%= require('html-loader!../../partials/header.html').default %>
     <main class="article-main" id="main">
-      <section>
-        <div class="container">
-          <div class="article__btns">
-            <button class="article__btn_favorite btn_outlined btn-reset favorite-btn">Add to favorite articles</button>
-            <button class="article__btn_save btn_outlined btn-reset save-btn">Save for later</button>
-          </div>
-          <h1 class="article-main__title">How to cook something cool and not get fat</h1>
-          <img class="article-main__img" src="" alt="article img">
-          <div class="article__meta">
-            <time class="article__date" datetime="2020-07-03">JULY 3, 2020</time>
-            <ul class="article__categories list-reset">
-              <li class="categories__item">cooking tips</li>
-              <li class="categories__item">tutorial</li>
-              <li class="categories__item">dairy free</li>
-            </ul>
-          </div>
-          <div class="article__descr">
-            <p class="article__text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Proin nibh nisl condimentum id venenatis a condimentum. Interdum consectetur libero id faucibus nisl. In iaculis nunc sed augue lacus viverra vitae congue. Ac odio tempor orci dapibus ultrices in iaculis nunc. Urna cursus eget nunc scelerisque viverra mauris in aliquam sem. Leo urna molestie at elementum eu facilisis sed odio. Vel risus commodo viverra maecenas accumsan lacus vel. Felis donec et odio pellentesque diam volutpat commodo sed egestas.
-            </p>
-            <p class="article__text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Proin nibh nisl condimentum id venenatis a condimentum. Interdum consectetur libero id faucibus nisl. In iaculis nunc sed augue lacus viverra vitae congue. Ac odio tempor orci dapibus ultrices in iaculis nunc. Urna cursus eget nunc scelerisque viverra mauris in aliquam sem. Leo urna molestie at elementum eu facilisis sed odio. Vel risus commodo viverra maecenas accumsan lacus vel. Felis donec et odio pellentesque diam volutpat commodo sed egestas.
-            </p>
-          </div>
-        </div>
-      </section>
-      <section class="relevant-recipes">
-        <div class="container">
-          <h2 class="relevant-recipes__title">Relevant recipes</h2>
-          <ul class="elevant-recipes__list list-reset">
-            <%= require('html-loader!../../partials/recipe-card.html').default %>
-            <%= require('html-loader!../../partials/recipe-card.html').default %>
-            <%= require('html-loader!../../partials/recipe-card.html').default %>
-          </ul>
-        </div>
-      </section>
     </main>
     <%= require('html-loader!../../partials/footer.html').default %>
   </div>
