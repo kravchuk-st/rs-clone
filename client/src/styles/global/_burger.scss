@@ -4,8 +4,8 @@
 	height: 29px;
 	position: relative;
 	z-index: 15;
-  cursor: pointer;
-  background-color: transparent;
+	cursor: pointer;
+	background-color: transparent;
 }
 
 .burger__line {
@@ -52,7 +52,7 @@
 }
 
 .burger_open .burger__line {
-  background-color: $color-tag-light;
+	background-color: $color-tag-light;
 }
 
 .burger:hover .burger__line {
@@ -60,7 +60,7 @@
 }
 
 @media (min-width: 821px) {
-  .burger {
-    display: none;
-  }
+	.burger {
+		display: none;
+	}
 }
