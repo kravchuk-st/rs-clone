@@ -1,6 +1,6 @@
-import { IQueryOptions } from '../types.js';
+import { IRecipeQueryOptions, IArticleQueryOptions } from '../types.js';
 
-const transformOptionsToQueryString = (queryOptions: IQueryOptions) => {
+const transformOptionsToQueryString = (queryOptions: IRecipeQueryOptions | IArticleQueryOptions) => {
   const queryStringArray: string[] = [];
 
   for (const [optionProp, optionValue] of Object.entries(queryOptions)) {
