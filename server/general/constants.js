@@ -8,6 +8,8 @@ vars.config({
 const PORT = process.env.PORT;
 const MONGO_CONNECT_QUERY = process.env.CONNECTION_QUERY;
 
+const SALT_ROUNDS = 8;
+
 const PAGE_NUMBER = 0;
 const RECIPES_PER_PAGE = 10;
 const ARTICLES_PER_PAGE = 7;
@@ -27,6 +29,7 @@ const ARTICLES_CATEGORY = 'cooking tips';
 module.exports = {
   PORT,
   MONGO_CONNECT_QUERY,
+  SALT_ROUNDS,
   PAGE_NUMBER,
   RECIPES_PER_PAGE,
   ARTICLES_PER_PAGE,

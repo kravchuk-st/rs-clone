@@ -13,6 +13,9 @@ const errorMessages = {
     invalidId: 'Invalid article ID',
     notFound: (articleId) => `Article for id ${articleId} not found`,
   },
+  user: {
+    unauthorized: 'Signup failure',
+  },
 };
 
 module.exports = errorMessages;
