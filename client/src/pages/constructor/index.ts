@@ -24,7 +24,6 @@ const constructorInput = document.getElementById('constructor-input') as HTMLInp
 const dropdownMenu = document.querySelector('.ingredient-options') as HTMLElement;
 const optionsHolder = document.getElementById('relevant-options') as HTMLElement;
 const chosenIngredientsBox = document.getElementById('chosen-ingredients') as HTMLElement;
-//const deleteButtons = document.querySelectorAll('.constructor-ingredient__delete');
 
 chosenIngredientsBox.addEventListener('click', e => {
   const target = e.target as HTMLElement;
@@ -38,6 +37,7 @@ chosenIngredientsBox.addEventListener('click', e => {
 });
 
 constructorInput.addEventListener('click', () => {
+  renderIngredientOptions(dropdownIngredients);
   dropdownMenu.classList.add('is-active');
 });
 
@@ -47,8 +47,9 @@ constructorInput.addEventListener('input', () => {
   relevantIngredients.length ? renderIngredientOptions(relevantIngredients) : renderMessage('Sorry, nothing matches');
 });
 
-document.addEventListener('click', e => {
-  if (!(e.target as HTMLElement).closest('.constructor-controls__select')) {
+document.body.addEventListener('click', e => {
+  const target = e.target as HTMLElement;
+  if (!target.classList.contains('ingredient-options__item') && target.id !== 'constructor-input') {
     dropdownMenu.classList.remove('is-active');
   }
 });
