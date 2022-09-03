@@ -1,16 +1,19 @@
 import { renderRecipeCard, renderArticleCard } from './render';
 import * as recipesSerivice from '../../api/recipesService';
 import * as articlesService from '../../api/articlesService';
+import getCookieValue from '../../helpers/getCookieValue';
+
 import { ILoadArticleCard, ILoadRecipeCard, IArticle, IRecipe } from '../../types';
 import { recipesLoadConfig, articlesLoadConfig } from './config';
+import { BASE_URL, ENDPOINTS } from '../../config/api.config';
 
-function loadMainPageContent() {
-  loadContent(recipesLoadConfig.popular, recipesSerivice.getRecipes);
-  loadContent(articlesLoadConfig, articlesService.getArticles);
-  loadContent(recipesLoadConfig.breakfast, recipesSerivice.getRecipes);
-  loadContent(recipesLoadConfig.lunch, recipesSerivice.getRecipes);
-  loadContent(recipesLoadConfig.dinner, recipesSerivice.getRecipes);
-  loadContent(recipesLoadConfig.bakery, recipesSerivice.getRecipes);
+async function loadMainPageContent() {
+  await loadContent(recipesLoadConfig.popular, recipesSerivice.getRecipes);
+  await loadContent(articlesLoadConfig, articlesService.getArticles);
+  await loadContent(recipesLoadConfig.breakfast, recipesSerivice.getRecipes);
+  await loadContent(recipesLoadConfig.lunch, recipesSerivice.getRecipes);
+  await loadContent(recipesLoadConfig.dinner, recipesSerivice.getRecipes);
+  await loadContent(recipesLoadConfig.bakery, recipesSerivice.getRecipes);
 }
 
 async function loadContent(
@@ -37,4 +40,30 @@ function renderItems(itemsData: IArticle[] | IRecipe[], loadConfig: ILoadRecipeC
   });
 }
 
-export { loadMainPageContent };
+function addListeners() {
+  addUserButtonListener();
+  // addRegisterButtonListener();
+  // addSignInButtonListener();
+}
+
+function addUserButtonListener() {
+  const userProfileButton = document.querySelector('.profile-btn') as HTMLButtonElement;
+  const signupForm = document.querySelector('.popup') as HTMLElement;
+  const tokenValue = getCookieValue('token');
+
+  userProfileButton.addEventListener('click', async () => {
+    if (tokenValue) {
+      const response = await fetch(`${BASE_URL}${ENDPOINTS.userProfile}`);
+      if (response.status === 200) {
+        const userId = response.user.id;
+        window.open(`${window.location.host}/user-page.html/?id=${userId}`, '_self');
+      } else {
+        signupForm.classList.add('is-open');
+      }
+    } else {
+      signupForm.classList.add('is-open');
+    }
+  });
+}
+
+export { loadMainPageContent, addListeners };

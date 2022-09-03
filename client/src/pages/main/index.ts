@@ -7,6 +7,6 @@ import * as Controller from './controller';
 
 burgerMenu();
 slider;
-Controller.loadMainPageContent();
+Controller.loadMainPageContent().then(() => Controller.addListeners());
 tabHandler();
 popupHandler();
