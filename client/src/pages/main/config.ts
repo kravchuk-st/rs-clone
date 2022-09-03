@@ -1,4 +1,4 @@
-import { IArticleQueryOptions, IRecipeQueryOptions } from '../../types';
+import { IArticleQueryOptions, ILoadArticleCard, IRecipeQueryOptions } from '../../types';
 
 const initPopularQueryOptions: IRecipeQueryOptions = {
   page: 0,
@@ -81,7 +81,7 @@ const recipesLoadConfig = {
   },
 };
 
-const articlesLoadConfig = {
+const articlesLoadConfig: ILoadArticleCard = {
   containerClass: 'articles',
   listClass: 'articles__list',
   articleClassList: ['article'],

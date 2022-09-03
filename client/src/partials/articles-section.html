@@ -6,84 +6,27 @@
         <div class="select-container__text">Choose category:</div>
           <div class="select-box">
             <div class="options-container">
-              <div class="option">
-                <input type="radio" class="radio" id="popular-first" name="sort-method" value="popular-first">
-                <label for="popular-first">Cooking tips</label>
-              </div>
-              <div class="option">
-                <input type="radio" class="radio" id="recent-first" name="sort-method" value="recent-first">
-                <label for="recent-first">Diets</label>
-              </div>
-              <div class="option">
-                <input type="radio" class="radio" id="rated-first" name="sort-method" value="rated-first">
-                <label for="rated-first">Category</label>
-              </div>
-              <div class="option">
-                <input type="radio" class="radio" id="cheap-first" name="sort-method" value="cheap-first">
-                <label for="cheap-first">Category</label>
-              </div>
+              <label class="option">
+                Cooking tips
+                <input type="radio" class="radio" id="cooking-tips" name="article-category" value="cooking-tips">
+              </label>
+              <label class="option">
+                Tutorial
+                <input type="radio" class="radio" id="tutorial" name="article-category" value="tutorial">
+              </label>
+              <label class="option">
+                Good to know
+                <input type="radio" class="radio" id="good-to-know" name="article-category" value="good-to-know">
+              </label>
+              <label class="option">
+                Diets
+                <input type="radio" class="radio" id="diets" name="article-category" value="diets">
+              </label>
             </div>
             <div id="selected">Cooking tips</div>
           </div>
       </div>
       <ul class="articles__list list-reset">
-        <li class="article__item">
-          <article class="article">
-            <img class="article__img" src="../assets/article.jpg" alt="article img">
-            <div class="article__content">
-              <div class="article__header">
-                <time class="article__date" datetime="2020-07-03">JULY 3, 2020</time>
-                <div class="article__btns">
-                  <button class="save-article btn-reset save-btn"></button>
-                  <button class="favorite-article btn-reset favorite-btn"></button>
-                </div>
-              </div>
-              <h3 class="article__title">How to cook salmon</h3>
-              <p class="article__summary">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              </p>
-              <a class="article__btn btn-reset" href="#">contunue reading</a>
-            </div>
-          </article>
-        </li>
-        <li class="article__item">
-          <article class="article">
-            <img class="article__img" src="../assets/article.jpg" alt="article img">
-            <div class="article__content">
-              <div class="article__header">
-                <time class="article__date" datetime="2020-07-03">JULY 3, 2020</time>
-                <div class="article__btns">
-                  <button class="save-article btn-reset save-btn"></button>
-                  <button class="favorite-article btn-reset favorite-btn"></button>
-                </div>
-              </div>
-              <h3 class="article__title">How to cook salmon</h3>
-              <p class="article__summary">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              </p>
-              <a class="article__btn btn-reset" href="#">contunue reading</a>
-            </div>
-          </article>
-        </li>
-        <li class="article__item">
-          <article class="article">
-            <img class="article__img" src="../assets/article.jpg" alt="article img">
-            <div class="article__content">
-              <div class="article__header">
-                <time class="article__date" datetime="2020-07-03">JULY 3, 2020</time>
-                <div class="article__btns">
-                  <button class="save-article btn-reset save-btn"></button>
-                  <button class="favorite-article btn-reset favorite-btn"></button>
-                </div>
-              </div>
-              <h3 class="article__title">How to cook salmon</h3>
-              <p class="article__summary">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              </p>
-              <a class="article__btn btn-reset" href="#">contunue reading</a>
-            </div>
-          </article>
-        </li>
       </ul>
       <div class="pagination">
         <button class="pagination__btn btn-reset page-prev" disabled></button>

@@ -9,7 +9,7 @@ const selectHandler = (): void => {
   optionsList.forEach(opt => {
     opt.addEventListener('click', () => {
       if (selected) {
-        selected.innerHTML = (opt.querySelector('label') as HTMLElement).innerHTML;
+        selected.textContent = opt.textContent?.trim() as string;
         optionsContainer?.classList.remove('is-active');
       }
     });
