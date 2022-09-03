@@ -18,7 +18,7 @@
           <div class="constructor__subheader">Chosen ingredients</div>
           <div class="constructor__body flex">
             <div class="constructor__ingredients constructor-ingredients">
-              <div class="constructor-ingredients__box">
+              <div class="constructor-ingredients__box" id="chosen-ingredients"> 
                 <div class="constructor-ingredients__item constructor-ingredient">
                   <span class="constructor-ingredient__name">mango</span>
                   <div class="constructor-ingredient__delete"></div>
@@ -58,24 +58,12 @@
               </div>
             </div>
             <div class="constructor__controls constructor-controls">
-              <button href="/" class="btn-active btn-reset">Add from your product list</button>
+              <button href="/" class="btn-active btn-reset">Add from your products list</button>
               <span class="constructor-controls__or">or</span>
               <div class="constructor-controls__select">
                 <input id="constructor-input" type="text" placeholder="start typing ingredient">
                 <div class="ingredient-options">
-                  <ul class="scrolling-area ">
-                    <li class="ingredient-options__item" id="ingredient-1-id">ingredient-1</li>
-                    <li class="ingredient-options__item" id="ingredient-2-id">ingredient-2</li>
-                    <li class="ingredient-options__item" id="ingredient-3-id">ingredient-3</li>
-                    <li class="ingredient-options__item" id="ingredient-4-id">ingredient-4</li>
-                    <li class="ingredient-options__item" id="ingredient-5-id">ingredient-5</li>
-                    <li class="ingredient-options__item" id="ingredient-6-id">ingredient-6</li>
-                    <li class="ingredient-options__item" id="ingredient-7-id">ingredient-7</li>
-                    <li class="ingredient-options__item" id="ingredient-8-id">ingredient-8</li>
-                    <li class="ingredient-options__item" id="ingredient-9-id">ingredient-9</li>
-                    <li class="ingredient-options__item" id="ingredient-10-id">ingredient-10</li>
-                    <li class="ingredient-options__item" id="ingredient-11-id">ingredient-11</li>
-                    <li class="ingredient-options__item" id="ingredient-12-id">ingredient-12</li>
+                  <ul class="scrolling-area" id="relevant-options">
                   </ul>
                 </div>
               </div>
