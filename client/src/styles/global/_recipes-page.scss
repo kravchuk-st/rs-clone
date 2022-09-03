@@ -118,7 +118,10 @@ input[type="checkbox"]:checked+label::before {
 }
 
 .scrolling-area::-webkit-scrollbar-thumb:hover{
-  background-color: rgba($color-main, 0.7);
+  background-color: lighten($color-main, 5%);
+}
+.scrolling-area::-webkit-scrollbar-thumb:active{
+  background-color: darken($color-main, 5%);
 }
 
 .select-container{
