@@ -18,12 +18,16 @@
   max-width: 750px;
   &__box {
     padding: 10px;
-    min-height: 95px;
+    min-height: 165px;
     display: flex;
     border-radius: $border-radius-min;
     border: 1px solid $color-main;
     flex-wrap: wrap;
   }
+}
+
+#is-empty-message {
+  color: darken($color-text-inactive, 20%);
 }
 
 .constructor-ingredient {
@@ -59,12 +63,16 @@
 }
 
 .constructor-controls{
-  display: flex;
-  flex-direction: column;
   margin-left: 30px;
-  position: relative;
-  justify-content: space-between;
-  max-height: 120px;
+  &-wrapper{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    justify-content: space-between;
+    height: 100px;
+    max-height: 120px;
+  }
+
   &__select {
     border-radius: $border-radius-btn;
     box-shadow: 7px 7px 34px -10px rgba(0, 0, 0, 0.15);
@@ -76,6 +84,11 @@
   &__add-btn:active {
     background-color: darken($color-btn, 5%);
   }
+}
+
+#constructor-search  {
+  margin-top: 30px;
+  width: 100%;
 }
 
 .ingredient-options {
@@ -117,6 +130,7 @@
   color: $color-text;
   &::placeholder {
     text-align: center;
+    color: darken($color-text-inactive, 20%);
   }
   &:focus {
     outline: $color-main;
@@ -157,5 +171,29 @@
 }
 
 #lack-2 {
+  background-color: $color-bg-breakfast;
+}
+
+.constructor-failure {
   background-color: $color-bg-bakery;
+  &__body {
+    margin-top: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__message {
+    font-size: $font-size-md;
+  }
+}
+#failure{
+  width: 100%;
+  .constructor__subheader {
+    text-align: left;
+  }
+}
+
+#conctructor-failure-btn {
+  max-width: fit-content;
 }
