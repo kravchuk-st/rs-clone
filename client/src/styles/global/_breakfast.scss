@@ -27,3 +27,22 @@
   column-gap: 40px;
   row-gap: 50px;
 }
+
+@media (max-width: 980px) {
+  .breakfast__content {
+    padding: 25px 15px 25px;
+    width: 100%;
+  }
+  
+  .recipes__list {
+    margin-top: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    row-gap: 30px;
+
+    .card {
+      max-width: 265px;
+    }
+  }
+}

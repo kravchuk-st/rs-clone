@@ -47,7 +47,7 @@
 
 .article__categories {
   .categories__item {
-    margin: 0 0 0 10px;
+    margin-left: 10px;
     color: $color-info;
     border-color: $color-info;
   }
@@ -79,5 +79,12 @@
 
   .recipe__item {
     max-width: 260px;
+  }
+}
+
+@media (max-width: 576px) {
+  .article__text {
+    font-size: $font-size-md;
+    line-height: 1.6;
   }
 }

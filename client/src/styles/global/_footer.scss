@@ -6,8 +6,11 @@
 
 .footer__content {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
+  column-gap: 20px;
+  row-gap: 15px;
 }
 
 .footer__authors {
@@ -20,4 +23,18 @@
 
 .author__item {
   color: $color-text;
+}
+
+@media (max-width: 706px) {
+  .footer__authors {
+    margin: 0 auto;
+    width: 100%;
+    order: -1;
+  }
+}
+
+@media (max-width: 360px) {
+  .footer__authors {
+    font-size: $font-size-xs;
+  }
 }

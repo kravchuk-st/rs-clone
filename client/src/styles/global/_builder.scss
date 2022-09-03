@@ -6,16 +6,20 @@
 
 .build__content {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
+  row-gap: 15px;
 }
 
 .build__descr {
   font-family: $font-family-secondary;
   font-size: $font-size-xxl;
+  text-align: left;
 }
 
 .build__btn {
+  margin-left: auto;
   padding-left: 25px;
   padding-right: 70px;
   background-image: url(../assets/svg/next.svg);

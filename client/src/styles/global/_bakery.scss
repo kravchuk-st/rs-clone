@@ -28,3 +28,30 @@
   column-gap: 40px;
   row-gap: 50px;
 }
+
+@media (max-width: 980px) {
+  .bakery__content{
+    padding: 25px 15px 25px;
+    width: 100%;
+  }
+
+  .bakery__list {
+    width: 100%;
+  }
+  
+  .bakery__list {
+    margin-top: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    row-gap: 30px;
+
+    .bakery__item:not(:nth-child(-n+3)) {
+      display: none;
+    }
+
+    .card {
+      max-width: 265px;
+    }
+  }
+}
