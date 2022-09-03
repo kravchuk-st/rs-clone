@@ -18,8 +18,15 @@ process.on('unhandledRejection', (error) => {
   console.log('unhandledRejection', error.message);
 });
 
+const corsOptions = {
+  origin: ['http://localhost:63342', 'http://127.0.0.1:63342'],
+  allowedHeaders: ['Content-Type'],
+  credentials: true,
+  exposedHeaders: ['set-cookie'],
+};
+
 app.use(logger('tiny'));
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(cookieParser());
 app.use(helmet());
 
