@@ -1,5 +1,6 @@
 import createElemWithClass from '../../helpers/createElementWithClass';
 import '../../styles/main.scss';
+//TODO: MOCK_INGREDIENTS are to be replaced by ingredients from DB
 const MOCK_INGREDIENTS = [
   'apple',
   'banana',
@@ -18,12 +19,18 @@ const MOCK_INGREDIENTS = [
   'lemongrass',
 ].sort();
 
+const EMPTY_MESSAGE = "You haven't added anything yet...";
+
 let dropdownIngredients = MOCK_INGREDIENTS;
 
 const constructorInput = document.getElementById('constructor-input') as HTMLInputElement;
 const dropdownMenu = document.querySelector('.ingredient-options') as HTMLElement;
 const optionsHolder = document.getElementById('relevant-options') as HTMLElement;
 const chosenIngredientsBox = document.getElementById('chosen-ingredients') as HTMLElement;
+const boxEmptyMessageElement = document.getElementById('is-empty-message') as HTMLElement;
+boxEmptyMessageElement.innerText = EMPTY_MESSAGE;
+
+showBoxIsEmptyMessage();
 
 chosenIngredientsBox.addEventListener('click', e => {
   const target = e.target as HTMLElement;
@@ -33,6 +40,12 @@ chosenIngredientsBox.addEventListener('click', e => {
       removeIngredientFromChosen(chosenElem);
       addIngredientToOptions(chosenElem);
     }
+  }
+
+  if (chosenIngredientsBox.querySelectorAll('.constructor-ingredient').length === 0) {
+    showBoxIsEmptyMessage();
+  } else {
+    removeBoxIsEmptyMessage();
   }
 });
 
@@ -100,6 +113,7 @@ function moveIngredientToChosen(str: string): void {
   const ingredient = str.trim().toLowerCase();
   if (MOCK_INGREDIENTS.includes(ingredient)) {
     addIngredientToChosen(ingredient);
+    removeBoxIsEmptyMessage();
   }
   dropdownIngredients = dropdownIngredients.filter(item => item !== ingredient);
   constructorInput.value = '';
@@ -115,4 +129,12 @@ function addIngredientToOptions(elem: Element): void {
   const chosenElemName = (elem.querySelector('.constructor-ingredient__name') as HTMLElement).innerText;
   dropdownIngredients.push(chosenElemName);
   dropdownIngredients.sort();
+}
+
+function showBoxIsEmptyMessage() {
+  boxEmptyMessageElement.classList.remove('hidden');
+}
+
+function removeBoxIsEmptyMessage() {
+  boxEmptyMessageElement.classList.add('hidden');
 }
