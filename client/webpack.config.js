@@ -15,6 +15,7 @@ const config = {
     recipes: './src/pages/recipes/index.ts',
     article: './src/pages/article/index.ts',
     articles: './src/pages/articles/index.ts',
+    constructor: './src/pages/constructor/index.ts',
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -67,6 +68,12 @@ const config = {
       template: './src/pages/articles/index.html',
       filename: 'articles.html',
       chunks: ['articles'],
+      inject: 'body',
+    }),
+    new HtmlWebpackPlugin({
+      template: './src/pages/constructor/constructor.html',
+      filename: 'constructor.html',
+      chunks: ['constructor'],
       inject: 'body',
     }),
     new EslintPlugin({
