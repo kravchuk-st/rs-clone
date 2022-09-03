@@ -7,6 +7,10 @@ vars.config({
 
 const PORT = process.env.PORT;
 const MONGO_CONNECT_QUERY = process.env.CONNECTION_QUERY;
+const JWT_SECRET = process.env.JWT_SECRET;
+const JWT_EXPIRES_IN = process.env.JWT_EXPIRES_IN;
+
+const SALT_ROUNDS = 8;
 
 const PAGE_NUMBER = 0;
 const RECIPES_PER_PAGE = 10;
@@ -24,9 +28,14 @@ const SORT_OPTION = 'veryPopular';
 
 const ARTICLES_CATEGORY = 'cooking tips';
 
+const MS_IN_SECOND = 1000;
+
 module.exports = {
   PORT,
   MONGO_CONNECT_QUERY,
+  JWT_SECRET,
+  JWT_EXPIRES_IN,
+  SALT_ROUNDS,
   PAGE_NUMBER,
   RECIPES_PER_PAGE,
   ARTICLES_PER_PAGE,
@@ -40,4 +49,5 @@ module.exports = {
   MAX_FATS,
   MAX_PROTEINS,
   SORT_OPTION,
+  MS_IN_SECOND,
 };
