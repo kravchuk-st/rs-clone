@@ -1,8 +1,6 @@
 const jwt = require('jsonwebtoken');
-const User = require('../models/users/user.model');
 
 const { StatusCodes } = require('http-status-codes');
-const errorMessages = require('../errors/errorMessages.config');
 const { JWT_SECRET } = require('../general/constants');
 
 const verifyToken = (req, res, next) => {
@@ -13,16 +11,8 @@ const verifyToken = (req, res, next) => {
         req.user = undefined;
         next(error);
       } else {
-        User.findOne({
-          _id: decoded.id,
-        }).exec((error, user) => {
-          if (error) {
-            res.status(StatusCodes.INTERNAL_SERVER_ERROR).send(errorMessages.general.internal);
-          } else {
-            req.user = user;
-            next();
-          }
-        });
+        req.userId = decoded.id;
+        next();
       }
     });
   } else {
