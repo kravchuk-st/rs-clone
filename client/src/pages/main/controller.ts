@@ -1,4 +1,4 @@
-import { renderRecipeCard, renderArticleCard } from './render';
+import { renderRecipeCard, renderArticleCard } from '../../features/renderCards';
 import * as recipesService from '../../api/recipesService';
 import * as articlesService from '../../api/articlesService';
 import * as formHandler from '../../helpers/loginFormHandlers';

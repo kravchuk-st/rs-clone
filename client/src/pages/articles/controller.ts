@@ -1,4 +1,4 @@
-import { renderArticleCard } from '../main/render';
+import { renderArticleCard } from '../../features/renderCards';
 import * as articlesService from '../../api/articlesService';
 import { ILoadArticleCard } from '../../types';
 import { articlesLoadConfig } from './config';
