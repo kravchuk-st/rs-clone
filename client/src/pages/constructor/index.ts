@@ -1,6 +1,6 @@
 import createElemWithClass from '../../helpers/createElementWithClass';
 import '../../styles/main.scss';
-import { EMPTY_MESSAGE, MOCK_INGREDIENTS } from '../../variables';
+import { EMPTY_MESSAGE, MOCK_INGREDIENTS } from '../../constants';
 
 let dropdownIngredients = MOCK_INGREDIENTS;
 

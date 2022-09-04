@@ -3,7 +3,9 @@ import productListControlsHandler from '../../features/productListControlsHandle
 import { tabHandler } from '../../features/tabs';
 import '../../styles/main.scss';
 import '../../features/productListInputHandler';
+import userpageControlsHandler from '../../features/userpageButtonHandlers';
 
 burgerMenu();
 tabHandler();
 productListControlsHandler();
+userpageControlsHandler();
