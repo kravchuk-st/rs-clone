@@ -30,4 +30,15 @@ async function sendUserData(data: FormData, endpoint: string): Promise<IUserResp
   })) as IUserResponse;
 }
 
-export { getUserData };
+async function logOut() {
+  const response = (await fetch(`${BASE_URL}${ENDPOINTS.userLogout}`, {
+    credentials: 'include',
+  })) as Response;
+  if (response.status === 204) {
+    localStorage.removeItem('userName');
+    const tempPathName = '/rs-clone/client/dist';
+    window.open(`${tempPathName}/index.html`, '_self');
+  }
+}
+
+export { getUserData, logOut };
