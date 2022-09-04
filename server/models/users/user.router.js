@@ -8,14 +8,19 @@ router.post('/register', signup, (req, res) => {});
 
 router.post('/login', signin, (req, res) => {});
 
-router.post('/logout', logout, (req, res) => {});
+router.get('/logout', logout, (req, res) => {});
 
 router.get('/profile', verifyToken, (req, res) => {
   if (!req.user) {
     res.status(StatusCodes.FORBIDDEN).send(errorMessages.user.forbidden);
   } else {
-    //  DB request for user page content
-    res.status(StatusCodes.OK).send({ id: req.user.id });
+    res.status(StatusCodes.OK).send({
+      id: req.user._id,
+      email: req.user.email,
+      name: req.user.name,
+      articles: req.user.articles,
+      recipes: req.user.recipes,
+    });
   }
 });
 
