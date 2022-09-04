@@ -214,3 +214,14 @@ input[type="checkbox"]:checked+label::before {
     color: $color-btn-light;
   }
 }
+
+@media (max-width: 360px) {
+  .select-container {
+    padding-left: 0;
+    justify-content: center;
+  }
+
+  .select-container__text {
+    font-size: $font-size-xs;
+  }
+}

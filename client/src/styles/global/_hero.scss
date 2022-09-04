@@ -27,11 +27,12 @@
 }
 
 .hero__theme {
-  margin-top: 52px;
+  height: 90px;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
   column-gap: 35px;
+  overflow-x: auto;
+  overflow-y: hidden;
 
   .category {
     display: flex;
@@ -54,5 +55,11 @@
       color: $color-text;
       text-transform: uppercase;
     }
+  }
+}
+
+@media (max-width: 770px) {
+  .hero__theme {
+    justify-content: flex-start;
   }
 }

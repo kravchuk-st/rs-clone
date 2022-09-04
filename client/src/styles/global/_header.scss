@@ -62,7 +62,7 @@
     width: 320px;
     height: 101vh;
     position: fixed;
-    z-index: 10;
+    z-index: 15;
     top: 0;
     left: -100%;
     opacity: 0;
@@ -113,6 +113,10 @@
   .navbar__list_open li:nth-child(4) {
     transition-delay: 0.7s;
   }
+}
+
+.main-page .header {
+  border-bottom: 1px solid $color-btn;
 }
 
 @media (max-width: 576px) {
