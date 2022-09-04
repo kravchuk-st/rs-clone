@@ -1,5 +1,5 @@
 const { recipesSortMap } = require('./queryMap');
-const { PAGE_NUMBER, RECIPES_PER_PAGE, ARTICLES_PER_PAGE, SORT_OPTION, ARTICLES_CATEGORY } = require('./constants');
+const { PAGE_NUMBER, RECIPES_PER_PAGE, ARTICLES_PER_PAGE, SORT_OPTION } = require('./constants');
 
 const recipesSelector = (queryObject) => {
   return {
@@ -14,7 +14,6 @@ const articlesSelector = (queryObject) => {
   return {
     page: Number(queryObject.page) || PAGE_NUMBER,
     limit: Number(queryObject.limit) || ARTICLES_PER_PAGE,
-    category: ARTICLES_CATEGORY,
   };
 };
 
