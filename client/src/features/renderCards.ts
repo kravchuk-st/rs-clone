@@ -1,6 +1,8 @@
 import createElementWithClass from '../helpers/createElementWithClass';
 import capitalize from '../helpers/capitalize';
-import { IArticle, IRecipe } from '../types';
+import { IArticle, ILoadArticleCard, ILoadRecipeCard, IRecipe } from '../types';
+import * as articlesService from '../api/articlesService';
+import * as recipesService from '../api/recipesService';
 
 function renderRecipeCard(
   recipeData: IRecipe,
@@ -72,4 +74,24 @@ function renderArticleCard(articleData: IArticle, articleClass: string[]): HTMLE
   return articleElement;
 }
 
-export { renderRecipeCard, renderArticleCard };
+function renderCards(itemsData: IArticle[] | IRecipe[], loadConfig: ILoadRecipeCard | ILoadArticleCard) {
+  const sectionContainer = document.querySelector(`.${loadConfig.containerClass}`) as HTMLElement;
+  const sectionContainerList = sectionContainer.querySelector(`.${loadConfig.listClass}`) as HTMLUListElement;
+
+  const itemsCards = renderItems(itemsData, loadConfig);
+
+  sectionContainerList.append(...itemsCards);
+}
+
+function renderItems(itemsData: IArticle[] | IRecipe[], loadConfig: ILoadRecipeCard | ILoadArticleCard) {
+  return itemsData.map((item, itemIndex) => {
+    if ('largeCardIndex' in loadConfig) {
+      const size = itemIndex === loadConfig.largeCardIndex ? 'large' : 'normal';
+      return renderRecipeCard(item as IRecipe, size, loadConfig.cardClassList, loadConfig.listElemType);
+    }
+
+    return renderArticleCard(item as IArticle, loadConfig.articleClassList);
+  });
+}
+
+export { renderRecipeCard, renderArticleCard, renderCards, renderItems };
