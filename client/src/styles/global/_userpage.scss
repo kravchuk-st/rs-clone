@@ -1,3 +1,13 @@
+.wrapper {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.user-main {
+  flex-grow: 1;
+}
+
 .flex{
   display: flex;
 }
@@ -55,6 +65,14 @@
       background-color: $color-btn;
     }
   };
+}
+
+.tabs-content {
+  display: none;
+
+  &.is-active{
+    display: block;
+  }
 }
 
 .tabs-content__item {
