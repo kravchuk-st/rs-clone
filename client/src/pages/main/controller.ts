@@ -1,42 +1,29 @@
-import { renderRecipeCard, renderArticleCard } from '../../features/renderCards';
+import loadCardsContent from '../../features/loadCards';
 import * as recipesService from '../../api/recipesService';
 import * as articlesService from '../../api/articlesService';
 import * as formHandler from '../../helpers/loginFormHandlers';
 
-import { ILoadArticleCard, ILoadRecipeCard, IArticle, IRecipe } from '../../types';
 import { recipesLoadConfig, articlesLoadConfig } from './config';
+import { renderCards } from '../../features/renderCards';
 
 async function loadMainPageContent() {
-  await loadContent(recipesLoadConfig.popular, recipesService.getRecipes);
-  await loadContent(articlesLoadConfig, articlesService.getArticles);
-  await loadContent(recipesLoadConfig.breakfast, recipesService.getRecipes);
-  await loadContent(recipesLoadConfig.lunch, recipesService.getRecipes);
-  await loadContent(recipesLoadConfig.dinner, recipesService.getRecipes);
-  await loadContent(recipesLoadConfig.bakery, recipesService.getRecipes);
-}
+  const popularRecipes = await loadCardsContent(recipesLoadConfig.popular, recipesService.getRecipes);
+  renderCards(popularRecipes, recipesLoadConfig.popular);
 
-async function loadContent(
-  loadConfig: ILoadRecipeCard | ILoadArticleCard,
-  contentLoadingService: typeof articlesService.getArticles | typeof recipesService.getRecipes
-) {
-  const sectionContainer = document.querySelector(`.${loadConfig.containerClass}`) as HTMLElement;
-  const sectionContainerList = sectionContainer.querySelector(`.${loadConfig.listClass}`) as HTMLUListElement;
+  const articles = await loadCardsContent(articlesLoadConfig, articlesService.getArticles);
+  renderCards(articles, articlesLoadConfig);
 
-  const itemsData = await contentLoadingService(loadConfig.queryOptions);
-  const itemsCards = renderItems(itemsData, loadConfig);
+  const breakfastRecipes = await loadCardsContent(recipesLoadConfig.breakfast, recipesService.getRecipes);
+  renderCards(breakfastRecipes, recipesLoadConfig.breakfast);
 
-  sectionContainerList.append(...itemsCards);
-}
+  const lunchRecipes = await loadCardsContent(recipesLoadConfig.lunch, recipesService.getRecipes);
+  renderCards(lunchRecipes, recipesLoadConfig.lunch);
 
-function renderItems(itemsData: IArticle[] | IRecipe[], loadConfig: ILoadRecipeCard | ILoadArticleCard) {
-  return itemsData.map((item, itemIndex) => {
-    if ('largeCardIndex' in loadConfig) {
-      const size = itemIndex === loadConfig.largeCardIndex ? 'large' : 'normal';
-      return renderRecipeCard(item as IRecipe, size, loadConfig.cardClassList, loadConfig.listElemType);
-    }
+  const dinnerRecipes = await loadCardsContent(recipesLoadConfig.dinner, recipesService.getRecipes);
+  renderCards(dinnerRecipes, recipesLoadConfig.dinner);
 
-    return renderArticleCard(item as IArticle, loadConfig.articleClassList);
-  });
+  const bakeryRecipes = await loadCardsContent(recipesLoadConfig.bakery, recipesService.getRecipes);
+  renderCards(bakeryRecipes, recipesLoadConfig.bakery);
 }
 
 function addListeners() {

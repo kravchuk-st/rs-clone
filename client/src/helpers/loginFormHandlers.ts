@@ -15,9 +15,8 @@ function addUserButtonListener() {
         credentials: 'include',
       })) as IUserResponse;
       if (response.status === 200) {
-        const responseBody = (await response.json()) as IUserResponse;
         const tempPathName = '/rs-clone/client/dist';
-        window.open(`${tempPathName}/user-page.html?id=${responseBody.id}`, '_self');
+        window.open(`${tempPathName}/user-page.html`, '_self');
       } else {
         signupForm.classList.add('is-open');
       }
