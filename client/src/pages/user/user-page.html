@@ -17,6 +17,7 @@
             <div class="buttons mt-20">
               <button class="btn-reset btn btn_outlined buttons__item">Articles</button>
               <button class="btn-reset btn btn-active buttons__item">Recipes</button>
+              <button class="btn-reset btn btn_outlined buttons__item">Product lists</button>
               <button class="btn-reset btn btn_outlined buttons__item">Edit profile info</button>
             </div>
             <div class="search">
@@ -35,7 +36,7 @@
             </div>
           </div>
           <div class="content">
-            <div class="tabs">
+            <div class="tabs hidden" id="recipes">
               <div class="tabs__nav tabs-nav">
                 <button class="btn-reset btn btn_outlined tabs-nav__item is-active" data-tab-name="saved">Saved </button>
                 <button class="btn-reset btn btn_outlined tabs-nav__item" data-tab-name="favorites">Favorites</button> 
@@ -49,12 +50,128 @@
                   </ul>
                 </div>
                 <div class="tabs-content__item" data-tab-content="favorites" >
+                  <ul class="recipes__list list-reset recipes__list_user">
+                    <%= require('html-loader!../../partials/recipe-card.html').default %>
+                    <%= require('html-loader!../../partials/recipe-card.html').default %>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="tabs hidden" id="articles">
+              <div class="tabs__nav tabs-nav">
+                <button class="btn-reset btn btn_outlined tabs-nav__item is-active" data-tab-name="saved">Saved </button>
+                <button class="btn-reset btn btn_outlined tabs-nav__item" data-tab-name="favorites">Favorites</button> 
+              </div>
+              <div class="tabs__content tabs-content">
+                <div class="tabs-content__item is-active" data-tab-content="saved" >
                   <section class="articles">
-                      <div class="articles__list">
-                        <%= require('html-loader!../../partials/article-preview.html').default %>
-                        <%= require('html-loader!../../partials/article-preview.html').default %>
-                      </div>
+                    <div class="articles__list">
+                      <%= require('html-loader!../../partials/article-preview.html').default %>
+                      <%= require('html-loader!../../partials/article-preview.html').default %>
+                      <%= require('html-loader!../../partials/article-preview.html').default %>
+                    </div>
                   </section>
+                </div>
+                <div class="tabs-content__item" data-tab-content="favorites" >
+                  <section class="articles">
+                    <div class="articles__list">
+                      <%= require('html-loader!../../partials/article-preview.html').default %>
+                      <%= require('html-loader!../../partials/article-preview.html').default %>
+                    </div>
+                </section>
+                </div>
+              </div>
+            </div>
+            <div class="tabs" id="lists">
+              <div class="tabs__nav tabs-nav">
+                <button class="btn-reset btn btn_outlined tabs-nav__item is-active" data-tab-name="products-stocked">Products list </button>
+                <button class="btn-reset btn btn_outlined tabs-nav__item" data-tab-name="products-needed">Shopping list</button> 
+              </div>
+              <div class="tabs__content tabs-content">
+                <div class="tabs-content__item is-active" data-tab-content="products-stocked" >
+                  <ul class="list-reset products-list products-list_stocked">
+                    <li class="products-list__item">
+                      <span class="product">apple</span> 
+                      <div class="product__controls product-controls"> 
+                        <div class="product-controls__add-btn"></div> 
+                        <div class="product-controls__delete-btn"></div>
+                      </div> 
+                    </li>
+                    <li class="products-list__item">
+                      <span class="product">apple</span> 
+                      <div class="product__controls product-controls"> 
+                        <div class="product-controls__add-btn"></div> 
+                        <div class="product-controls__delete-btn"></div>
+                      </div> 
+                    </li>
+                    <li class="products-list__item">
+                      <span class="product">apple</span> 
+                      <div class="product__controls product-controls"> 
+                        <div class="product-controls__add-btn"></div> 
+                        <div class="product-controls__delete-btn"></div>
+                      </div> 
+                    </li>
+                    <li class="products-list__item">
+                      <span class="product">apple</span> 
+                      <div class="product__controls product-controls"> 
+                        <div class="product-controls__add-btn"></div> 
+                        <div class="product-controls__delete-btn"></div>
+                      </div> 
+                    </li>
+                    <li class="products-list__item">
+                      <span class="product">apple</span> 
+                      <div class="product__controls product-controls"> 
+                        <div class="product-controls__add-btn"></div> 
+                        <div class="product-controls__delete-btn"></div>
+                      </div> 
+                    </li>
+                  </ul>
+                </div>
+                <div class="tabs-content__item" data-tab-content="products-needed" >
+                  <ul class="list-reset products-list products-list_needed">
+                    <li class="products-list__item">
+                      <span class="product">banana</span> 
+                      <div class="product__controls product-controls"> 
+                        <div class="product-controls__add-btn"></div> 
+                        <div class="product-controls__delete-btn"></div>
+                      </div> 
+                    </li>
+                    <li class="products-list__item">
+                      <span class="product">banana</span> 
+                      <div class="product__controls product-controls"> 
+                        <div class="product-controls__add-btn"></div> 
+                        <div class="product-controls__delete-btn"></div>
+                      </div> 
+                    </li>
+                    <li class="products-list__item">
+                      <span class="product">banana</span> 
+                      <div class="product__controls product-controls"> 
+                        <div class="product-controls__add-btn"></div> 
+                        <div class="product-controls__delete-btn"></div>
+                      </div> 
+                    </li>
+                    <li class="products-list__item">
+                      <span class="product">banana</span> 
+                      <div class="product__controls product-controls"> 
+                        <div class="product-controls__add-btn"></div> 
+                        <div class="product-controls__delete-btn"></div>
+                      </div> 
+                    </li>
+                    <li class="products-list__item">
+                      <span class="product">banana</span> 
+                      <div class="product__controls product-controls"> 
+                        <div class="product-controls__add-btn"></div> 
+                        <div class="product-controls__delete-btn"></div>
+                      </div> 
+                    </li>
+                    <li class="products-list__item">
+                      <span class="product">banana</span> 
+                      <div class="product__controls product-controls"> 
+                        <div class="product-controls__add-btn"></div> 
+                        <div class="product-controls__delete-btn"></div>
+                      </div> 
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>

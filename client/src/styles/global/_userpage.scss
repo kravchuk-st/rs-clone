@@ -65,6 +65,89 @@
   }
 }
 
-.recipes__list_user{
-  padding: 0 25px;
+.products-list {
+  margin-top: 40px;
+  &_stocked {
+    .product-controls__add-btn {
+      display: none;
+    }
+  }
+}
+
+.products-list__item {
+  padding: 10px 20px 10px 50px;
+  text-align: left;
+  position: relative;
+  border-bottom: 1px solid rgba($color-text-inactive, 0.5);
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none;
+  &:hover {
+    background-color: rgba($color-text-inactive, 0.3);
+  }
+  & span:hover {
+    background-color: #fff;
+  }
+
+  .products-list_stocked & {
+    &::before{
+      content: '';
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      height: 20px;
+      width: 20px;
+      border-radius: 100%;
+      background-color: $color-main;
+      background-image: url('../assets/svg/check-light.svg');
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+  }
+  .products-list_needed & {
+    &::before{
+      content: '';
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      height: 20px;
+      width: 20px;
+      border-radius: 100%;
+      border: 1px solid $color-main;
+    }
+  }
+}
+
+.product-controls{
+  display: flex;
+  &__delete-btn {
+    margin-left: 15px;
+    width: 13px;
+    height: 13px;
+    padding: 3px;
+    background-image: url('../assets/svg/delete-filled.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    pointer-events: auto;
+    &:hover {
+      cursor: pointer;
+      scale: 1.3;
+    }
+  }
+  &__add-btn {
+    width: 15px;
+    height: 15px;
+    padding: 3px;
+    background-image: url('../assets/svg/check-colored.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    pointer-events: auto;
+    &:hover {
+      cursor: pointer;
+      scale: 1.3;
+    }
+  }
+  
 }
