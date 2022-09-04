@@ -116,12 +116,14 @@ interface IRecipeQueryOptions {
   search?: string[];
   sort?: SortOptions;
   'sort-dir'?: 1 | -1;
+  id?: string[];
 }
 
 interface IArticleQueryOptions {
   page?: number;
   limit?: number;
   category?: string;
+  id?: string[];
 }
 
 interface ILoadRecipeCard {
@@ -140,14 +142,34 @@ interface ILoadArticleCard {
   queryOptions: IArticleQueryOptions;
 }
 
+interface ILoadUserRecipes {
+  saved: ILoadRecipeCard;
+  favorite: ILoadRecipeCard;
+}
+
+interface ILoadUserArticles {
+  saved: ILoadArticleCard;
+  favorite: ILoadArticleCard;
+}
+
 type ILoadRecipePage = IRecipe;
 
 interface IUserResponse extends Response {
   id: string;
   email: string;
   name: string;
-  articles: number[];
-  recipes: number[];
+  articles: {
+    saved: string[];
+    favorite: string[];
+  };
+  recipes: {
+    saved: string[];
+    favorite: string[];
+  };
+  products: {
+    shopping: string[];
+    own: string[];
+  };
 }
 
 export {
@@ -162,4 +184,6 @@ export {
   IInstructions,
   IArticle,
   IUserResponse,
+  ILoadUserRecipes,
+  ILoadUserArticles,
 };
