@@ -46,6 +46,13 @@ h3 {
   display: inline-block;
 }
 
+.btn_outlined {
+  padding: 10px 45px;
+  color: $color-btn;
+  background-color: $color-btn-light;
+  border: solid 1px $color-btn;
+}
+
 .btn-active {
   padding: 10px 45px;
   color:  $color-btn-light;
@@ -58,13 +65,6 @@ h3 {
   &:active {
     background-color: darken($color-btn, 5%);
   }
-}
-
-.btn_outlined {
-  padding: 10px 45px;
-  color: $color-btn;
-  background-color: $color-btn-light;
-  border: solid 1px $color-btn;
 }
 
 .card .favorite-btn {
