@@ -14,11 +14,12 @@
         <div class="container">
           <div class="flex">
             <div class="controls">
-              <%= require('html-loader!../../partials/user-card.html').default %>
+              <div class="profile"></div>
               <div class="buttons mt-20">
                 <button class="btn-reset btn btn_outlined buttons__item" id="articles-btn">Articles</button>
                 <button class="btn-reset btn btn-active buttons__item" id="recipes-btn">Recipes</button>
-                <button class="btn-reset btn btn_outlined buttons__item">Edit profile info</button>
+                <button class="btn-reset btn btn_outlined buttons__item" disabled>Edit profile info</button>
+                <button class="btn-reset btn btn-secondary buttons__item" id="logout-btn">Log out</button>
               </div>
               <div class="search">
                 <input class="search__input" type="text" autocomplete="off" autofocus>
@@ -43,36 +44,28 @@
                 </div>
                 <div class="tabs__content tabs-content is-active" id="tab-recipes">
                   <div class="tabs-content__item is-active" data-tab-content="saved" >
-                    <section class="recipes">
+                    <section class="recipes-saved">
                       <ul class="recipes__list list-reset recipes__list_user">
-                        <%= require('html-loader!../../partials/recipe-card.html').default %>
-                        <%= require('html-loader!../../partials/recipe-card.html').default %>
-                        <%= require('html-loader!../../partials/recipe-card.html').default %>
                       </ul>
                     </section>
                   </div>
                   <div class="tabs-content__item" data-tab-content="favorites" >
-                    <section class="recipes">
+                    <section class="recipes-favorite">
                       <ul class="recipes__list list-reset recipes__list_user">
-                        <%= require('html-loader!../../partials/recipe-card.html').default %>
-                        <%= require('html-loader!../../partials/recipe-card.html').default %>
                       </ul>
                     </section>
                   </div>
                 </div>
                 <div class="tabs__content tabs-content" id="tab-articles">
                   <div class="tabs-content__item is-active" data-tab-content="saved" >
-                    <section class="articles">
+                    <section class="articles-saved">
                       <div class="articles__list">
-                        <%= require('html-loader!../../partials/article-preview.html').default %>
-                        <%= require('html-loader!../../partials/article-preview.html').default %>
                       </div>
                     </section>
                   </div>
                   <div class="tabs-content__item" data-tab-content="favorites" >
-                    <section class="articles">
+                    <section class="articles-favorite">
                       <div class="articles__list">
-                        <%= require('html-loader!../../partials/article-preview.html').default %>
                       </div>
                     </section>
                   </div>

@@ -67,6 +67,13 @@ h3 {
   border: solid 1px $color-btn;
 }
 
+.btn-secondary {
+  padding: 10px 45px;
+  color: $color-info;
+  background-color: $color-btn-light;
+  border: 1px solid $color-info;
+}
+
 .card .favorite-btn {
   width: 25px;
   height: 25px;

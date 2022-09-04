@@ -26,6 +26,9 @@
     margin-bottom: 10px;
     font-size: $font-size-md;
   }
+  &__item:last-child {
+    margin-bottom: 20px;
+  }
 }
 
 .categories_justified {
