@@ -1,7 +1,6 @@
 import getCookieValue from '../helpers/getCookieValue';
 import { BASE_URL, ENDPOINTS } from '../config/api.config';
 import { IUserResponse } from '../types';
-import { setUserName } from '../helpers/manageUserName';
 
 const getUserData = async (): Promise<IUserResponse | undefined> => {
   const tokenValue = getCookieValue('token');
@@ -21,12 +20,12 @@ const getUserData = async (): Promise<IUserResponse | undefined> => {
   }
 };
 
-async function sendUserData(data: FormData, endpoint: string): Promise<IUserResponse> {
+async function sendUserData(data: IUserResponse, endpoint: string): Promise<Response> {
   return (await fetch(`${BASE_URL}${endpoint}`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     credentials: 'include',
-    body: JSON.stringify(Object.fromEntries(data.entries())),
+    body: JSON.stringify(data),
   })) as IUserResponse;
 }
 
@@ -41,4 +40,4 @@ async function logOut() {
   }
 }
 
-export { getUserData, logOut };
+export { getUserData, sendUserData, logOut };
