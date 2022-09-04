@@ -84,17 +84,42 @@ function createQueryConfigs(userData: IUserResponse | undefined): (ILoadUserReci
 }
 
 async function loadPageContent(recipesLoadConfig: ILoadUserRecipes, articlesLoadConfig: ILoadUserArticles) {
-  const savedRecipes = await loadCardsContent(recipesLoadConfig.saved, recipesService.getRecipes);
-  renderCards(savedRecipes, recipesLoadConfig.saved);
+  const emptyRecipesSaved = document.querySelector('#empty-recipes-saved') as HTMLElement;
+  const emptyRecipesFavorite = document.querySelector('#empty-recipes-favorite') as HTMLElement;
+  const emptyArticlesSaved = document.querySelector('#empty-articles-saved') as HTMLElement;
+  const emptyArticlesFavorite = document.querySelector('#empty-articles-favorite') as HTMLElement;
 
-  const favoriteRecipes = await loadCardsContent(recipesLoadConfig.favorite, recipesService.getRecipes);
-  renderCards(favoriteRecipes, recipesLoadConfig.favorite);
+  if (recipesLoadConfig.saved.queryOptions.id?.length) {
+    const savedRecipes = await loadCardsContent(recipesLoadConfig.saved, recipesService.getRecipes);
+    renderCards(savedRecipes, recipesLoadConfig.saved);
+    emptyRecipesSaved.classList.add('hidden');
+  } else {
+    emptyRecipesSaved.classList.remove('hidden');
+  }
 
-  const savedArticles = await loadCardsContent(articlesLoadConfig.saved, articlesService.getArticles);
-  renderCards(savedArticles, articlesLoadConfig.saved);
+  if (recipesLoadConfig.favorite.queryOptions.id?.length) {
+    const favoriteRecipes = await loadCardsContent(recipesLoadConfig.favorite, recipesService.getRecipes);
+    renderCards(favoriteRecipes, recipesLoadConfig.favorite);
+    emptyRecipesFavorite.classList.add('hidden');
+  } else {
+    emptyRecipesFavorite.classList.remove('hidden');
+  }
 
-  const favoriteArticles = await loadCardsContent(articlesLoadConfig.favorite, articlesService.getArticles);
-  renderCards(favoriteArticles, articlesLoadConfig.favorite);
+  if (articlesLoadConfig.saved.queryOptions.id?.length) {
+    const savedArticles = await loadCardsContent(articlesLoadConfig.saved, articlesService.getArticles);
+    renderCards(savedArticles, articlesLoadConfig.saved);
+    emptyArticlesSaved.classList.add('hidden');
+  } else {
+    emptyArticlesSaved.classList.remove('hidden');
+  }
+
+  if (articlesLoadConfig.favorite.queryOptions.id?.length) {
+    const favoriteArticles = await loadCardsContent(articlesLoadConfig.favorite, articlesService.getArticles);
+    renderCards(favoriteArticles, articlesLoadConfig.favorite);
+    emptyArticlesFavorite.classList.add('hidden');
+  } else {
+    emptyArticlesFavorite.classList.remove('hidden');
+  }
 }
 
 function addListeners() {
