@@ -15,7 +15,7 @@ router.get('/profile', verifyToken, (req, res) => {
     res.status(StatusCodes.FORBIDDEN).send(errorMessages.user.forbidden);
   } else {
     //  DB request for user page content
-    res.status(StatusCodes.OK).send('Access to profile is given');
+    res.status(StatusCodes.OK).send({ id: req.user.id });
   }
 });
 

@@ -142,6 +142,14 @@ interface ILoadArticleCard {
 
 type ILoadRecipePage = IRecipe;
 
+interface IUserResponse extends Response {
+  id: string;
+  email: string;
+  name: string;
+  articles: number[];
+  recipes: number[];
+}
+
 export {
   IRecipe,
   IRecipeQueryOptions,
@@ -153,4 +161,5 @@ export {
   INutrient,
   IInstructions,
   IArticle,
+  IUserResponse,
 };

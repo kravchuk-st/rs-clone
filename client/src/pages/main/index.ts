@@ -4,9 +4,11 @@ import { slider } from '../../features/slider';
 import { tabHandler } from '../../features/tabs';
 import '../../styles/main.scss';
 import * as Controller from './controller';
+import { getUserName } from '../../helpers/manageUserName';
 
 burgerMenu();
 slider;
-Controller.loadMainPageContent();
+Controller.loadMainPageContent().then(() => Controller.addListeners());
+getUserName();
 tabHandler();
 popupHandler();
