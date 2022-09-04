@@ -32,6 +32,10 @@ const UserSchema = new Schema({
     saved: [Number],
     favorite: [Number],
   },
+  products: {
+    shopping: [String],
+    own: [String],
+  },
 });
 
 const User = mongoose.model('users', UserSchema);
