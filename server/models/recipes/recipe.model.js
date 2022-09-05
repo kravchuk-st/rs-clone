@@ -6,6 +6,7 @@ const RecipeSchema = new Schema({
   id: {
     type: Number,
     required: true,
+    unique: true,
   },
   createdAt: {
     type: Date,

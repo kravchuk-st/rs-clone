@@ -1,5 +1,3 @@
-import { EMPTY_MESSAGE } from '../constants';
-
 export const deleteProduct = (e: Event): void => {
   const target = e.target as HTMLElement;
   const targetProduct = target.closest('.products-list__item') as Node;

@@ -6,11 +6,11 @@ const initArticlesQueryOptions: IArticleQueryOptions = {
   category: 'cooking tips',
 };
 
-const articlesLoadConfig: ILoadArticleCard = {
+const articlesLoadConfigInit: ILoadArticleCard = {
   containerClass: 'articles',
   listClass: 'articles__list',
   articleClassList: ['article'],
   queryOptions: initArticlesQueryOptions,
 };
 
-export { articlesLoadConfig };
+export { articlesLoadConfigInit };

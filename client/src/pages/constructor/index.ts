@@ -2,6 +2,8 @@ import { burgerMenu } from '../../features/burgerMenu';
 import createElemWithClass from '../../helpers/createElementWithClass';
 import '../../styles/main.scss';
 import { EMPTY_MESSAGE, MOCK_INGREDIENTS } from '../../constants';
+import * as formHandler from '../../helpers/loginFormHandlers';
+import { getUserName } from '../../helpers/manageUserName';
 
 let dropdownIngredients = MOCK_INGREDIENTS;
 
@@ -14,6 +16,7 @@ boxEmptyMessageElement.innerText = EMPTY_MESSAGE;
 
 burgerMenu();
 showBoxIsEmptyMessage();
+getUserName();
 
 chosenIngredientsBox.addEventListener('click', e => {
   const target = e.target as HTMLElement;
@@ -121,3 +124,7 @@ function showBoxIsEmptyMessage() {
 function removeBoxIsEmptyMessage() {
   boxEmptyMessageElement.classList.add('hidden');
 }
+
+formHandler.addUserButtonListener();
+formHandler.addRegisterFormListener();
+formHandler.addSignInFormListener();

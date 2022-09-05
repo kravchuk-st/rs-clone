@@ -13,6 +13,7 @@ import { getUserData, logOut } from '../../api/userService';
 import * as userService from '../../api/userService';
 import { ENDPOINTS } from '../../config/api.config';
 import userpageControlsHandler from '../../features/userpageButtonHandlers';
+import * as formHandler from '../../helpers/loginFormHandlers';
 
 async function fetchUserData(): Promise<IUserResponse | undefined> {
   return await getUserData();
@@ -92,14 +93,17 @@ async function loadPageContent(recipesLoadConfig: ILoadUserRecipes, articlesLoad
   await renderLoadedSections(userObject, recipesLoadConfig, articlesLoadConfig);
 }
 
-const logoutButton = document.getElementById('logout-btn') as HTMLElement;
-
 function addListeners() {
   userpageControlsHandler();
   addLogoutButtonListener();
   addArticleButtonsListeners();
   addRecipeButtonsListeners();
+  formHandler.addUserButtonListener();
+  formHandler.addRegisterFormListener();
+  formHandler.addSignInFormListener();
 }
+
+const logoutButton = document.getElementById('logout-btn') as HTMLElement;
 
 function addLogoutButtonListener() {
   logoutButton.addEventListener('click', () => logOut());

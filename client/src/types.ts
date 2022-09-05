@@ -186,4 +186,5 @@ export {
   IUserResponse,
   ILoadUserRecipes,
   ILoadUserArticles,
+  SortOptions,
 };

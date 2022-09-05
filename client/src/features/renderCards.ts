@@ -129,6 +129,7 @@ function renderCards(
 
   const itemsCards = renderItems(itemsData, loadConfig, userObject);
 
+  sectionContainerList.innerHTML = '';
   sectionContainerList.append(...itemsCards);
 }
 

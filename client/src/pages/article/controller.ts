@@ -2,6 +2,7 @@ import * as articlesService from '../../api/articlesService';
 import * as recipesService from '../../api/recipesService';
 import { renderArticle, renderRelevantRecipes } from './render';
 import { handleSaveFavoriteButtons } from '../../features/cardButtonsHandler';
+import * as formHandler from '../../helpers/loginFormHandlers';
 
 const userObject = JSON.parse(localStorage.getItem('user') || 'null');
 
@@ -18,6 +19,9 @@ async function loadArticle(articleId: string) {
 function addListeners() {
   addArticleButtonsListeners();
   addRecipeButtonsListeners();
+  formHandler.addUserButtonListener();
+  formHandler.addRegisterFormListener();
+  formHandler.addSignInFormListener();
 }
 
 function addArticleButtonsListeners() {
