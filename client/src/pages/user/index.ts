@@ -8,7 +8,6 @@ import { getUserName } from '../../helpers/manageUserName';
 import popupHandler from '../../features/popup';
 import productListControlsHandler from '../../features/productListControlsHandler';
 import '../../features/productListInputHandler';
-import userpageControlsHandler from '../../features/userpageButtonHandlers';
 
 Controller.fetchUserData()
   .then(userData => {
@@ -27,5 +26,4 @@ getUserName();
 burgerMenu();
 tabHandler('recipes');
 popupHandler();
-userpageControlsHandler();
 productListControlsHandler();
