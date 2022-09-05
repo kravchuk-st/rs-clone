@@ -112,8 +112,36 @@
     margin-bottom: 40px;
   }
   .developer{
-    &__img{
-      display: none;
+    flex-direction: column;
+    &__info{
+      padding: 20px;
+    }
+    &__name{
+      text-align: center;
+    }
+    &__role{
+      text-align: center;
+    }
+  }
+  #stas{
+    .developer__img{
+      background-position: center 10%;
+      width: 100%;
+      background-size: cover;
+    }
+  }
+  #phil{
+    .developer__img{
+      background-position: center 30%;
+      width: 100%;
+      background-size: cover;
+    }
+  }
+  #alina{
+    .developer__img{
+      background-position: center 30%;
+      width: 100%;
+      background-size: cover;
     }
   }
 }
