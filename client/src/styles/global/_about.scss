@@ -1,0 +1,148 @@
+
+.about{
+  margin-top: 25px;
+
+}
+.title {
+  margin-bottom: 70px;
+}
+.developer {
+  display: flex;
+  background-color: rgba($color-text-inactive, 0.2);
+  padding: 0;
+  margin-bottom: 30px;
+  box-shadow: 7px 7px 36px -10px rgba(0, 0, 0, 0.25);
+  &__img {
+    height: 340px;
+    flex: 0 0 300px;
+  }
+  &__info {
+    padding: 20px 30px;
+    text-align: left;
+
+  }
+  &__name {
+    margin-bottom: 10px;
+    font-size: $font-size-xxl;
+  }
+  &__role {
+    margin-bottom: 20px;
+  }
+  &__descr {
+    margin-top: 10px;
+    text-align: justify;
+    text-indent: 40px;
+    font-size: $font-size-md;
+  }
+}
+#stas {
+  .developer__img{
+    background-image: url(../assets/kravchuk.jpg);
+    background-position: center 10%;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+}
+
+#phil {
+  .developer__img{
+    background-image: url(../assets/khromov.jpg);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+  }
+}
+
+#alina {
+  .developer__img{
+    background-image: url(../assets/khasanova.png);
+    background-position: center 30%;
+    background-size: 450px;
+    background-repeat: no-repeat;
+    
+  }
+}
+
+@media screen and (max-width: 980px) {
+  .title{
+    font-size: $font-size-xxl;
+  }
+  .developer{
+    &__name{
+      font-size: $font-size-xl;
+    }
+    &__role{
+      font-size: $font-size-lg;
+    }
+    &__descr{
+      font-size: $font-size-sm;
+    }
+  }
+}
+
+@media screen and (max-width: 810px) {
+  .title{
+    font-size: $font-size-xl;
+  }
+  #stas{
+    .developer__img{
+      background-position: center center;
+    }
+  }
+  .developer{
+    &__img{
+      flex-basis: 250px;
+    }
+    &__name{
+      font-size: $font-size-lg;
+    }
+    &__role{
+      font-size: $font-size-md;
+    }
+    &__descr{
+      font-size: $font-size-xs;
+      margin-top: 7px;
+    }
+  }
+}
+
+@media screen and (max-width: 660px) {
+  .title{
+    margin-bottom: 40px;
+  }
+  .developer{
+    flex-direction: column;
+    &__info{
+      padding: 20px;
+    }
+    &__name{
+      text-align: center;
+    }
+    &__role{
+      text-align: center;
+    }
+  }
+  #stas{
+    .developer__img{
+      background-position: center 10%;
+      width: 100%;
+      background-size: cover;
+    }
+  }
+  #phil{
+    .developer__img{
+      background-position: center 30%;
+      width: 100%;
+      background-size: cover;
+    }
+  }
+  #alina{
+    .developer__img{
+      background-position: center 30%;
+      width: 100%;
+      background-size: cover;
+    }
+  }
+}
+
