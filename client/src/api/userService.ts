@@ -35,8 +35,7 @@ async function logOut() {
   })) as Response;
   if (response.status === 204) {
     localStorage.removeItem('userName');
-    const tempPathName = '/rs-clone/client/dist';
-    window.open(`${tempPathName}/index.html`, '_self');
+    window.open('./index.html', '_self');
   }
 }
 

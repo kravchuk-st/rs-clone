@@ -21,8 +21,7 @@ function addUserButtonListener() {
       if (response.status === 200) {
         const responseBody = (await response.json()) as IUserResponse;
         setLocalUser(responseBody);
-        const tempPathName = '/rs-clone/client/dist';
-        window.open(`${tempPathName}/user-page.html`, '_self');
+        window.open('./user-page.html', '_self');
       } else {
         signupForm.classList.add('is-open');
       }

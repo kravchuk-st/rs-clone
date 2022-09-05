@@ -1,26 +1,7 @@
 import { burgerMenu } from '../../features/burgerMenu';
 import createElemWithClass from '../../helpers/createElementWithClass';
 import '../../styles/main.scss';
-//TODO: MOCK_INGREDIENTS are to be replaced by ingredients from DB
-const MOCK_INGREDIENTS = [
-  'apple',
-  'banana',
-  'tangerine',
-  'lemon',
-  'beef',
-  'citric acid',
-  'baking soda',
-  'pineapple',
-  'flour',
-  'onion',
-  'mango',
-  'rice',
-  'pasta',
-  'buckwheat',
-  'lemongrass',
-].sort();
-
-const EMPTY_MESSAGE = "You haven't added anything yet...";
+import { EMPTY_MESSAGE, MOCK_INGREDIENTS } from '../../constants';
 
 let dropdownIngredients = MOCK_INGREDIENTS;
 
