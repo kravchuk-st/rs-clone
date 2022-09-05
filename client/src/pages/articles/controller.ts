@@ -2,6 +2,7 @@ import { renderArticleCard } from '../../features/renderCards';
 import * as articlesService from '../../api/articlesService';
 import { ILoadArticleCard } from '../../types';
 import { articlesLoadConfig } from './config';
+import { handleSaveFavoriteButtons } from '../../features/cardButtonsHandler';
 
 const userObject = JSON.parse(localStorage.getItem('user') || 'null');
 
@@ -44,13 +45,7 @@ function addCategorySelectListener() {
 function addArticleButtonsListeners() {
   const articles = document.querySelectorAll('.article');
   articles.forEach(article => {
-    const saveButton = article.querySelector('.save-btn') as HTMLButtonElement;
-    const favoriteButton = article.querySelector('.favorite-btn') as HTMLButtonElement;
-
-    saveButton.addEventListener('click', (e: Event) => (e.target as HTMLButtonElement).classList.toggle('is-active'));
-    favoriteButton.addEventListener('click', (e: Event) =>
-      (e.target as HTMLButtonElement).classList.toggle('is-active')
-    );
+    handleSaveFavoriteButtons(article, 'articles');
   });
 }
 
@@ -58,7 +53,6 @@ function addSearchInputListener() {
   const searchInput = document.querySelector('.search__input') as HTMLInputElement;
   searchInput.addEventListener('change', (e: Event) => {
     const input = e.target as HTMLInputElement;
-    console.log(input.value);
   });
 }
 
