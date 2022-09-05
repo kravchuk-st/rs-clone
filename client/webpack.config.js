@@ -16,6 +16,7 @@ const config = {
     article: './src/pages/article/index.ts',
     articles: './src/pages/articles/index.ts',
     constructor: './src/pages/constructor/index.ts',
+    noUiSlider: './src/features/nouislider.min.js',
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -52,7 +53,7 @@ const config = {
     new HtmlWebpackPlugin({
       template: './src/pages/recipes/index.html',
       filename: 'recipes.html',
-      chunks: ['recipes'],
+      chunks: ['recipes', 'noUiSlider'],
       inject: 'body',
     }),
     new EslintPlugin({
