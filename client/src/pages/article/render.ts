@@ -1,9 +1,10 @@
-import { IArticle, IRecipe } from '../../types';
+import { IArticle, IRecipe, IUserResponse } from '../../types';
 import createElementWithClass from '../../helpers/createElementWithClass';
 import { renderRecipeCard } from '../../features/renderCards';
 import { renderList } from '../recipe/render';
+import checkItemInUserLists from '../../helpers/checkItemInUserLists';
 
-function renderArticle(articleData: IArticle) {
+function renderArticle(articleData: IArticle, userObject: IUserResponse | null) {
   const main = document.querySelector('#main') as HTMLElement;
   const articleContainer = document.createElement('section');
 
@@ -12,11 +13,13 @@ function renderArticle(articleData: IArticle) {
     month: 'long',
     day: 'numeric',
   });
+  const cardId = String(articleData._id);
+  const [isInSavedList, isInFavoritesList] = checkItemInUserLists(userObject, 'articles', cardId);
   const articleCategoriesList = renderList(articleData.category, 'categories__item');
   const paragraphsList = renderList(articleData.body, 'article__text');
 
   articleContainer.innerHTML = `
-    <div class="container">
+    <div class="container article-container" id=${cardId}>
       <div class="article__btns">
         <button class="article__btn_favorite btn_outlined btn-reset favorite-btn">Add to favorite articles</button>
         <button class="article__btn_save btn_outlined btn-reset save-btn">Save for later</button>
@@ -35,10 +38,17 @@ function renderArticle(articleData: IArticle) {
     </div>
   `;
 
+  if (isInSavedList) {
+    (articleContainer.querySelector('.save-btn') as HTMLButtonElement).classList.add('is-active');
+  }
+  if (isInFavoritesList) {
+    (articleContainer.querySelector('.favorite-btn') as HTMLButtonElement).classList.add('is-active');
+  }
+
   main.appendChild(articleContainer);
 }
 
-function renderRelevantRecipes(recipesData: IRecipe[]) {
+function renderRelevantRecipes(recipesData: IRecipe[], userObject: IUserResponse | null) {
   const main = document.querySelector('#main') as HTMLElement;
   const recipesContainer = createElementWithClass('section', 'relevant-recipes');
 
@@ -52,7 +62,9 @@ function renderRelevantRecipes(recipesData: IRecipe[]) {
 
   const recipesList = recipesContainer.querySelector('.relevant-recipes__list') as HTMLUListElement;
 
-  const recipesCards = recipesData.map(recipe => renderRecipeCard(recipe, 'normal', ['recipe__item'], 'a'));
+  const recipesCards = recipesData.map(recipe =>
+    renderRecipeCard(recipe, 'normal', ['recipe__item'], 'li', userObject)
+  );
 
   recipesList.append(...recipesCards);
   main.appendChild(recipesContainer);
