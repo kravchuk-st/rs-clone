@@ -23,7 +23,7 @@
   }
   &__name {
     margin-bottom: 10px;
-    font-size: 28px;
+    font-size: $font-size-xxl;
   }
   &__role {
     margin-bottom: 20px;
@@ -32,7 +32,7 @@
     margin-top: 10px;
     text-align: justify;
     text-indent: 40px;
-    font-size: 16px;
+    font-size: $font-size-md;
   }
 }
 #stas {
@@ -66,24 +66,24 @@
 
 @media screen and (max-width: 980px) {
   .title{
-    font-size: 28px;
+    font-size: $font-size-xxl;
   }
   .developer{
     &__name{
-      font-size: 24px;
+      font-size: $font-size-xl;
     }
     &__role{
-      font-size: 18px;
+      font-size: $font-size-lg;
     }
     &__descr{
-      font-size: 14px;
+      font-size: $font-size-sm;
     }
   }
 }
 
 @media screen and (max-width: 810px) {
   .title{
-    font-size: 26px;
+    font-size: $font-size-xl;
   }
   #stas{
     .developer__img{
@@ -95,13 +95,13 @@
       flex-basis: 250px;
     }
     &__name{
-      font-size: 20px;
+      font-size: $font-size-lg;
     }
     &__role{
-      font-size: 16px;
+      font-size: $font-size-md;
     }
     &__descr{
-      font-size: 12px;
+      font-size: $font-size-xs;
       margin-top: 7px;
     }
   }
@@ -109,22 +109,11 @@
 
 @media screen and (max-width: 660px) {
   .title{
-    font-size: 26px;
     margin-bottom: 40px;
   }
   .developer{
     &__img{
       display: none;
-    }
-    &__name{
-      font-size: 20px;
-    }
-    &__role{
-      font-size: 16px;
-    }
-    &__descr{
-      font-size: 12px;
-      margin-top: 7px;
     }
   }
 }
