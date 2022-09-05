@@ -3,21 +3,19 @@ import { MOCK_INGREDIENTS } from '../constants';
 import { checkIfEmpty, deleteProduct, filterOptions, moveToStockedHandler } from './productHandlerHelpers';
 
 const addListenersToUserInput = (id: string): void => {
-  const selectorWrapper = document.getElementById(id) as HTMLElement;
-  const inputElem = selectorWrapper.querySelector('.products-input') as HTMLInputElement;
-  const optionsHolder = selectorWrapper.querySelector('.scrolling-area') as HTMLElement;
-  const dropdownMenu = selectorWrapper.querySelector('.product-options') as HTMLElement;
-  const addedProductsList = (selectorWrapper.parentElement as HTMLElement).querySelector(
-    '.products-list'
-  ) as HTMLElement;
+  const selectWrapper = document.getElementById(id) as HTMLElement;
+  const inputElem = selectWrapper.querySelector('.products-input') as HTMLInputElement;
+  const selectOptionsHolder = selectWrapper.querySelector('.scrolling-area') as HTMLElement;
+  const dropdownMenu = selectWrapper.querySelector('.product-options') as HTMLElement;
+  const addedProductsList = (selectWrapper.parentElement as HTMLElement).querySelector('.products-list') as HTMLElement;
 
   let dropdownProducts = MOCK_INGREDIENTS;
 
   checkIfEmpty(addedProductsList);
 
-  renderProductOptions(optionsHolder, dropdownProducts);
+  renderProductOptions(selectOptionsHolder, dropdownProducts);
   inputElem.addEventListener('click', () => {
-    renderProductOptions(optionsHolder, dropdownProducts);
+    renderProductOptions(selectOptionsHolder, dropdownProducts);
     dropdownMenu.classList.add('is-active');
   });
 
@@ -33,20 +31,20 @@ const addListenersToUserInput = (id: string): void => {
       const productName = inputElem.value.trim();
       addToList(productName, addedProductsList);
       dropdownProducts = dropdownProducts.filter(item => item !== productName.toLowerCase());
-      renderProductOptions(optionsHolder, dropdownProducts);
+      renderProductOptions(selectOptionsHolder, dropdownProducts);
       inputElem.value = '';
       dropdownMenu.classList.remove('is-active');
     }
   });
 
-  optionsHolder.addEventListener('click', e => {
+  selectOptionsHolder.addEventListener('click', e => {
     const target = e.target as HTMLElement;
     if (target.classList.contains('product-options__item')) {
       const productName = target.innerText;
       addToList(productName, addedProductsList);
       dropdownProducts = dropdownProducts.filter(item => item !== productName);
       inputElem.value = '';
-      renderProductOptions(optionsHolder, dropdownProducts);
+      renderProductOptions(selectOptionsHolder, dropdownProducts);
       inputElem.focus();
     }
   });
@@ -55,7 +53,7 @@ const addListenersToUserInput = (id: string): void => {
     dropdownMenu.classList.add('is-active');
     const relevantIngredients = filterOptions(dropdownProducts, inputElem.value.trim().toLocaleLowerCase());
     relevantIngredients.length
-      ? renderProductOptions(optionsHolder, relevantIngredients)
+      ? renderProductOptions(selectOptionsHolder, relevantIngredients)
       : renderMessage(
           'It seems like our recipes do not contain this product as ingredient, but you can add it to your shopping list'
         );
@@ -78,7 +76,7 @@ const addListenersToUserInput = (id: string): void => {
       if (MOCK_INGREDIENTS.includes(productName) && !dropdownProducts.includes(productName)) {
         dropdownProducts.push(productName);
         dropdownProducts.sort();
-        renderProductOptions(optionsHolder, dropdownProducts);
+        renderProductOptions(selectOptionsHolder, dropdownProducts);
       }
     });
     listItem.querySelector('.product-controls__add-btn')?.addEventListener('click', e => moveToStockedHandler(e));
@@ -92,7 +90,7 @@ const addListenersToUserInput = (id: string): void => {
   }
 
   function renderMessage(message: string): void {
-    optionsHolder.innerText = message;
+    selectOptionsHolder.innerText = message;
   }
 };
 
