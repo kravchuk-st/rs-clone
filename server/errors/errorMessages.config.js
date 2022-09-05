@@ -19,6 +19,7 @@ const errorMessages = {
     invalidPassword: 'Invalid Password',
     forbidden: 'Access denied',
     userExists: 'User with such email already exists',
+    notFound: 'User not found',
   },
 };
 

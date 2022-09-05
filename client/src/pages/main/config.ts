@@ -42,7 +42,7 @@ const recipesLoadConfig = {
   popular: {
     containerClass: 'slider',
     listClass: 'swiper-wrapper',
-    listElemType: 'a',
+    listElemType: 'li',
     cardClassList: ['swiper-slide'],
     queryOptions: initPopularQueryOptions,
     largeCardIndex: -1,
@@ -50,7 +50,7 @@ const recipesLoadConfig = {
   breakfast: {
     containerClass: 'breakfast',
     listClass: 'recipes__list',
-    listElemType: 'a',
+    listElemType: 'li',
     cardClassList: ['recipe__item'],
     queryOptions: initBreakfastQueryOptions,
     largeCardIndex: 1,
@@ -58,7 +58,7 @@ const recipesLoadConfig = {
   lunch: {
     containerClass: 'lunch',
     listClass: 'lunch__list',
-    listElemType: 'a',
+    listElemType: 'li',
     cardClassList: ['lunch__item'],
     queryOptions: initLunchQueryOptions,
     largeCardIndex: 3,
@@ -66,7 +66,7 @@ const recipesLoadConfig = {
   dinner: {
     containerClass: 'dinner',
     listClass: 'dinner__list',
-    listElemType: 'a',
+    listElemType: 'li',
     cardClassList: ['dinner__item'],
     queryOptions: initDinnerQueryOptions,
     largeCardIndex: 4,
@@ -74,7 +74,7 @@ const recipesLoadConfig = {
   bakery: {
     containerClass: 'bakery',
     listClass: 'bakery__list',
-    listElemType: 'a',
+    listElemType: 'li',
     cardClassList: ['bakery__item'],
     queryOptions: initBakeryQueryOptions,
     largeCardIndex: 0,

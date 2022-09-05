@@ -1,6 +1,6 @@
 import { IArticle, IRecipe } from '../../types';
 import createElementWithClass from '../../helpers/createElementWithClass';
-import { renderRecipeCard } from '../main/render';
+import { renderRecipeCard } from '../../features/renderCards';
 import { renderList } from '../recipe/render';
 
 function renderArticle(articleData: IArticle) {

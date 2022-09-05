@@ -7,64 +7,81 @@
   <title>User page</title>
 </head>
 <body>
-  <%= require('html-loader!../../partials/header.html').default %>
-  <main>
-    <section>
-      <div class="container">
-        <div class="flex">
-          <div class="controls">
-            <%= require('html-loader!../../partials/user-card.html').default %>
-            <div class="buttons mt-20">
-              <button class="btn-reset btn btn_outlined buttons__item">Articles</button>
-              <button class="btn-reset btn btn-active buttons__item">Recipes</button>
-              <button class="btn-reset btn btn_outlined buttons__item">Edit profile info</button>
-            </div>
-            <div class="search">
-              <input class="search__input" type="text" autocomplete="off" autofocus>
-              <button class="search__btn btn-reset"></button>
-            </div>
-            <div class="categories mt-20 categories_justified" id="categories">
-              <div class="categories__item categories__item_active">Bakery</div>
-              <div class="categories__item">Vegan</div>
-              <div class="categories__item">Dairy</div>
-              <div class="categories__item categories__item_active">Dinner</div>
-              <div class="categories__item">Vegeterian</div>
-              <div class="categories__item">Healthy</div>
-              <div class="categories__item">Gluten-free</div>
-              <div class="categories__item">Lunch</div>
-            </div>
-          </div>
-          <div class="content">
-            <div class="tabs">
-              <div class="tabs__nav tabs-nav">
-                <button class="btn-reset btn btn_outlined tabs-nav__item is-active" data-tab-name="saved">Saved </button>
-                <button class="btn-reset btn btn_outlined tabs-nav__item" data-tab-name="favorites">Favorites</button> 
+  <div class="wrapper">
+    <%= require('html-loader!../../partials/header.html').default %>
+    <main class="user-main">
+      <section>
+        <div class="container">
+          <div class="flex">
+            <div class="controls">
+              <div class="profile"></div>
+              <div class="buttons mt-20">
+                <button class="btn-reset btn btn_outlined buttons__item" id="articles-btn">Articles</button>
+                <button class="btn-reset btn btn-active buttons__item" id="recipes-btn">Recipes</button>
+                <button class="btn-reset btn btn_outlined buttons__item" disabled>Edit profile info</button>
+                <button class="btn-reset btn btn-secondary buttons__item" id="logout-btn">Log out</button>
               </div>
-              <div class="tabs__content tabs-content">
-                <div class="tabs-content__item is-active" data-tab-content="saved" >
-                  <ul class="recipes__list list-reset recipes__list_user">
-                    <%= require('html-loader!../../partials/recipe-card.html').default %>
-                    <%= require('html-loader!../../partials/recipe-card.html').default %>
-                    <%= require('html-loader!../../partials/recipe-card.html').default %>
-                  </ul>
-                  <%= require('html-loader!../../partials/pagination.html').default %>
+              <div class="search">
+                <input class="search__input" type="text" autocomplete="off" autofocus>
+                <button class="search__btn btn-reset"></button>
+              </div>
+              <div class="categories mt-20 categories_justified" id="categories">
+                <div class="categories__item categories__item_active">Bakery</div>
+                <div class="categories__item">Vegan</div>
+                <div class="categories__item">Dairy</div>
+                <div class="categories__item categories__item_active">Dinner</div>
+                <div class="categories__item">Vegeterian</div>
+                <div class="categories__item">Healthy</div>
+                <div class="categories__item">Gluten-free</div>
+                <div class="categories__item">Lunch</div>
+              </div>
+            </div>
+            <div class="content">
+              <div class="tabs">
+                <div class="tabs__nav tabs-nav">
+                  <button class="btn-reset btn btn_outlined tabs-nav__item is-active" data-tab-name="saved">Saved </button>
+                  <button class="btn-reset btn btn_outlined tabs-nav__item" data-tab-name="favorites">Favorites</button>
                 </div>
-                <div class="tabs-content__item" data-tab-content="favorites" >
-                  <section class="articles">
-                    <div class="articles__list">
-                      <%= require('html-loader!../../partials/article-preview.html').default %>
-                      <%= require('html-loader!../../partials/article-preview.html').default %>
-                    </div>
-                    <%= require('html-loader!../../partials/pagination.html').default %>
-                  </section>
+                <div class="tabs__content tabs-content is-active" id="tab-recipes">
+                  <div class="tabs-content__item is-active" data-tab-content="saved" >
+                    <section class="recipes-saved">
+                      <ul class="recipes__list list-reset recipes__list_user">
+                      </ul>
+                      <p id="empty-recipes-saved">This list is currently empty</p>
+                    </section>
+                  </div>
+                  <div class="tabs-content__item" data-tab-content="favorites" >
+                    <section class="recipes-favorite">
+                      <ul class="recipes__list list-reset recipes__list_user">
+                      </ul>
+                      <p id="empty-recipes-favorite">This list is currently empty</p>
+                    </section>
+                  </div>
+                </div>
+                <div class="tabs__content tabs-content" id="tab-articles">
+                  <div class="tabs-content__item is-active" data-tab-content="saved" >
+                    <section class="articles-saved">
+                      <div class="articles__list">
+                      </div>
+                      <p id="empty-articles-saved">This list is currently empty</p>
+                    </section>
+                  </div>
+                  <div class="tabs-content__item" data-tab-content="favorites" >
+                    <section class="articles-favorite">
+                      <div class="articles__list">
+                      </div>
+                      <p id="empty-articles-favorite">This list is currently empty</p>
+                    </section>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-  </main>
-  <%= require('html-loader!../../partials/footer.html').default %>
+      </section>
+    </main>
+    <%= require('html-loader!../../partials/forms.html').default %>
+    <%= require('html-loader!../../partials/footer.html').default %>
+  </div>
 </body>
 </html>

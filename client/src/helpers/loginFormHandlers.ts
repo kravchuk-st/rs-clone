@@ -3,6 +3,10 @@ import { BASE_URL, ENDPOINTS } from '../config/api.config';
 import { IUserResponse } from '../types';
 import { setUserName } from './manageUserName';
 
+function setLocalUser(response: IUserResponse) {
+  window.localStorage.setItem('user', JSON.stringify(response));
+}
+
 function addUserButtonListener() {
   const userProfileButton = document.querySelector('.profile-btn') as HTMLButtonElement;
   const signupForm = document.querySelector('.popup') as HTMLElement;
@@ -16,8 +20,9 @@ function addUserButtonListener() {
       })) as IUserResponse;
       if (response.status === 200) {
         const responseBody = (await response.json()) as IUserResponse;
+        setLocalUser(responseBody);
         const tempPathName = '/rs-clone/client/dist';
-        window.open(`${tempPathName}/user-page.html?id=${responseBody.id}`, '_self');
+        window.open(`${tempPathName}/user-page.html`, '_self');
       } else {
         signupForm.classList.add('is-open');
       }
@@ -51,6 +56,7 @@ async function handleRegistrationForm(event: Event) {
       alert('Registered successfully!');
       formElement.reset();
       const responseBody = (await response.json()) as IUserResponse;
+      setLocalUser(responseBody);
       setUserName(responseBody.name);
     }
   }
@@ -77,6 +83,7 @@ async function handleLoginForm(event: Event) {
       alert('Logged in successfully!');
       formElement.reset();
       const responseBody = (await response.json()) as IUserResponse;
+      setLocalUser(responseBody);
       setUserName(responseBody.name);
     }
   }

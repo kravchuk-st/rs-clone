@@ -67,16 +67,35 @@ h3 {
   border: solid 1px $color-btn;
 }
 
-.card .favorite-btn {
+.btn-secondary {
+  padding: 10px 45px;
+  color: $color-info;
+  background-color: $color-btn-light;
+  border: 1px solid $color-info;
+}
+
+.card .favorite-btn,
+.card .save-btn {
   width: 25px;
   height: 25px;
   background-size: contain;
-  background-image: url(../assets/svg/heart.svg);
   background-position: center;
   background-repeat: no-repeat;
+}
+
+.card .favorite-btn {
+  background-image: url(../assets/svg/heart-color.svg);
 
   &.is-active {
     background-image: url(../assets/svg/heart-fill.svg);
+  }
+}
+
+.card .save-btn {
+  background-image: url(../assets/svg/save-color.svg);
+
+  &.is-active {
+    background-image: url(../assets/svg/save-fill.svg);
   }
 }
 

@@ -43,6 +43,13 @@
   }
 }
 
+.recipe__btns {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  column-gap: 20px;
+}
+
 .card__img {
   margin-top: 10px;
   width: 100%;
@@ -51,7 +58,7 @@
 }
 
 .card__meta {
-  margin-top: 15px;
+  margin-top: 25px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -105,6 +112,11 @@
   text-align: right;
 }
 
+.card_lg .card-anchor {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
 .card__body {
   padding: 0 15px;
 }
@@ -137,7 +149,7 @@
   grid-template-areas:
     "card-img card-header"
     "card-img card-body"
-    "card-img card-date";
+    "card-img card-body";
   grid-template-columns: repeat(2, 1fr);
   column-gap: 25px;
 
@@ -157,7 +169,7 @@
 
   .card__body {
     grid-area: card-body;
-    padding: 0;
+    padding: 0 0 35px;
 
     .card__title {
       margin-top: 0;
