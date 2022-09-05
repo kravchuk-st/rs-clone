@@ -41,7 +41,7 @@
     justify-content: space-around;
     row-gap: 30px;
 
-    .recipe__item:not(:nth-child(-n+3)) {
+    &:not(.recipes__list_user) .recipe__item:not(:nth-child(-n+3)) {
       display: none;
     }
 
