@@ -29,8 +29,12 @@ const UserSchema = new Schema({
     favorite: [String],
   },
   recipes: {
-    saved: [Number],
-    favorite: [Number],
+    saved: [String],
+    favorite: [String],
+  },
+  products: {
+    shopping: [String],
+    own: [String],
   },
 });
 

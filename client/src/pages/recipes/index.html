@@ -13,6 +13,7 @@
     <div class="container">   
       <div class="flex col-gap-70">
         <section class="filters">
+          <div class="filters__bg"></div>
           <h1 class="filters__header section__header">Filters</h1>
           <div class="filters__list filters-list">
             <ul class="filters-list_checkbox checkbox-list">
@@ -188,12 +189,12 @@
                   <label for="lacto-ovo-vegetarian">lacto ovo vegetarian </label>
                 </div>
                 <div class="checkbox-wrapper">
-                  <input type="checkbox" id="dairy-free" value="dairy-free"> 
-                  <label for="dairy-free">dairy free</label>
+                  <input type="checkbox" id="dairy_free" value="dairy-free"> 
+                  <label for="dairy_free">dairy free</label>
                 </div>
                 <div class="checkbox-wrapper">
-                  <input type="checkbox" id="gluten-free" value="gluten-free"> 
-                  <label for="gluten-free">gluten free</label>
+                  <input type="checkbox" id="gluten_free" value="gluten-free"> 
+                  <label for="gluten_free">gluten free</label>
                 </div>
                 <div class="checkbox-wrapper">
                   <input type="checkbox" id="primal" value="primal"> 
@@ -271,9 +272,14 @@
               </li>
             </ul>
           </div>
+          <div class="filters__btns">
+            <button class="filters__btn_reset btn-active btn-reset">Reset</button>
+            <button class="filters__btn_show btn-active btn-reset">Show</button>
+          </div>
         </section>
         <section class="recipes-container">
           <div class="recipes-container__header section__header">
+            <button class="filters-btn btn-reset">Фильтры</button>
             <div class="select-container">
               <div class="select-container__text">Sort by:</div>
               <div class="select-box">
@@ -311,6 +317,7 @@
                 <%= require('html-loader!../../partials/recipe-card.html').default %>
               </div>
             </ul>
+            <%= require('html-loader!../../partials/pagination.html').default %>
           </div>
         </section>
       </div>

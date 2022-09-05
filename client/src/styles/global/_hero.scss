@@ -1,3 +1,7 @@
+.hero {
+  padding: 35px 0 25px;
+}
+
 .search {
   margin: 0 auto;
   max-width: 500px;
@@ -31,8 +35,22 @@
   display: flex;
   justify-content: center;
   column-gap: 35px;
-  overflow-x: auto;
+  overflow-x: scroll;
   overflow-y: hidden;
+
+  &::-webkit-scrollbar {
+    height: 8px;
+    background-color: transparent;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: $color-btn;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
 
   .category {
     display: flex;

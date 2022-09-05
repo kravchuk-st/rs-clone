@@ -1,3 +1,5 @@
+// const mongoose = require('mongoose');
+
 const {
   PAGE_NUMBER,
   RECIPES_PER_PAGE,
@@ -66,6 +68,10 @@ const recipesQueryMap = {
     const searchOptions = passedValue.split(',').join('|');
     return ['title', { $regex: searchOptions, $options: 'i' }];
   },
+  id: (passedValue) => {
+    const ids = passedValue.split(',');
+    return ['id', { $in: ids }];
+  },
 };
 
 const recipesSortMap = {
@@ -82,6 +88,10 @@ const articlesQueryMap = {
   search: (passedValue) => {
     const searchOptions = passedValue.split(',').join('|');
     return ['title', { $regex: searchOptions, $options: 'i' }];
+  },
+  id: (passedValue) => {
+    const ids = passedValue.split(',');
+    return ['_id', { $in: ids }];
   },
 };
 

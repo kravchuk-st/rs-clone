@@ -1,3 +1,4 @@
+import { burgerMenu } from '../../features/burgerMenu';
 import createElemWithClass from '../../helpers/createElementWithClass';
 import '../../styles/main.scss';
 import { EMPTY_MESSAGE, MOCK_INGREDIENTS } from '../../constants';
@@ -11,6 +12,7 @@ const chosenIngredientsBox = document.getElementById('chosen-ingredients') as HT
 const boxEmptyMessageElement = document.getElementById('is-empty-message') as HTMLElement;
 boxEmptyMessageElement.innerText = EMPTY_MESSAGE;
 
+burgerMenu();
 showBoxIsEmptyMessage();
 
 chosenIngredientsBox.addEventListener('click', e => {

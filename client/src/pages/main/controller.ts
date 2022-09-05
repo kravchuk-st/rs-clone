@@ -1,48 +1,102 @@
-import { renderRecipeCard, renderArticleCard } from './render';
+import loadCardsContent from '../../features/loadCards';
 import * as recipesService from '../../api/recipesService';
 import * as articlesService from '../../api/articlesService';
+import * as userService from '../../api/userService';
 import * as formHandler from '../../helpers/loginFormHandlers';
 
-import { ILoadArticleCard, ILoadRecipeCard, IArticle, IRecipe } from '../../types';
 import { recipesLoadConfig, articlesLoadConfig } from './config';
+import { renderCards } from '../../features/renderCards';
+import { IUserResponse } from '../../types';
+import { ENDPOINTS } from '../../config/api.config';
 
 async function loadMainPageContent() {
-  await loadContent(recipesLoadConfig.popular, recipesService.getRecipes);
-  await loadContent(articlesLoadConfig, articlesService.getArticles);
-  await loadContent(recipesLoadConfig.breakfast, recipesService.getRecipes);
-  await loadContent(recipesLoadConfig.lunch, recipesService.getRecipes);
-  await loadContent(recipesLoadConfig.dinner, recipesService.getRecipes);
-  await loadContent(recipesLoadConfig.bakery, recipesService.getRecipes);
-}
+  const popularRecipes = await loadCardsContent(recipesLoadConfig.popular, recipesService.getRecipes);
+  renderCards(popularRecipes, recipesLoadConfig.popular);
 
-async function loadContent(
-  loadConfig: ILoadRecipeCard | ILoadArticleCard,
-  contentLoadingService: typeof articlesService.getArticles | typeof recipesService.getRecipes
-) {
-  const sectionContainer = document.querySelector(`.${loadConfig.containerClass}`) as HTMLElement;
-  const sectionContainerList = sectionContainer.querySelector(`.${loadConfig.listClass}`) as HTMLUListElement;
+  const articles = await loadCardsContent(articlesLoadConfig, articlesService.getArticles);
+  renderCards(articles, articlesLoadConfig);
 
-  const itemsData = await contentLoadingService(loadConfig.queryOptions);
-  const itemsCards = renderItems(itemsData, loadConfig);
+  const breakfastRecipes = await loadCardsContent(recipesLoadConfig.breakfast, recipesService.getRecipes);
+  renderCards(breakfastRecipes, recipesLoadConfig.breakfast);
 
-  sectionContainerList.append(...itemsCards);
-}
+  const lunchRecipes = await loadCardsContent(recipesLoadConfig.lunch, recipesService.getRecipes);
+  renderCards(lunchRecipes, recipesLoadConfig.lunch);
 
-function renderItems(itemsData: IArticle[] | IRecipe[], loadConfig: ILoadRecipeCard | ILoadArticleCard) {
-  return itemsData.map((item, itemIndex) => {
-    if ('largeCardIndex' in loadConfig) {
-      const size = itemIndex === loadConfig.largeCardIndex ? 'large' : 'normal';
-      return renderRecipeCard(item as IRecipe, size, loadConfig.cardClassList, loadConfig.listElemType);
-    }
+  const dinnerRecipes = await loadCardsContent(recipesLoadConfig.dinner, recipesService.getRecipes);
+  renderCards(dinnerRecipes, recipesLoadConfig.dinner);
 
-    return renderArticleCard(item as IArticle, loadConfig.articleClassList);
-  });
+  const bakeryRecipes = await loadCardsContent(recipesLoadConfig.bakery, recipesService.getRecipes);
+  renderCards(bakeryRecipes, recipesLoadConfig.bakery);
 }
 
 function addListeners() {
   formHandler.addUserButtonListener();
   formHandler.addRegisterFormListener();
   formHandler.addSignInFormListener();
+  addArticleButtonsListeners();
+  addRecipeButtonsListeners();
+}
+
+function addArticleButtonsListeners() {
+  const articles = document.querySelectorAll('.article');
+  articles.forEach(article => {
+    const saveButton = article.querySelector('.save-btn') as HTMLButtonElement;
+    const favoriteButton = article.querySelector('.favorite-btn') as HTMLButtonElement;
+
+    saveButton.addEventListener('click', (e: Event) => {
+      const targetButton = e.target as HTMLButtonElement;
+      targetButton.classList.toggle('is-active');
+      const userObject = JSON.parse(localStorage.getItem('user') || 'null');
+      if (userObject) updateUserResources(userObject, article, targetButton, 'articles', 'saved');
+    });
+
+    favoriteButton.addEventListener('click', (e: Event) => {
+      const targetButton = e.target as HTMLButtonElement;
+      targetButton.classList.toggle('is-active');
+      const userObject = JSON.parse(localStorage.getItem('user') || 'null');
+      if (userObject) updateUserResources(userObject, article, targetButton, 'articles', 'favorite');
+    });
+  });
+}
+
+function addRecipeButtonsListeners() {
+  const recipes = document.querySelectorAll('.card');
+  recipes.forEach(recipe => {
+    const saveButton = recipe.querySelector('.save-btn') as HTMLButtonElement;
+    const favoriteButton = recipe.querySelector('.favorite-btn') as HTMLButtonElement;
+
+    saveButton.addEventListener('click', (e: Event) => {
+      const targetButton = e.target as HTMLButtonElement;
+      targetButton.classList.toggle('is-active');
+      const userObject = JSON.parse(localStorage.getItem('user') || 'null');
+      if (userObject) updateUserResources(userObject, recipe, targetButton, 'recipes', 'saved');
+    });
+
+    favoriteButton.addEventListener('click', (e: Event) => {
+      const targetButton = e.target as HTMLButtonElement;
+      targetButton.classList.toggle('is-active');
+      const userObject = JSON.parse(localStorage.getItem('user') || 'null');
+      if (userObject) updateUserResources(userObject, recipe, targetButton, 'recipes', 'favorite');
+    });
+  });
+}
+
+function updateUserResources(
+  userObject: IUserResponse,
+  cardElement: Element,
+  eventTarget: HTMLButtonElement,
+  cardName: 'articles' | 'recipes',
+  cardCategory: 'saved' | 'favorite'
+) {
+  if (eventTarget.classList.contains('is-active')) {
+    userObject[cardName][cardCategory].push(cardElement.id);
+  } else {
+    userObject[cardName][cardCategory] = userObject[cardName][cardCategory].filter(
+      resourceId => resourceId !== cardElement.id
+    );
+  }
+  userService.sendUserData(userObject, ENDPOINTS.userUpdate);
+  localStorage.setItem('user', JSON.stringify(userObject));
 }
 
 export { loadMainPageContent, addListeners };
