@@ -124,8 +124,14 @@ async function loadPageContent(recipesLoadConfig: ILoadUserRecipes, articlesLoad
   }
 }
 
+const logoutButton = document.getElementById('logout-btn') as HTMLElement;
+
 function addListeners() {
   userpageControlsHandler();
+  addLogoutButtonListener();
+}
+function addLogoutButtonListener() {
+  logoutButton.addEventListener('click', () => logOut());
 }
 
 export { fetchUserData, createQueryConfigs, loadPageContent, addListeners };

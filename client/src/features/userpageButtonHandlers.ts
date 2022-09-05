@@ -2,7 +2,7 @@ import { tabHandler } from './tabs';
 
 const userpageControlsHandler = (): void => {
   const userpageControlsHolder = document.getElementById('userpage-controls') as HTMLElement;
-  const userpageControls = userpageControlsHolder.querySelectorAll('.btn');
+  const userpageControls = userpageControlsHolder.querySelectorAll('.tabs-btn');
   const pageContents = document.querySelectorAll('.tabs');
 
   userpageControls.forEach(control => {
