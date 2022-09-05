@@ -41,6 +41,10 @@
     justify-content: space-around;
     row-gap: 30px;
 
+    .recipe__item:not(:nth-child(-n+3)) {
+      display: none;
+    }
+
     .card {
       max-width: 265px;
     }
