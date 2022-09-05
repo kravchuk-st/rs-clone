@@ -93,6 +93,13 @@
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: $color-text-active;
+    transition: color $animation-duration-basic ease;
+    &:hover {
+      color: darken($color-text-active, 10%);
+    }
+    &:active {
+      color: darken($color-text-active, 20%);
+    }
   }
 }
 
