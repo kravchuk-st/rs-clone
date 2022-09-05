@@ -3,12 +3,11 @@ import { ILoadRecipeCard, IRecipeQueryOptions } from '../../types';
 const initRecipesQueryOptions: IRecipeQueryOptions = {
   page: 0,
   limit: 10,
-  'very-popular': true,
   sort: 'rating',
   'sort-dir': -1,
 };
 
-const recipesLoadConfig: ILoadRecipeCard = {
+const recipesLoadConfigInit: ILoadRecipeCard = {
   containerClass: 'recipes',
   listClass: 'recipes__list',
   listElemType: 'div',
@@ -17,4 +16,4 @@ const recipesLoadConfig: ILoadRecipeCard = {
   largeCardIndex: -1,
 };
 
-export { recipesLoadConfig };
+export { recipesLoadConfigInit };
