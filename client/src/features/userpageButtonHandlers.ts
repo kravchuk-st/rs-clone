@@ -1,3 +1,5 @@
+import { tabHandler } from './tabs';
+
 const userpageControlsHandler = (): void => {
   const userpageControlsHolder = document.getElementById('userpage-controls') as HTMLElement;
   const userpageControls = userpageControlsHolder.querySelectorAll('.btn');
@@ -17,6 +19,7 @@ const userpageControlsHandler = (): void => {
   function showActiveContent(activeContentId: string): void {
     pageContents.forEach(content => {
       content.id === activeContentId ? content.classList.remove('hidden') : content.classList.add('hidden');
+      tabHandler(content.id);
     });
   }
 };

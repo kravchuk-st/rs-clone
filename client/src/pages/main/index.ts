@@ -10,5 +10,5 @@ burgerMenu();
 slider;
 Controller.loadMainPageContent().then(() => Controller.addListeners());
 getUserName();
-tabHandler();
+tabHandler('recipes');
 popupHandler();

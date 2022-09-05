@@ -70,17 +70,16 @@
   };
 }
 
-.tabs-content {
-  display: none;
+// .tabs-content {
+//   display: none;
 
-  &.is-active{
-    display: block;
-  }
-}
+//   &.is-active{
+//     display: block;
+//   }
+// }
 
 .tabs-content__item {
   display: none;
-
   &.is-active{
     display: block;
   }
