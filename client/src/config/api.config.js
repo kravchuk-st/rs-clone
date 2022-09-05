@@ -1,4 +1,5 @@
-const BASE_URL = 'https://rs-recipes-server.herokuapp.com';
+// const BASE_URL = 'https://rs-recipes-server.herokuapp.com';
+const BASE_URL = 'http://localhost:3000';
 
 const ENDPOINTS = {
   recipes: '/recipes',
@@ -8,6 +9,7 @@ const ENDPOINTS = {
   userLogin: '/user/login',
   userLogout: '/user/logout',
   userProfile: '/user/profile',
+  userUpdate: '/user/update',
 };
 
 export { BASE_URL, ENDPOINTS };
