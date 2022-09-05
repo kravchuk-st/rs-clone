@@ -1,13 +1,16 @@
 import { renderRecipe, renderInstructions } from './render';
 import * as recipesSerivice from '../../api/recipesService';
 import { IInstructions } from '../../types';
+import { handleSaveFavoriteButtons } from '../../features/cardButtonsHandler';
 
-async function loadRecipe(recipeId: number) {
+const userObject = JSON.parse(localStorage.getItem('user') || 'null');
+
+async function loadRecipe(recipeId: string) {
   const recipeData = await recipesSerivice.getRecipeById(recipeId);
   const equipmentList = parseEquipmentList(recipeData.analyzedInstructions[0]);
   const instructionsList = parseInstructionsList(recipeData.analyzedInstructions[0]);
   renderRecipe(recipeData, equipmentList);
-  if (instructionsList) renderInstructions(instructionsList);
+  if (instructionsList) renderInstructions(instructionsList, recipeId, userObject);
 }
 
 function parseEquipmentList(instructions: IInstructions | undefined): string[] | undefined {
@@ -22,4 +25,13 @@ function parseInstructionsList(instructions: IInstructions | undefined): string[
   return instructions?.steps.map(step => step.step);
 }
 
-export { loadRecipe };
+function addListeners() {
+  addRecipeButtonsListeners();
+}
+
+function addRecipeButtonsListeners() {
+  const recipeButtonsContainer = document.querySelector('.recipe-container') as HTMLElement;
+  handleSaveFavoriteButtons(recipeButtonsContainer, 'recipes');
+}
+
+export { loadRecipe, addListeners };

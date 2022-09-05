@@ -1,6 +1,10 @@
-export const tabHandler = (): void => {
-  const tabNavs: NodeListOf<HTMLElement> = document.querySelectorAll('.tabs-nav__item');
-  const tabContents: NodeListOf<HTMLElement> = document.querySelectorAll('.tabs-content__item');
+export const tabHandler = (id: string): void => {
+  const tabNavs: NodeListOf<HTMLElement> = (document.getElementById(id) as HTMLElement).querySelectorAll(
+    '.tabs-nav__item'
+  );
+  const tabContents: NodeListOf<HTMLElement> = (document.getElementById(id) as HTMLElement).querySelectorAll(
+    '.tabs-content__item'
+  );
   let activeTabName = '';
 
   tabNavs.forEach(element => element.addEventListener('click', e => setActiveTab(e)));

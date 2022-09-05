@@ -1,8 +1,9 @@
 import { burgerMenu } from '../../features/burgerMenu';
 import selectHandler from '../../features/selector';
-import '../../features/range-filters';
+import { renderRangeFilters, resetRangeFilters } from '../../features/range-filters';
 import '../../styles/main.scss';
 
+renderRangeFilters();
 const filtersBtn = document.querySelector('.filters-btn') as HTMLButtonElement;
 const filtersShowBtn = document.querySelector('.filters__btn_show') as HTMLButtonElement;
 const filtersResetBtn = document.querySelector('.filters__btn_reset') as HTMLButtonElement;
@@ -24,6 +25,7 @@ filtersResetBtn.addEventListener('click', () => {
   filtersCheckboxes.forEach(el => {
     el.checked = false;
   });
+  resetRangeFilters();
 });
 
 function closeFilters() {

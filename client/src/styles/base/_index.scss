@@ -46,6 +46,14 @@ h3 {
   display: inline-block;
 }
 
+
+.btn_outlined {
+  padding: 10px 45px;
+  color: $color-btn;
+  background-color: $color-btn-light;
+  border: solid 1px $color-btn;
+}
+
 .btn-active {
   padding: 10px 45px;
   color:  $color-btn-light;
@@ -58,13 +66,6 @@ h3 {
   &:active {
     background-color: darken($color-btn, 5%);
   }
-}
-
-.btn_outlined {
-  padding: 10px 45px;
-  color: $color-btn;
-  background-color: $color-btn-light;
-  border: solid 1px $color-btn;
 }
 
 .btn-secondary {
@@ -104,6 +105,7 @@ h3 {
   background-image: url(../assets/svg/heart-fill.svg);
 }
 
+.instruction__btn_favorite.btn-active.is-active,
 .btn-active.favorite-btn.is-active {
   background-image: url(../assets/svg/heart-fill-light.svg);
 }
@@ -113,6 +115,7 @@ h3 {
   background-image: url(../assets/svg/save-fill.svg);
 }
 
+.instruction__btn_save.btn-active.is-active,
 .btn-active.save-btn.is-active {
   background-image: url(../assets/svg/save-fill-light.svg);
 }
