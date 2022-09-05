@@ -3,6 +3,8 @@ import * as articlesService from '../../api/articlesService';
 import { ILoadArticleCard } from '../../types';
 import { articlesLoadConfig } from './config';
 
+const userObject = JSON.parse(localStorage.getItem('user') || 'null');
+
 async function loadArticlesPage() {
   await loadArticles(articlesLoadConfig);
 }
@@ -17,7 +19,7 @@ async function loadArticles(loadConfig: ILoadArticleCard) {
   const listContainer = document.querySelector(`.${loadConfig.listClass}`) as HTMLUListElement;
 
   const itemsData = await articlesService.getArticles(loadConfig.queryOptions);
-  const itemsCards = itemsData.map(article => renderArticleCard(article, loadConfig.articleClassList));
+  const itemsCards = itemsData.map(article => renderArticleCard(article, loadConfig.articleClassList, userObject));
 
   listContainer.innerHTML = '';
   listContainer.append(...itemsCards);

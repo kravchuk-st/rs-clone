@@ -2,12 +2,14 @@ import { renderRecipe, renderInstructions } from './render';
 import * as recipesSerivice from '../../api/recipesService';
 import { IInstructions } from '../../types';
 
-async function loadRecipe(recipeId: number) {
+const userObject = JSON.parse(localStorage.getItem('user') || 'null');
+
+async function loadRecipe(recipeId: string) {
   const recipeData = await recipesSerivice.getRecipeById(recipeId);
   const equipmentList = parseEquipmentList(recipeData.analyzedInstructions[0]);
   const instructionsList = parseInstructionsList(recipeData.analyzedInstructions[0]);
   renderRecipe(recipeData, equipmentList);
-  if (instructionsList) renderInstructions(instructionsList);
+  if (instructionsList) renderInstructions(instructionsList, recipeId, userObject);
 }
 
 function parseEquipmentList(instructions: IInstructions | undefined): string[] | undefined {

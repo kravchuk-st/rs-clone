@@ -1,7 +1,8 @@
-import { ILoadRecipePage, IIngredientMeta, INutrient } from '../../types';
+import { ILoadRecipePage, IIngredientMeta, INutrient, IUserResponse } from '../../types';
 import createElementWithClass from '../../helpers/createElementWithClass';
 import infoSvg from '../../assets/svg/info-circle.svg';
 import round from '../../helpers/round';
+import checkItemInUserLists from '../../helpers/checkItemInUserLists';
 
 const PRICE_COEFFICIENT = 100;
 
@@ -72,9 +73,11 @@ function renderRecipe(recipeData: ILoadRecipePage, equipmentList: string[] | und
   main.appendChild(recipeContainer);
 }
 
-function renderInstructions(instructions: string[]) {
+function renderInstructions(instructions: string[], recipeId: string, userObject: IUserResponse) {
   const main = document.querySelector('#main') as HTMLElement;
   const instructionsContainer = createElementWithClass('section', 'instruction');
+
+  const [isInSavedList, isInFavoritesList] = checkItemInUserLists(userObject, 'recipes', recipeId);
 
   const instructionsList = renderList(instructions, 'instruction__item');
 
@@ -90,6 +93,13 @@ function renderInstructions(instructions: string[]) {
       </div>
     </div>
   `;
+
+  if (isInSavedList) {
+    (instructionsContainer.querySelector('.instruction__btn_save') as HTMLButtonElement).classList.add('is-active');
+  }
+  if (isInFavoritesList) {
+    (instructionsContainer.querySelector('.instruction__btn_favorite') as HTMLButtonElement).classList.add('is-active');
+  }
 
   main.appendChild(instructionsContainer);
 }

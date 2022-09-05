@@ -39,4 +39,4 @@ function updateUserResources(
   localStorage.setItem('user', JSON.stringify(userObject));
 }
 
-export default handleSaveFavoriteButtons;
+export { handleSaveFavoriteButtons, updateUserResources };

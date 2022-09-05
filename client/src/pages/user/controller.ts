@@ -46,7 +46,7 @@ function createQueryConfigs(userData: IUserResponse | undefined): (ILoadUserReci
         saved: {
           containerClass: 'recipes-saved',
           listClass: 'recipes__list',
-          listElemType: 'a',
+          listElemType: 'li',
           cardClassList: ['recipe__item'],
           queryOptions: initRecipesSavedQueryOptions,
           largeCardIndex: -1,
@@ -54,7 +54,7 @@ function createQueryConfigs(userData: IUserResponse | undefined): (ILoadUserReci
         favorite: {
           containerClass: 'recipes-favorite',
           listClass: 'recipes__list',
-          listElemType: 'a',
+          listElemType: 'li',
           cardClassList: ['recipe__item'],
           queryOptions: initRecipesFavoriteQueryOptions,
           largeCardIndex: -1,
@@ -89,9 +89,11 @@ async function loadPageContent(recipesLoadConfig: ILoadUserRecipes, articlesLoad
   const emptyArticlesSaved = document.querySelector('#empty-articles-saved') as HTMLElement;
   const emptyArticlesFavorite = document.querySelector('#empty-articles-favorite') as HTMLElement;
 
+  const userObject = JSON.parse(localStorage.getItem('user') || 'null');
+
   if (recipesLoadConfig.saved.queryOptions.id?.length) {
     const savedRecipes = await loadCardsContent(recipesLoadConfig.saved, recipesService.getRecipes);
-    renderCards(savedRecipes, recipesLoadConfig.saved);
+    renderCards(savedRecipes, recipesLoadConfig.saved, userObject);
     emptyRecipesSaved.classList.add('hidden');
   } else {
     emptyRecipesSaved.classList.remove('hidden');
@@ -99,7 +101,7 @@ async function loadPageContent(recipesLoadConfig: ILoadUserRecipes, articlesLoad
 
   if (recipesLoadConfig.favorite.queryOptions.id?.length) {
     const favoriteRecipes = await loadCardsContent(recipesLoadConfig.favorite, recipesService.getRecipes);
-    renderCards(favoriteRecipes, recipesLoadConfig.favorite);
+    renderCards(favoriteRecipes, recipesLoadConfig.favorite, userObject);
     emptyRecipesFavorite.classList.add('hidden');
   } else {
     emptyRecipesFavorite.classList.remove('hidden');
@@ -107,7 +109,7 @@ async function loadPageContent(recipesLoadConfig: ILoadUserRecipes, articlesLoad
 
   if (articlesLoadConfig.saved.queryOptions.id?.length) {
     const savedArticles = await loadCardsContent(articlesLoadConfig.saved, articlesService.getArticles);
-    renderCards(savedArticles, articlesLoadConfig.saved);
+    renderCards(savedArticles, articlesLoadConfig.saved, userObject);
     emptyArticlesSaved.classList.add('hidden');
   } else {
     emptyArticlesSaved.classList.remove('hidden');
@@ -115,7 +117,7 @@ async function loadPageContent(recipesLoadConfig: ILoadUserRecipes, articlesLoad
 
   if (articlesLoadConfig.favorite.queryOptions.id?.length) {
     const favoriteArticles = await loadCardsContent(articlesLoadConfig.favorite, articlesService.getArticles);
-    renderCards(favoriteArticles, articlesLoadConfig.favorite);
+    renderCards(favoriteArticles, articlesLoadConfig.favorite, userObject);
     emptyArticlesFavorite.classList.add('hidden');
   } else {
     emptyArticlesFavorite.classList.remove('hidden');
