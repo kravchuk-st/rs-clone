@@ -15,7 +15,7 @@ const getRecipes = async (queryOptions?: IRecipeQueryOptions): Promise<IRecipe[]
   return ((await response.json()) as unknown) as IRecipe[];
 };
 
-const getRecipeById = async (recipeId: number): Promise<IRecipe> => {
+const getRecipeById = async (recipeId: string): Promise<IRecipe> => {
   const response = await fetch(`${BASE_URL}${ENDPOINTS.recipes}/${recipeId}`);
 
   return ((await response.json()) as unknown) as IRecipe;
