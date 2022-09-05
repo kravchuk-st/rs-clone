@@ -13,6 +13,7 @@ import { getUserData, logOut } from '../../api/userService';
 import * as userService from '../../api/userService';
 import { ENDPOINTS } from '../../config/api.config';
 import userpageControlsHandler from '../../features/userpageButtonHandlers';
+import * as formHandler from '../../helpers/loginFormHandlers';
 
 async function fetchUserData(): Promise<IUserResponse | undefined> {
   return await getUserData();
@@ -99,6 +100,9 @@ function addListeners() {
   addLogoutButtonListener();
   addArticleButtonsListeners();
   addRecipeButtonsListeners();
+  formHandler.addUserButtonListener();
+  formHandler.addRegisterFormListener();
+  formHandler.addSignInFormListener();
 }
 
 function addLogoutButtonListener() {

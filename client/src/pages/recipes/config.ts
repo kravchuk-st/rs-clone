@@ -9,10 +9,10 @@ const initRecipesQueryOptions: IRecipeQueryOptions = {
 };
 
 const recipesLoadConfig: ILoadRecipeCard = {
-  containerClass: 'breakfast',
+  containerClass: 'recipes',
   listClass: 'recipes__list',
-  listElemType: 'li',
-  cardClassList: ['recipe__item'],
+  listElemType: 'div',
+  cardClassList: ['card-wrapper', 'card-wrapper_centered'],
   queryOptions: initRecipesQueryOptions,
   largeCardIndex: -1,
 };

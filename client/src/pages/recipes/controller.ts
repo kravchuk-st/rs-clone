@@ -1,4 +1,21 @@
 import { resetRangeFilters } from '../../features/range-filters';
+import { recipesLoadConfig } from './config';
+import loadCardsContent from '../../features/loadCards';
+import * as recipesService from '../../api/recipesService';
+import * as formHandler from '../../helpers/loginFormHandlers';
+
+const userObject = JSON.parse(localStorage.getItem('user') || 'null');
+
+async function loadRecipesPage() {
+  await loadCardsContent(recipesLoadConfig, recipesService.getRecipes);
+}
+
+function addListeners() {
+  addFiltersEventListeners();
+  formHandler.addUserButtonListener();
+  formHandler.addRegisterFormListener();
+  formHandler.addSignInFormListener();
+}
 
 const filtersBtn = document.querySelector('.filters-btn') as HTMLButtonElement;
 const filtersShowBtn = document.querySelector('.filters__btn_show') as HTMLButtonElement;
@@ -27,4 +44,4 @@ function addFiltersEventListeners() {
   }
 }
 
-export { addFiltersEventListeners };
+export { loadRecipesPage, addListeners };

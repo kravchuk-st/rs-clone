@@ -2,6 +2,7 @@ import { burgerMenu } from '../../features/burgerMenu';
 import createElemWithClass from '../../helpers/createElementWithClass';
 import '../../styles/main.scss';
 import { EMPTY_MESSAGE, MOCK_INGREDIENTS } from '../../constants';
+import * as formHandler from '../../helpers/loginFormHandlers';
 
 let dropdownIngredients = MOCK_INGREDIENTS;
 
@@ -121,3 +122,7 @@ function showBoxIsEmptyMessage() {
 function removeBoxIsEmptyMessage() {
   boxEmptyMessageElement.classList.add('hidden');
 }
+
+formHandler.addUserButtonListener();
+formHandler.addRegisterFormListener();
+formHandler.addSignInFormListener();

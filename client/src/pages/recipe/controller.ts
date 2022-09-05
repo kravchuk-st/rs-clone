@@ -2,6 +2,7 @@ import { renderRecipe, renderInstructions } from './render';
 import * as recipesSerivice from '../../api/recipesService';
 import { IInstructions } from '../../types';
 import { handleSaveFavoriteButtons } from '../../features/cardButtonsHandler';
+import * as formHandler from '../../helpers/loginFormHandlers';
 
 const userObject = JSON.parse(localStorage.getItem('user') || 'null');
 
@@ -27,6 +28,9 @@ function parseInstructionsList(instructions: IInstructions | undefined): string[
 
 function addListeners() {
   addRecipeButtonsListeners();
+  formHandler.addUserButtonListener();
+  formHandler.addRegisterFormListener();
+  formHandler.addSignInFormListener();
 }
 
 function addRecipeButtonsListeners() {

@@ -7,4 +7,4 @@ import * as Controller from './controller';
 renderRangeFilters();
 burgerMenu();
 selectHandler();
-Controller.addFiltersEventListeners();
+Controller.loadRecipesPage().then(() => Controller.addListeners());
