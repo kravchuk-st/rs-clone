@@ -82,14 +82,14 @@ function renderInstructions(instructions: string[], recipeId: string, userObject
   const instructionsList = renderList(instructions, 'instruction__item');
 
   instructionsContainer.innerHTML = `
-    <div class="container">
+    <div class="container recipe-container" id=${recipeId}>
       <h3 class="instruction__title">Instructions</h3>
       <ol class="instruction__list">
         ${instructionsList?.innerHTML}
       </ol>
       <div class="instruction__btns">
-        <button class="instruction__btn_favorite btn-active btn-reset">Add to favorite recipes</button>
-        <button class="instruction__btn_save btn-active btn-reset">Save for later</button>
+        <button class="instruction__btn_favorite btn-active btn-reset favorite-btn">Add to favorite recipes</button>
+        <button class="instruction__btn_save btn-active btn-reset save-btn">Save for later</button>
       </div>
     </div>
   `;

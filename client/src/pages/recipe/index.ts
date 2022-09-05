@@ -7,4 +7,4 @@ const queryString = window.location.search;
 const params = new URLSearchParams(queryString);
 const recipeId = params.get('id') as string;
 
-Controller.loadRecipe(recipeId);
+Controller.loadRecipe(recipeId).then(() => Controller.addListeners());

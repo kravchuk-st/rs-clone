@@ -1,6 +1,7 @@
 import { renderRecipe, renderInstructions } from './render';
 import * as recipesSerivice from '../../api/recipesService';
 import { IInstructions } from '../../types';
+import { handleSaveFavoriteButtons } from '../../features/cardButtonsHandler';
 
 const userObject = JSON.parse(localStorage.getItem('user') || 'null');
 
@@ -24,4 +25,13 @@ function parseInstructionsList(instructions: IInstructions | undefined): string[
   return instructions?.steps.map(step => step.step);
 }
 
-export { loadRecipe };
+function addListeners() {
+  addRecipeButtonsListeners();
+}
+
+function addRecipeButtonsListeners() {
+  const recipeButtonsContainer = document.querySelector('.recipe-container') as HTMLElement;
+  handleSaveFavoriteButtons(recipeButtonsContainer, 'recipes');
+}
+
+export { loadRecipe, addListeners };
