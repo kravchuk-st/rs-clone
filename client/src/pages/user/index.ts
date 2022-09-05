@@ -6,6 +6,9 @@ import * as Render from './render';
 import { ILoadUserArticles, ILoadUserRecipes } from '../../types';
 import { getUserName } from '../../helpers/manageUserName';
 import popupHandler from '../../features/popup';
+import productListControlsHandler from '../../features/productListControlsHandler';
+import '../../features/productListInputHandler';
+import userpageControlsHandler from '../../features/userpageButtonHandlers';
 
 Controller.fetchUserData()
   .then(userData => {
@@ -22,5 +25,7 @@ Controller.fetchUserData()
 
 getUserName();
 burgerMenu();
-tabHandler();
+tabHandler('recipes');
 popupHandler();
+userpageControlsHandler();
+productListControlsHandler();

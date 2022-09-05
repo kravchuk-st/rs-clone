@@ -12,6 +12,7 @@ import { renderCards } from '../../features/renderCards';
 import { getUserData, logOut } from '../../api/userService';
 import * as userService from '../../api/userService';
 import { ENDPOINTS } from '../../config/api.config';
+import userpageControlsHandler from '../../features/userpageButtonHandlers';
 
 async function fetchUserData(): Promise<IUserResponse | undefined> {
   return await getUserData();
@@ -91,40 +92,13 @@ async function loadPageContent(recipesLoadConfig: ILoadUserRecipes, articlesLoad
   await renderLoadedSections(userObject, recipesLoadConfig, articlesLoadConfig);
 }
 
+const logoutButton = document.getElementById('logout-btn') as HTMLElement;
+
 function addListeners() {
-  addArticlesButtonListener();
-  addRecipesButtonListener();
+  userpageControlsHandler();
   addLogoutButtonListener();
   addArticleButtonsListeners();
   addRecipeButtonsListeners();
-}
-
-const articlesButton = document.querySelector('#articles-btn') as HTMLButtonElement;
-const recipesButton = document.querySelector('#recipes-btn') as HTMLButtonElement;
-const articlesTab = document.querySelector('#tab-articles') as HTMLElement;
-const recipesTab = document.querySelector('#tab-recipes') as HTMLElement;
-const logoutButton = document.querySelector('#logout-btn') as HTMLButtonElement;
-
-function addArticlesButtonListener() {
-  articlesButton.addEventListener('click', (e: Event) => {
-    articlesTab.classList.add('is-active');
-    recipesTab.classList.remove('is-active');
-    (e.target as HTMLButtonElement).classList.add('btn-active');
-    (e.target as HTMLButtonElement).classList.remove('btn_outlined');
-    recipesButton.classList.add('btn_outlined');
-    recipesButton.classList.remove('btn-active');
-  });
-}
-
-function addRecipesButtonListener() {
-  recipesButton.addEventListener('click', (e: Event) => {
-    articlesTab.classList.remove('is-active');
-    recipesTab.classList.add('is-active');
-    (e.target as HTMLButtonElement).classList.add('btn-active');
-    (e.target as HTMLButtonElement).classList.remove('btn_outlined');
-    articlesButton.classList.add('btn_outlined');
-    articlesButton.classList.remove('btn-active');
-  });
 }
 
 function addLogoutButtonListener() {
