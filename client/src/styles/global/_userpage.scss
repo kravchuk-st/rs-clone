@@ -29,6 +29,11 @@
   &__item:last-child {
     margin-bottom: 20px;
   }
+
+  .search__input {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
 }
 
 .categories_justified {
@@ -216,4 +221,69 @@
     padding: 10px 0;
   }
 
+}
+
+@media (max-width: 1100px) {
+  .user-main .flex {
+    flex-direction: column;
+    row-gap: 30px;
+
+    .controls,
+    .content {
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .controls {
+      max-width: none;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .profile-meta {
+      max-width: 350px;
+    }
+
+    .buttons {
+      margin-top: 0;
+    }
+  }
+}
+
+@media (min-width: 580px) and (max-width: 768px) {
+  .user-main {
+    .profile,
+    .profile-meta {
+      flex: 1 1 0;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .user-main {
+    .profile__info,
+    .categories  {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 580px) {
+  .user-main .flex .controls {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 420px) {
+  .user-main {
+    .profile .profile__avatar{
+      max-width: 150px;
+    }
+
+    .content .tabs-nav__item {
+      padding: 10px 25px
+    }
+  }
 }
