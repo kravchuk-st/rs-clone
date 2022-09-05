@@ -25,7 +25,7 @@ Controller.fetchUserData()
 
 getUserName();
 burgerMenu();
-// tabHandler('recipes');
+tabHandler('recipes');
 popupHandler();
 userpageControlsHandler();
 productListControlsHandler();
