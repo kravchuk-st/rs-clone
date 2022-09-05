@@ -5,7 +5,7 @@ import * as recipesService from '../../api/recipesService';
 import * as formHandler from '../../helpers/loginFormHandlers';
 import { renderCards } from '../../features/renderCards';
 import { handleSaveFavoriteButtons } from '../../features/cardButtonsHandler';
-import { ILoadRecipeCard, SortOptions } from '../../types';
+import { ILoadRecipeCard, IRecipeQueryOptions, SortOptions } from '../../types';
 
 const userObject = JSON.parse(localStorage.getItem('user') || 'null');
 const recipesLoadConfig = recipesLoadConfigInit;
@@ -19,6 +19,8 @@ function addListeners() {
   addFiltersEventListeners();
   addSortSelectListener();
   addRecipeButtonsListeners();
+  addCheckboxFiltersListeners();
+  // addRangeFilterListeners();
   formHandler.addUserButtonListener();
   formHandler.addRegisterFormListener();
   formHandler.addSignInFormListener();
@@ -71,6 +73,56 @@ function addRecipeButtonsListeners() {
   const recipes = document.querySelectorAll('.card');
   recipes.forEach(recipe => {
     handleSaveFavoriteButtons(recipe, 'recipes');
+  });
+}
+
+function addCheckboxFiltersListeners() {
+  addGeneralCheckboxContainerListener();
+  const dishTypesCheckboxContainer = document.getElementById('dishTypes') as HTMLLIElement;
+  const cuisinesCheckboxContainer = document.getElementById('cuisines') as HTMLLIElement;
+  const dietsCheckboxContainer = document.getElementById('diets') as HTMLLIElement;
+  addListCheckboxContainerListener(dishTypesCheckboxContainer, 'dish-types');
+  addListCheckboxContainerListener(cuisinesCheckboxContainer, 'cuisines');
+  addListCheckboxContainerListener(dietsCheckboxContainer, 'diets');
+}
+
+function addGeneralCheckboxContainerListener() {
+  const generalCheckboxContainer = document.getElementById('general') as HTMLLIElement;
+  generalCheckboxContainer.addEventListener('change', async (e: Event) => {
+    const firedInput = e.target as HTMLInputElement;
+    const changedValue = firedInput.value as keyof IRecipeQueryOptions;
+    const isChecked = firedInput.checked;
+    if (isChecked) {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      recipesLoadConfig.queryOptions[changedValue] = true;
+    } else {
+      delete recipesLoadConfig.queryOptions[changedValue];
+    }
+    await loadRecipesPage(recipesLoadConfig);
+    addRecipeButtonsListeners();
+  });
+}
+
+function addListCheckboxContainerListener(
+  checkboxContainer: HTMLLIElement,
+  propertyName: 'dish-types' | 'cuisines' | 'diets'
+) {
+  checkboxContainer.addEventListener('change', async (e: Event) => {
+    const firedInput = e.target as HTMLInputElement;
+    const checkboxValue = firedInput.value;
+    const isChecked = firedInput.checked;
+    if (isChecked) {
+      if (!recipesLoadConfig.queryOptions[propertyName]) recipesLoadConfig.queryOptions[propertyName] = [];
+      recipesLoadConfig.queryOptions[propertyName]?.push(checkboxValue);
+    } else {
+      recipesLoadConfig.queryOptions[propertyName] = recipesLoadConfig.queryOptions[propertyName]?.filter(
+        listValue => listValue !== checkboxValue
+      );
+      if (!recipesLoadConfig.queryOptions[propertyName]?.length) delete recipesLoadConfig.queryOptions[propertyName];
+    }
+    await loadRecipesPage(recipesLoadConfig);
+    addRecipeButtonsListeners();
   });
 }
 

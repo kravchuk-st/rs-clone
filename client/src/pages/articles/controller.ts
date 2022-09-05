@@ -46,10 +46,10 @@ function addArticleButtonsListeners() {
 }
 
 function addSearchInputListener() {
-  const searchInput = document.querySelector('.search__input') as HTMLInputElement;
-  searchInput.addEventListener('change', (e: Event) => {
-    const input = e.target as HTMLInputElement;
-  });
+  // const searchInput = document.querySelector('.search__input') as HTMLInputElement;
+  // searchInput.addEventListener('change', (e: Event) => {
+  //   const input = e.target as HTMLInputElement;
+  // });
 }
 
 export { loadArticlesPage, addListeners };
