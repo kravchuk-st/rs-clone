@@ -93,8 +93,6 @@ async function loadPageContent(recipesLoadConfig: ILoadUserRecipes, articlesLoad
   await renderLoadedSections(userObject, recipesLoadConfig, articlesLoadConfig);
 }
 
-const logoutButton = document.getElementById('logout-btn') as HTMLElement;
-
 function addListeners() {
   userpageControlsHandler();
   addLogoutButtonListener();
@@ -104,6 +102,8 @@ function addListeners() {
   formHandler.addRegisterFormListener();
   formHandler.addSignInFormListener();
 }
+
+const logoutButton = document.getElementById('logout-btn') as HTMLElement;
 
 function addLogoutButtonListener() {
   logoutButton.addEventListener('click', () => logOut());
