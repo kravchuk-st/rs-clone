@@ -10,7 +10,6 @@ import {
 } from '../../types';
 import { renderCards } from '../../features/renderCards';
 import { getUserData, logOut } from '../../api/userService';
-import { tabHandler } from '../../features/tabs';
 import userpageControlsHandler from '../../features/userpageButtonHandlers';
 
 async function fetchUserData(): Promise<IUserResponse | undefined> {
