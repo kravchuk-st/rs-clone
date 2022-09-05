@@ -9,7 +9,7 @@
   &__body{
     width: 100%;
     justify-content: space-between;
-    margin-top: 20px;
+    margin-top: 15px;
   }
 }
 
@@ -32,8 +32,9 @@
 
 .constructor-ingredient {
   max-height: 40px;
-  padding: 10px;
+  padding: 5px 10px;
   display: flex;
+  line-height: 1;
   align-items: center;
   border: 1px solid $color-tag-dark;
   color: $color-tag-dark;
@@ -196,4 +197,42 @@
 
 #conctructor-failure-btn {
   max-width: fit-content;
+}
+
+@media (max-width: 980px) {
+  .result {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .constructor__title {
+    margin-bottom: 25px;
+  }
+
+  .constructor__body {
+    flex-direction: column;
+    row-gap: 25px;
+  }
+
+  .constructor-controls {
+    margin: 0 auto;
+    max-width: 300px;
+  }
+
+  .result {
+    padding: 20px;
+
+    .btn-active {
+      padding: 10px 30px;
+    }
+  }
+
+  .result:first-child {
+    margin-top: 10px;
+  }
+
+  #lack-2.result {
+    margin-bottom: 0;
+  }
 }
