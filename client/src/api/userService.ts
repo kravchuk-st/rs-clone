@@ -35,7 +35,7 @@ async function logOut() {
   })) as Response;
   if (response.status === 204) {
     localStorage.removeItem('userName');
-    window.open('/index.html', '_self');
+    window.open('./index.html', '_self');
   }
 }
 
