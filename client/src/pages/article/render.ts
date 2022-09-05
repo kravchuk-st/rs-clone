@@ -19,7 +19,7 @@ function renderArticle(articleData: IArticle, userObject: IUserResponse | null) 
   const paragraphsList = renderList(articleData.body, 'article__text');
 
   articleContainer.innerHTML = `
-    <div class="container">
+    <div class="container article-container" id=${cardId}>
       <div class="article__btns">
         <button class="article__btn_favorite btn_outlined btn-reset favorite-btn">Add to favorite articles</button>
         <button class="article__btn_save btn_outlined btn-reset save-btn">Save for later</button>

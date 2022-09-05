@@ -1,6 +1,7 @@
 import * as articlesService from '../../api/articlesService';
 import * as recipesService from '../../api/recipesService';
 import { renderArticle, renderRelevantRecipes } from './render';
+import { handleSaveFavoriteButtons } from '../../features/cardButtonsHandler';
 
 const userObject = JSON.parse(localStorage.getItem('user') || 'null');
 
@@ -14,5 +15,21 @@ async function loadArticle(articleId: string) {
     renderRelevantRecipes(recipesData, userObject);
   }
 }
+function addListeners() {
+  addArticleButtonsListeners();
+  addRecipeButtonsListeners();
+}
 
-export default loadArticle;
+function addArticleButtonsListeners() {
+  const articleButtonsContainer = document.querySelector('.article-container') as HTMLElement;
+  handleSaveFavoriteButtons(articleButtonsContainer, 'articles');
+}
+
+function addRecipeButtonsListeners() {
+  const recipes = document.querySelectorAll('.card');
+  recipes.forEach(recipe => {
+    handleSaveFavoriteButtons(recipe, 'recipes');
+  });
+}
+
+export { loadArticle, addListeners };
