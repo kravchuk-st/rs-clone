@@ -70,14 +70,6 @@
   };
 }
 
-// .tabs-content {
-//   display: none;
-
-//   &.is-active{
-//     display: block;
-//   }
-// }
-
 .tabs-content__item {
   display: none;
   &.is-active{
@@ -87,7 +79,6 @@
 
 .products-list {
   &_stocked {
-    margin-top: 40px;
     .product-controls__add-btn {
       display: none;
     }
