@@ -25,8 +25,19 @@ export const moveToStockedHandler = (e: Event): void => {
   } else {
     shoppingList?.removeChild(targetProduct);
     stockedList?.append(targetProduct);
+
     checkIfEmpty(shoppingList);
     checkIfEmpty(stockedList);
+
+    const userObject = JSON.parse(localStorage.getItem('user') || 'null');
+
+    if (userObject?.products) {
+      userObject.products.own.push(productName);
+    } else {
+      userObject.products = { shopping: [], own: [] };
+      userObject.products.own.push(productName);
+    }
+    localStorage.setItem('user', JSON.stringify(userObject));
   }
 };
 

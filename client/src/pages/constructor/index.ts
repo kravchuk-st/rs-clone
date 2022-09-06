@@ -6,6 +6,7 @@ import * as formHandler from '../../helpers/loginFormHandlers';
 import { getUserName } from '../../helpers/manageUserName';
 import { tabHandler } from '../../features/tabs';
 import popupHandler from '../../features/popup';
+import { IUserResponse } from '../../types';
 
 let dropdownIngredients = MOCK_INGREDIENTS;
 
@@ -14,11 +15,20 @@ const dropdownMenu = document.querySelector('.ingredient-options') as HTMLElemen
 const optionsHolder = document.getElementById('relevant-options') as HTMLElement;
 const chosenIngredientsBox = document.getElementById('chosen-ingredients') as HTMLElement;
 const boxEmptyMessageElement = document.getElementById('is-empty-message') as HTMLElement;
+const addProductsBtn = document.getElementById('add-from-list') as HTMLElement;
+
 boxEmptyMessageElement.innerText = EMPTY_MESSAGE;
 
 burgerMenu();
 showBoxIsEmptyMessage();
 getUserName();
+popupHandler();
+tabHandler('forms-container');
+formHandler.addUserButtonListener();
+formHandler.addRegisterFormListener();
+formHandler.addSignInFormListener();
+
+renderIngredientOptions(MOCK_INGREDIENTS);
 
 chosenIngredientsBox.addEventListener('click', e => {
   const target = e.target as HTMLElement;
@@ -68,6 +78,8 @@ optionsHolder.addEventListener('click', e => {
   }
 });
 
+addProductsBtn.addEventListener('click', addUsersProducts);
+
 function renderIngredientOptions(options: string[]): void {
   optionsHolder.innerHTML = '';
   options.forEach(item => {
@@ -81,8 +93,6 @@ function renderIngredientOptions(options: string[]): void {
 function renderMessage(message: string): void {
   optionsHolder.innerText = message;
 }
-
-renderIngredientOptions(MOCK_INGREDIENTS);
 
 function filterOptions(options: string[], value: string) {
   return options.filter(item => item.includes(value));
@@ -127,8 +137,18 @@ function removeBoxIsEmptyMessage() {
   boxEmptyMessageElement.classList.add('hidden');
 }
 
-popupHandler();
-tabHandler('forms-container');
-formHandler.addUserButtonListener();
-formHandler.addRegisterFormListener();
-formHandler.addSignInFormListener();
+function addUsersProducts() {
+  const userObject = JSON.parse(localStorage.getItem('user') || 'null') as IUserResponse;
+  const alreadyAddedProductElems = chosenIngredientsBox.querySelectorAll('.constructor-ingredient__name');
+  const alreadyAddedProducts: string[] = [];
+  alreadyAddedProductElems.forEach(el => {
+    alreadyAddedProducts.push((el as HTMLElement).innerText);
+  });
+  if (userObject) {
+    userObject.products.own.forEach(product => {
+      if (!alreadyAddedProducts.includes(product)) {
+        moveIngredientToChosen(product);
+      }
+    });
+  }
+}
