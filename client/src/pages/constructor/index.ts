@@ -4,6 +4,8 @@ import '../../styles/main.scss';
 import { EMPTY_MESSAGE, MOCK_INGREDIENTS } from '../../constants';
 import * as formHandler from '../../helpers/loginFormHandlers';
 import { getUserName } from '../../helpers/manageUserName';
+import { tabHandler } from '../../features/tabs';
+import popupHandler from '../../features/popup';
 
 let dropdownIngredients = MOCK_INGREDIENTS;
 
@@ -125,6 +127,8 @@ function removeBoxIsEmptyMessage() {
   boxEmptyMessageElement.classList.add('hidden');
 }
 
+popupHandler();
+tabHandler('forms-container');
 formHandler.addUserButtonListener();
 formHandler.addRegisterFormListener();
 formHandler.addSignInFormListener();
