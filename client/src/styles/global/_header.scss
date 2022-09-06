@@ -30,6 +30,13 @@
     font-size: $font-size-md;
     font-weight: $font-weight-normal;
     color: $color-text;
+    transition: color $animation-duration-basic ease;
+    &:hover {
+      color: lighten($color-text, 30%);
+    }
+    &:active {
+      color: lighten($color-text, 40%);
+    }
   }
 }
 

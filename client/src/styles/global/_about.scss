@@ -29,9 +29,12 @@
   &__name {
     margin-bottom: 10px;
     font-size: $font-size-xxl;
-    transition: text-shadow $animation-duration-basic ease;
+    transition: color $animation-duration-basic ease;
     .github-link:hover{
-      text-shadow: 1px 1px 5px $color-text-inactive;
+      color: lighten($color-text, 20%);
+    }
+    .github-link:active{
+      color: lighten($color-text, 30%);
     }
   }
   &__role {
