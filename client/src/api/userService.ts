@@ -3,7 +3,8 @@ import { BASE_URL, ENDPOINTS } from '../config/api.config';
 import { IUserResponse } from '../types';
 
 const getUserData = async (): Promise<IUserResponse | undefined> => {
-  const tokenValue = getCookieValue('token');
+  // const tokenValue = getCookieValue('token');
+  const tokenValue = localStorage.getItem('token');
   const signupForm = document.querySelector('.popup') as HTMLElement;
 
   if (tokenValue) {
@@ -35,6 +36,8 @@ async function logOut() {
   })) as Response;
   if (response.status === 204) {
     localStorage.removeItem('userName');
+    localStorage.removeItem('user');
+    localStorage.removeItem('token');
     window.open('./index.html', '_self');
   }
 }

@@ -12,7 +12,8 @@ function addUserButtonListener() {
   const signupForm = document.querySelector('.popup') as HTMLElement;
 
   userProfileButton.addEventListener('click', async () => {
-    const tokenValue = getCookieValue('token');
+    // const tokenValue = getCookieValue('token');
+    const tokenValue = localStorage.getItem('token');
 
     if (tokenValue) {
       const response = (await fetch(`${BASE_URL}${ENDPOINTS.userProfile}`, {
@@ -53,6 +54,7 @@ async function handleRegistrationForm(event: Event) {
     } else {
       (document.querySelector('.popup') as HTMLElement).classList.remove('is-open');
       alert('Registered successfully!');
+      localStorage.setItem('token', 'true');
       formElement.reset();
       const responseBody = (await response.json()) as IUserResponse;
       setLocalUser(responseBody);
@@ -80,6 +82,7 @@ async function handleLoginForm(event: Event) {
     case 200: {
       (document.querySelector('.popup') as HTMLElement).classList.remove('is-open');
       alert('Logged in successfully!');
+      localStorage.setItem('token', 'true');
       formElement.reset();
       const responseBody = (await response.json()) as IUserResponse;
       setLocalUser(responseBody);
