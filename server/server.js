@@ -15,6 +15,22 @@ const { connection } = mongoose;
 
 connection.on('error', console.error.bind(console, errorMessages.general.mongoConnection));
 
+// const Recipe = require('./models/recipes/recipe.model');
+//
+// const document = JSON.parse(`
+// {
+//
+// }
+// `);
+//
+// const recipe = new Recipe(document);
+//
+// recipe
+//   .save()
+//   .then(() => Recipe.estimatedDocumentCount())
+//   .then((result) => console.log(result))
+//   .catch((err) => console.error(err));
+
 app.listen(PORT, (error) => {
   if (error) {
     console.error(error);
