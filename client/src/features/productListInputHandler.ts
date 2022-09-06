@@ -1,8 +1,10 @@
 import createElemWithClass from '../helpers/createElementWithClass';
 import { MOCK_INGREDIENTS } from '../constants';
 import { checkIfEmpty, deleteProduct, filterOptions, moveToStockedHandler } from './productHandlerHelpers';
+import { IUserResponse } from '../types';
 
 const addListenersToUserInput = (id: string): void => {
+  const userObject = JSON.parse(localStorage.getItem('user') || 'null') as IUserResponse;
   const selectWrapper = document.getElementById(id) as HTMLElement;
   const inputElem = selectWrapper.querySelector('.products-input') as HTMLInputElement;
   const selectOptionsHolder = selectWrapper.querySelector('.scrolling-area') as HTMLElement;
@@ -10,6 +12,8 @@ const addListenersToUserInput = (id: string): void => {
   const addedProductsList = (selectWrapper.parentElement as HTMLElement).querySelector('.products-list') as HTMLElement;
 
   let dropdownProducts = MOCK_INGREDIENTS;
+
+  renderListsfromStorage();
 
   checkIfEmpty(addedProductsList);
 
@@ -81,6 +85,21 @@ const addListenersToUserInput = (id: string): void => {
     });
     listItem.querySelector('.product-controls__add-btn')?.addEventListener('click', e => moveToStockedHandler(e));
     return listItem;
+  }
+
+  function renderListsfromStorage() {
+    const shoppingList = document.querySelector('.products-list_needed') as HTMLElement;
+    const stockedList = document.querySelector('.products-list_stocked') as HTMLElement;
+    if (userObject?.products) {
+      userObject.products.own?.forEach(product => {
+        const listItem = createListItem(product);
+        stockedList.append(listItem);
+      });
+      userObject.products.shopping?.forEach(product => {
+        const listItem = createListItem(product);
+        shoppingList.append(listItem);
+      });
+    }
   }
 
   function addToList(product: string, list: HTMLElement): void {
