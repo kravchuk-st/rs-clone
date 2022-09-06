@@ -38,24 +38,36 @@ const config = {
       filename: 'index.html',
       chunks: ['index'],
       inject: 'body',
+      minify: {
+        removeRedundantAttributes: false,
+      },
     }),
     new HtmlWebpackPlugin({
       template: './src/pages/user/user-page.html',
       filename: 'user-page.html',
       chunks: ['user'],
       inject: 'body',
+      minify: {
+        removeRedundantAttributes: false,
+      },
     }),
     new HtmlWebpackPlugin({
       template: './src/pages/recipe/index.html',
       filename: 'recipe.html',
       chunks: ['recipe'],
       inject: 'body',
+      minify: {
+        removeRedundantAttributes: false,
+      },
     }),
     new HtmlWebpackPlugin({
       template: './src/pages/recipes/index.html',
       filename: 'recipes.html',
       chunks: ['recipes', 'noUiSlider'],
       inject: 'body',
+      minify: {
+        removeRedundantAttributes: false,
+      },
     }),
     new EslintPlugin({
       extensions: 'ts',
@@ -65,24 +77,36 @@ const config = {
       filename: 'article.html',
       chunks: ['article'],
       inject: 'body',
+      minify: {
+        removeRedundantAttributes: false,
+      },
     }),
     new HtmlWebpackPlugin({
       template: './src/pages/articles/index.html',
       filename: 'articles.html',
       chunks: ['articles'],
       inject: 'body',
+      minify: {
+        removeRedundantAttributes: false,
+      },
     }),
     new HtmlWebpackPlugin({
       template: './src/pages/constructor/constructor.html',
       filename: 'constructor.html',
       chunks: ['constructor'],
       inject: 'body',
+      minify: {
+        removeRedundantAttributes: false,
+      },
     }),
     new HtmlWebpackPlugin({
       template: './src/pages/about/about.html',
       filename: 'about.html',
       chunks: ['about'],
       inject: 'body',
+      minify: {
+        removeRedundantAttributes: false,
+      },
     }),
     new EslintPlugin({
       extensions: 'ts',
