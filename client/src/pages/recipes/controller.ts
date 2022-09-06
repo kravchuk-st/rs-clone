@@ -36,6 +36,7 @@ const filtersCheckboxes = [...document.querySelectorAll('input[type=checkbox]')]
 function addFiltersEventListeners() {
   filtersBtn.addEventListener('click', () => {
     filtersBlock.classList.toggle('filters_open');
+    filtersBlock.classList.contains('filters_open') ? disableScroll() : enableScroll();
   });
 
   filtersBg.addEventListener('click', closeFilters);
@@ -50,6 +51,7 @@ function addFiltersEventListeners() {
 
   function closeFilters() {
     filtersBlock.classList.remove('filters_open');
+    enableScroll();
   }
 }
 
@@ -124,6 +126,16 @@ function addListCheckboxContainerListener(
     await loadRecipesPage(recipesLoadConfig);
     addRecipeButtonsListeners();
   });
+}
+
+function disableScroll() {
+  document.body.style.overflow = 'hidden';
+  document.body.style.userSelect = 'none';
+}
+
+function enableScroll() {
+  document.body.style.overflow = 'auto';
+  document.body.style.userSelect = 'auto';
 }
 
 export { loadRecipesPage, addListeners };
