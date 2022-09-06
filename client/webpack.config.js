@@ -37,6 +37,7 @@ const config = {
       template: './src/pages/main/index.html',
       filename: 'index.html',
       chunks: ['index'],
+      favicon: './src/assets/svg/favicon.png',
       inject: 'body',
       minify: {
         removeRedundantAttributes: false,
@@ -46,6 +47,7 @@ const config = {
       template: './src/pages/user/user-page.html',
       filename: 'user-page.html',
       chunks: ['user'],
+      favicon: './src/assets/svg/favicon.png',
       inject: 'body',
       minify: {
         removeRedundantAttributes: false,
@@ -55,6 +57,7 @@ const config = {
       template: './src/pages/recipe/index.html',
       filename: 'recipe.html',
       chunks: ['recipe'],
+      favicon: './src/assets/svg/favicon.png',
       inject: 'body',
       minify: {
         removeRedundantAttributes: false,
@@ -64,6 +67,7 @@ const config = {
       template: './src/pages/recipes/index.html',
       filename: 'recipes.html',
       chunks: ['recipes', 'noUiSlider'],
+      favicon: './src/assets/svg/favicon.png',
       inject: 'body',
       minify: {
         removeRedundantAttributes: false,
@@ -76,6 +80,7 @@ const config = {
       template: './src/pages/article/index.html',
       filename: 'article.html',
       chunks: ['article'],
+      favicon: './src/assets/svg/favicon.png',
       inject: 'body',
       minify: {
         removeRedundantAttributes: false,
@@ -85,6 +90,7 @@ const config = {
       template: './src/pages/articles/index.html',
       filename: 'articles.html',
       chunks: ['articles'],
+      favicon: './src/assets/svg/favicon.png',
       inject: 'body',
       minify: {
         removeRedundantAttributes: false,
@@ -94,6 +100,7 @@ const config = {
       template: './src/pages/constructor/constructor.html',
       filename: 'constructor.html',
       chunks: ['constructor'],
+      favicon: './src/assets/svg/favicon.png',
       inject: 'body',
       minify: {
         removeRedundantAttributes: false,
@@ -103,6 +110,7 @@ const config = {
       template: './src/pages/about/about.html',
       filename: 'about.html',
       chunks: ['about'],
+      favicon: './src/assets/svg/favicon.png',
       inject: 'body',
       minify: {
         removeRedundantAttributes: false,
