@@ -1,15 +1,16 @@
-# 🚀 Welcome to your new awesome project!
+# RS Recipes
 
-This project has been created using **webpack-cli**, you can now run
+**Deploy** - https://kravchuk-st.github.io/rs-clone/
 
-```
-npm run build
-```
+_**RS Recipes**_ is a recipe portal clone of [allrecipes.com](http://allrecipes.com/). Using the application, you can view recipes by category, filter them by multiple options, find the one you are interested in, make a shopping list, view articles by category. Registered users can also save recipes and articles, as well as create a shopping list based on the required ingredients.
 
-or
+**STACK**
 
-```
-yarn build
-```
+Frontend:
+- TypeScript
+- Webpack
+- SASS
 
-to bundle your application
+Backend:
+- NodeJS (Express JS) + MongoDB (mongoose)
+- [open API](https://github.com/public-apis/public-apis) +[Recipes API](https://spoonacular.com/food-api) used as data source
