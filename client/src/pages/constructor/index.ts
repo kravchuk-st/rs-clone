@@ -139,16 +139,21 @@ function removeBoxIsEmptyMessage() {
 
 function addUsersProducts() {
   const userObject = JSON.parse(localStorage.getItem('user') || 'null') as IUserResponse;
-  const alreadyAddedProductElems = chosenIngredientsBox.querySelectorAll('.constructor-ingredient__name');
-  const alreadyAddedProducts: string[] = [];
-  alreadyAddedProductElems.forEach(el => {
-    alreadyAddedProducts.push((el as HTMLElement).innerText);
-  });
+  const prevAddedProductList = getProductListFromConstructor();
   if (userObject) {
     userObject.products.own.forEach(product => {
-      if (!alreadyAddedProducts.includes(product)) {
+      if (!prevAddedProductList.includes(product)) {
         moveIngredientToChosen(product);
       }
     });
   }
+}
+
+function getProductListFromConstructor(): string[] {
+  const addedProductElems = chosenIngredientsBox.querySelectorAll('.constructor-ingredient__name');
+  const addedProducts: string[] = [];
+  addedProductElems.forEach(el => {
+    addedProducts.push((el as HTMLElement).innerText);
+  });
+  return addedProducts;
 }
