@@ -23,6 +23,13 @@
 
 .author__item {
   color: $color-text;
+  transition: color $animation-duration-basic ease;
+  &:hover{
+    color: lighten($color-text, 20%);
+  }
+  &:active{
+    color: lighten($color-text, 30%);
+  }
 }
 
 @media (max-width: 706px) {

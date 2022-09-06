@@ -29,12 +29,12 @@
   &__name {
     margin-bottom: 10px;
     font-size: $font-size-xxl;
-    transition: text-shadow $animation-duration-basic ease;
+    transition: color $animation-duration-basic ease;
     .github-link:hover{
-      color: lighten($color-text, 30%);
+      color: lighten($color-text, 20%);
     }
     .github-link:active{
-      color: lighten($color-text, 40%);
+      color: lighten($color-text, 30%);
     }
   }
   &__role {
