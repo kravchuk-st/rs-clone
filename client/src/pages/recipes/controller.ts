@@ -6,9 +6,11 @@ import * as formHandler from '../../helpers/loginFormHandlers';
 import { renderCards } from '../../features/renderCards';
 import { handleSaveFavoriteButtons } from '../../features/cardButtonsHandler';
 import { ILoadRecipeCard, IRecipeQueryOptions, SortOptions } from '../../types';
+import * as noUiSlider from 'nouislider';
 
 const userObject = JSON.parse(localStorage.getItem('user') || 'null');
-const recipesLoadConfig = recipesLoadConfigInit;
+const recipesLoadConfig = { ...recipesLoadConfigInit };
+const configInit = JSON.parse(JSON.stringify(recipesLoadConfigInit));
 
 async function loadRecipesPage(recipesLoadConfig: ILoadRecipeCard) {
   const recipesData = await loadCardsContent(recipesLoadConfig, recipesService.getRecipes);
@@ -20,10 +22,12 @@ function addListeners() {
   addSortSelectListener();
   addRecipeButtonsListeners();
   addCheckboxFiltersListeners();
-  // addRangeFilterListeners();
+  addRangeFilterListeners();
   formHandler.addUserButtonListener();
   formHandler.addRegisterFormListener();
   formHandler.addSignInFormListener();
+  addSearchListener();
+  addResetFiltersListener();
 }
 
 const filtersBtn = document.querySelector('.filters-btn') as HTMLButtonElement;
@@ -124,6 +128,78 @@ function addListCheckboxContainerListener(
       if (!recipesLoadConfig.queryOptions[propertyName]?.length) delete recipesLoadConfig.queryOptions[propertyName];
     }
     await loadRecipesPage(recipesLoadConfig);
+    addRecipeButtonsListeners();
+  });
+}
+
+function addRangeFilterListeners() {
+  const healthScoreRangeFilter = document.getElementById('health-score') as noUiSlider.target;
+  const maxReadyTimeFilter = document.getElementById('max-ready-time') as noUiSlider.target;
+  const priceFilter = document.getElementById('price') as noUiSlider.target;
+  const caloriesFilter = document.getElementById('calories') as noUiSlider.target;
+  const carbohydratesFilter = document.getElementById('carbohydrates') as noUiSlider.target;
+  const fatsFilter = document.getElementById('fats') as noUiSlider.target;
+  const proteinsFilter = document.getElementById('proteins') as noUiSlider.target;
+
+  healthScoreRangeFilter.noUiSlider?.on('change', async values => {
+    recipesLoadConfig.queryOptions['min-health-score'] = +Number.parseInt(values[0] as string, 10).toFixed(0);
+    await loadRecipesPage(recipesLoadConfig);
+    addRecipeButtonsListeners();
+  });
+
+  maxReadyTimeFilter.noUiSlider?.on('change', async values => {
+    recipesLoadConfig.queryOptions['max-ready'] = +Number.parseInt(values[0] as string, 10).toFixed(0);
+    await loadRecipesPage(recipesLoadConfig);
+    addRecipeButtonsListeners();
+  });
+
+  priceFilter.noUiSlider?.on('change', async values => {
+    const priceMin = 0;
+    const priceMax = +Number.parseInt(values[0] as string, 10).toFixed(0);
+    recipesLoadConfig.queryOptions['serving-price'] = [priceMin, priceMax];
+    await loadRecipesPage(recipesLoadConfig);
+    addRecipeButtonsListeners();
+  });
+
+  caloriesFilter.noUiSlider?.on('change', async values => {
+    recipesLoadConfig.queryOptions['max-calories'] = +Number.parseInt(values[0] as string, 10).toFixed(0);
+    await loadRecipesPage(recipesLoadConfig);
+    addRecipeButtonsListeners();
+  });
+
+  carbohydratesFilter.noUiSlider?.on('change', async values => {
+    recipesLoadConfig.queryOptions['max-carbs'] = +Number.parseInt(values[0] as string, 10).toFixed(0);
+    await loadRecipesPage(recipesLoadConfig);
+    addRecipeButtonsListeners();
+  });
+
+  fatsFilter.noUiSlider?.on('change', async values => {
+    recipesLoadConfig.queryOptions['max-fats'] = +Number.parseInt(values[0] as string, 10).toFixed(0);
+    await loadRecipesPage(recipesLoadConfig);
+    addRecipeButtonsListeners();
+  });
+
+  proteinsFilter.noUiSlider?.on('change', async values => {
+    recipesLoadConfig.queryOptions['max-proteins'] = +Number.parseInt(values[0] as string, 10).toFixed(0);
+    await loadRecipesPage(recipesLoadConfig);
+    addRecipeButtonsListeners();
+  });
+}
+
+function addSearchListener() {
+  const searchInput = document.querySelector('.search__input') as HTMLInputElement;
+  searchInput.addEventListener('change', async (e: Event) => {
+    recipesLoadConfig.queryOptions.search = (e.target as HTMLInputElement).value.split(' ');
+    await loadRecipesPage(recipesLoadConfig);
+    addRecipeButtonsListeners();
+  });
+}
+
+function addResetFiltersListener() {
+  const resetButton = document.querySelector('.filters__btn_reset') as HTMLButtonElement;
+  resetButton.addEventListener('click', async () => {
+    console.log(configInit);
+    await loadRecipesPage(configInit);
     addRecipeButtonsListeners();
   });
 }

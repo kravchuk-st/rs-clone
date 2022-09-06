@@ -1,4 +1,3 @@
-import getCookieValue from './getCookieValue';
 import { BASE_URL, ENDPOINTS } from '../config/api.config';
 import { IUserResponse } from '../types';
 import { setUserName } from './manageUserName';
@@ -12,7 +11,6 @@ function addUserButtonListener() {
   const signupForm = document.querySelector('.popup') as HTMLElement;
 
   userProfileButton.addEventListener('click', async () => {
-    // const tokenValue = getCookieValue('token');
     const tokenValue = localStorage.getItem('token');
 
     if (tokenValue) {
