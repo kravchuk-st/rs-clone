@@ -33,6 +33,9 @@
     &:hover {
       color: lighten($color-text, 30%);
     }
+    &:active {
+      color: lighten($color-text, 40%);
+    }
   }
 }
 

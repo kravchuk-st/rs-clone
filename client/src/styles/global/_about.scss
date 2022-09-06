@@ -33,6 +33,9 @@
     .github-link:hover{
       color: lighten($color-text, 30%);
     }
+    .github-link:active{
+      color: lighten($color-text, 40%);
+    }
   }
   &__role {
     margin-bottom: 20px;
