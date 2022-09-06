@@ -19,8 +19,8 @@
             <ul class="filters-list_checkbox checkbox-list">
               <li class="checkbox-list__item filter" id="general">
                 <div class="checkbox-wrapper">
-                  <input type="checkbox" id="vegeterian" value="vegeterian"> 
-                  <label for="vegeterian">vegeterian</label> 
+                  <input type="checkbox" id="vegetarian" value="vegetarian">
+                  <label for="vegetarian">vegetarian</label>
                 </div> 
                 <div class="checkbox-wrapper">
                   <input type="checkbox" id="vegan" value="vegan"> 
@@ -165,7 +165,7 @@
                 </div>
               </li>
             </ul>
-            <ul class="filters-list_range range-list">
+            <ul class="filters-list_range range-list" id="range-general">
               <li class="range-list__item filter">
                 <h2 class="filter__title">Minimum health score</h2>
                 <div class="range-filter" id="health-score"></div>
@@ -187,18 +187,18 @@
                 <div class="range-filter" id="price"></div>
                 <div class="range-filter__extremums">
                   <div><span id="price-lower">1</span>$</div>
-                  <div><span id="price-higher">1000</span>$</div>
+                  <div><span id="price-higher">100</span>$</div>
                 </div>
               </li>
             </ul>
               <h2 class="filter__title">Nutrients</h2>
-            <ul>
+            <ul id="range-nutrients">
               <li class="range-list__item filter">
                 <h3 class="filter__subheading">Calories</h3>
                 <div class="range-filter" id="calories"></div>
                 <div class="range-filter__extremums">
                   <div><span id="calories-lower">10</span>kcal</div>
-                  <div><span id="calories-higher">1500</span>kcal</div>
+                  <div><span id="calories-higher">1000</span>kcal</div>
                 </div>
               </li>
               <li class="range-list__item filter">
