@@ -30,6 +30,9 @@
     font-size: $font-size-md;
     font-weight: $font-weight-normal;
     color: $color-text;
+    &:hover {
+      color: lighten($color-text, 30%);
+    }
   }
 }
 
