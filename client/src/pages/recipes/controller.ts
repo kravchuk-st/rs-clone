@@ -198,7 +198,6 @@ function addSearchListener() {
 function addResetFiltersListener() {
   const resetButton = document.querySelector('.filters__btn_reset') as HTMLButtonElement;
   resetButton.addEventListener('click', async () => {
-    console.log(configInit);
     await loadRecipesPage(configInit);
     addRecipeButtonsListeners();
   });
