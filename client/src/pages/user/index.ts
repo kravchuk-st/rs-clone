@@ -6,8 +6,9 @@ import * as Render from './render';
 import { ILoadUserArticles, ILoadUserRecipes } from '../../types';
 import { getUserName } from '../../helpers/manageUserName';
 import popupHandler from '../../features/popup';
-import productListControlsHandler from '../../features/productListControlsHandler';
+// import productListControlsHandler from '../../features/productListControlsHandler';
 import '../../features/productListInputHandler';
+import { renderListsfromStorage } from '../../features/productListInputHandler';
 
 Controller.fetchUserData()
   .then(userData => {
@@ -21,10 +22,10 @@ Controller.fetchUserData()
       Controller.loadPageContent(recipesLoadConfig, articlesLoadConfig).then(() => Controller.addListeners());
     }
   });
-
+renderListsfromStorage();
 getUserName();
 burgerMenu();
 popupHandler();
 tabHandler('recipes');
 tabHandler('forms-container');
-productListControlsHandler();
+// productListControlsHandler();
