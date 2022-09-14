@@ -1,9 +1,7 @@
-import getCookieValue from '../helpers/getCookieValue';
 import { BASE_URL, ENDPOINTS } from '../config/api.config';
 import { IUserResponse } from '../types';
 
 const getUserData = async (): Promise<IUserResponse | undefined> => {
-  // const tokenValue = getCookieValue('token');
   const tokenValue = localStorage.getItem('token');
   const signupForm = document.querySelector('.popup') as HTMLElement;
 
