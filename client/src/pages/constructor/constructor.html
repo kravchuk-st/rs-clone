@@ -24,7 +24,7 @@
             </div>
             <div class="constructor__controls constructor-controls">
               <div class="constructor-controls-wrapper">
-                <button class="btn-active btn-reset constructor-controls__add-btn">Add from your products list</button>
+                <button class="btn-active btn-reset constructor-controls__add-btn" id="add-from-list">Add from your products list</button>
                 <span class="constructor-controls__or">or</span>
                 <div class="constructor-controls__select">
                   <input id="constructor-input" type="text" placeholder="start typing ingredient">
@@ -55,6 +55,19 @@
             </section>
             <section id="lack-2" class="constructor-result__item result constructor-result_lacking">
               <div class="constructor__subheader">Add 2 more ingredients and cook:</div>
+              <ul class="recipes__list list-reset">
+                <%= require('html-loader!../../partials/recipe-card.html').default %>
+                <%= require('html-loader!../../partials/recipe-card.html').default %>
+                <%= require('html-loader!../../partials/recipe-card.html').default %>
+                <%= require('html-loader!../../partials/recipe-card.html').default %>
+                <%= require('html-loader!../../partials/recipe-card.html').default %>
+                <%= require('html-loader!../../partials/recipe-card.html').default %>
+                <%= require('html-loader!../../partials/recipe-card.html').default %>
+                <%= require('html-loader!../../partials/recipe-card.html').default %>
+              </ul>
+            </section>
+            <section id="lack-3" class="constructor-result__item result constructor-result_lacking">
+              <div class="constructor__subheader">For recipes below 3 ingredients are missing:</div>
               <ul class="recipes__list list-reset">
                 <%= require('html-loader!../../partials/recipe-card.html').default %>
                 <%= require('html-loader!../../partials/recipe-card.html').default %>

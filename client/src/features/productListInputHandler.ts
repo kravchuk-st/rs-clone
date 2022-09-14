@@ -1,6 +1,7 @@
 import createElemWithClass from '../helpers/createElementWithClass';
 import { MOCK_INGREDIENTS } from '../constants';
 import { checkIfEmpty, deleteProduct, filterOptions, moveToStockedHandler } from './productHandlerHelpers';
+import { IUserResponse } from '../types';
 
 const addListenersToUserInput = (id: string): void => {
   const selectWrapper = document.getElementById(id) as HTMLElement;
@@ -30,6 +31,8 @@ const addListenersToUserInput = (id: string): void => {
     if (e.key === 'Enter') {
       const productName = inputElem.value.trim();
       addToList(productName, addedProductsList);
+      const destinstion = inputElem.id === 'products-input' ? 'shopping' : 'own';
+      addProductToLStorage(productName, destinstion);
       dropdownProducts = dropdownProducts.filter(item => item !== productName.toLowerCase());
       renderProductOptions(selectOptionsHolder, dropdownProducts);
       inputElem.value = '';
@@ -42,6 +45,9 @@ const addListenersToUserInput = (id: string): void => {
     if (target.classList.contains('product-options__item')) {
       const productName = target.innerText;
       addToList(productName, addedProductsList);
+      const destinstion =
+        (target.closest('.select-wrapper') as HTMLElement).id === 'products-needed' ? 'shopping' : 'own';
+      addProductToLStorage(productName, destinstion);
       dropdownProducts = dropdownProducts.filter(item => item !== productName);
       inputElem.value = '';
       renderProductOptions(selectOptionsHolder, dropdownProducts);
@@ -116,4 +122,72 @@ function renderProductOptions(optionsHolder: HTMLElement, options: string[]): vo
       optionsHolder.append(listElem);
     }
   });
+}
+
+export function addToList(product: string, list: HTMLElement): void {
+  const listItem = createListItem(product);
+  list.append(listItem);
+  checkIfEmpty(list);
+}
+
+function createListItem(product: string): HTMLElement {
+  const listItem = createElemWithClass('li', 'products-list__item');
+  listItem.innerHTML = `
+    <span class="product">${product}</span> 
+    <div class="product__controls product-controls"> 
+      <div class="product-controls__add-btn"></div> 
+      <div class="product-controls__delete-btn"></div>
+    </div> 
+  `;
+  listItem.querySelector('.product-controls__delete-btn')?.addEventListener('click', e => {
+    deleteProduct(e);
+    const parentList = listItem.closest('.products-list') as HTMLElement;
+    checkIfEmpty(parentList);
+    const target = e.target as HTMLElement;
+    const productName = (target.closest('.products-list__item') as HTMLElement)?.innerText.trim().toLowerCase();
+    const listName = parentList?.classList.contains('products-list_needed') ? 'shopping' : 'own';
+    deleteProductFromLStorage(productName, listName);
+  });
+  listItem.querySelector('.product-controls__add-btn')?.addEventListener('click', e => moveToStockedHandler(e));
+  return listItem;
+}
+
+export function renderListsfromStorage() {
+  const userObject = JSON.parse(localStorage.getItem('user') || 'null') as IUserResponse;
+  const shoppingList = document.querySelector('.products-list_needed') as HTMLElement;
+  const stockedList = document.querySelector('.products-list_stocked') as HTMLElement;
+  if (userObject?.products) {
+    userObject.products.own?.forEach(product => {
+      const listItem = createListItem(product);
+      stockedList.append(listItem);
+    });
+    userObject.products.shopping?.forEach(product => {
+      const listItem = createListItem(product);
+      shoppingList.append(listItem);
+    });
+  }
+  checkIfEmpty(shoppingList);
+  checkIfEmpty(stockedList);
+}
+
+function addProductToLStorage(str: string, listName: 'own' | 'shopping'): void {
+  const userObject = JSON.parse(localStorage.getItem('user') || 'null') as IUserResponse;
+  if (userObject?.products) {
+    userObject.products[listName].push(str);
+  } else {
+    userObject.products = {
+      own: [],
+      shopping: [],
+    };
+  }
+
+  localStorage.setItem('user', JSON.stringify(userObject));
+}
+
+function deleteProductFromLStorage(str: string, listName: 'own' | 'shopping'): void {
+  const userObject = JSON.parse(localStorage.getItem('user') || 'null') as IUserResponse;
+  if (userObject?.products) {
+    userObject.products[listName] = userObject.products[listName].filter(item => item !== str);
+    localStorage.setItem('user', JSON.stringify(userObject));
+  }
 }
