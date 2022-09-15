@@ -118,6 +118,7 @@ const config = {
     }),
     new EslintPlugin({
       extensions: 'ts',
+      fix: true,
     }),
   ],
   module: {
