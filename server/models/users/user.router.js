@@ -24,6 +24,7 @@ router.get('/profile', verifyToken, async (req, res, next) => {
           name: user.name,
           articles: user.articles,
           recipes: user.recipes,
+          products: user.products,
         })
       )
       .catch((error) => next(error));
