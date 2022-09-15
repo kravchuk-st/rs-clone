@@ -1,5 +1,7 @@
 import { IUserResponse } from '../types';
 import createElemWithClass from '../helpers/createElementWithClass';
+import * as userService from '../api/userService';
+import { ENDPOINTS } from '../config/api.config';
 
 export const deleteUserProduct = (targetProduct: HTMLElement, parentList: HTMLElement, productName: string): void => {
   parentList.removeChild(targetProduct);
@@ -19,6 +21,7 @@ export const deleteUserProduct = (targetProduct: HTMLElement, parentList: HTMLEl
   }
 
   localStorage.setItem('user', JSON.stringify(userObject));
+  userService.sendUserData(userObject, ENDPOINTS.userUpdate);
 };
 
 export const moveToStockedHandler = (
@@ -136,6 +139,7 @@ export function addProductToLStorage(str: string, listName: 'own' | 'shopping'):
   if (userObject?.products) {
     userObject.products[listName].push(str);
     localStorage.setItem('user', JSON.stringify(userObject));
+    userService.sendUserData(userObject, ENDPOINTS.userUpdate);
   }
 }
 
