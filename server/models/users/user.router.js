@@ -5,11 +5,11 @@ const { StatusCodes } = require('http-status-codes');
 const errorMessages = require('../../errors/errorMessages.config');
 const userService = require('./user.service');
 
-router.post('/register', signup, (req, res) => {});
+router.post('/register', signup, () => {});
 
-router.post('/login', signin, (req, res) => {});
+router.post('/login', signin, () => {});
 
-router.get('/logout', logout, (req, res) => {});
+router.get('/logout', logout, () => {});
 
 router.get('/profile', verifyToken, async (req, res, next) => {
   if (!req.userId) {
@@ -37,7 +37,7 @@ router.post('/update', verifyToken, (req, res, next) => {
   } else {
     console.log(req.body);
     userService
-      .updateUser(req.userId, req.body.articles, req.body.recipes)
+      .updateUser(req.userId, req.body.articles, req.body.recipes, req.body.products)
       .then((modifiedCount) => {
         if (modifiedCount === 1) {
           res.status(StatusCodes.OK).send();
