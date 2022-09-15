@@ -9,8 +9,9 @@
 </head>
 
 <body>
+<div class="wrapper">
   <%= require('html-loader!../../partials/header.html').default %>
-  <main>
+  <main class="constructor-main">
     <section class="consrtuctor">
       <div class="container">
         <div class="constructor__content">
@@ -38,52 +39,31 @@
             </div>
           </div>
           <section class="constructor__results">
-            <section id="relevant" class="constructor-result__item result">
+            <section id="relevant" class="relevant constructor-result__item result hidden">
               <div class="constructor__subheader">You have everything for following recipes:</div>
               <ul class="recipes__list list-reset">
-                <%= require('html-loader!../../partials/recipe-card.html').default %>
-                <%= require('html-loader!../../partials/recipe-card.html').default %>
               </ul>
             </section>
-            <section id="lack-1" class="constructor-result__item result constructor-result_lacking">
+            <section id="lack-1" class="lack-1 constructor-result__item result constructor-result_lacking hidden">
               <div class="constructor__subheader">Recipes you lack just 1 ingredient to cook:</div>
               <ul class="recipes__list list-reset">
-                <%= require('html-loader!../../partials/recipe-card.html').default %>
-                <%= require('html-loader!../../partials/recipe-card.html').default %>
-                <%= require('html-loader!../../partials/recipe-card.html').default %>
               </ul>
             </section>
-            <section id="lack-2" class="constructor-result__item result constructor-result_lacking">
+            <section id="lack-2" class="lack-2 constructor-result__item result constructor-result_lacking hidden">
               <div class="constructor__subheader">Add 2 more ingredients and cook:</div>
               <ul class="recipes__list list-reset">
-                <%= require('html-loader!../../partials/recipe-card.html').default %>
-                <%= require('html-loader!../../partials/recipe-card.html').default %>
-                <%= require('html-loader!../../partials/recipe-card.html').default %>
-                <%= require('html-loader!../../partials/recipe-card.html').default %>
-                <%= require('html-loader!../../partials/recipe-card.html').default %>
-                <%= require('html-loader!../../partials/recipe-card.html').default %>
-                <%= require('html-loader!../../partials/recipe-card.html').default %>
-                <%= require('html-loader!../../partials/recipe-card.html').default %>
               </ul>
             </section>
-            <section id="lack-3" class="constructor-result__item result constructor-result_lacking">
+            <section id="lack-3" class="lack-3 constructor-result__item result constructor-result_lacking hidden">
               <div class="constructor__subheader">For recipes below 3 ingredients are missing:</div>
               <ul class="recipes__list list-reset">
-                <%= require('html-loader!../../partials/recipe-card.html').default %>
-                <%= require('html-loader!../../partials/recipe-card.html').default %>
-                <%= require('html-loader!../../partials/recipe-card.html').default %>
-                <%= require('html-loader!../../partials/recipe-card.html').default %>
-                <%= require('html-loader!../../partials/recipe-card.html').default %>
-                <%= require('html-loader!../../partials/recipe-card.html').default %>
-                <%= require('html-loader!../../partials/recipe-card.html').default %>
-                <%= require('html-loader!../../partials/recipe-card.html').default %>
               </ul>
             </section>
             <section id="failure" class="constructor-result__item result constructor-failure hidden">
               <div class="constructor__subheader">Sorry, we couldn't find anything relevant</div>
               <div class="constructor-failure__body">
                 <p class="constructor-failure__message">You can check out all recipes</p>
-                <button class="btn-active btn-reset" id="conctructor-failure-btn">See all recipes</button>
+                <a class="btn-active btn-reset" id="conctructor-failure-btn" href="./recipes.html">See all recipes</a>
               </div>
             </section>
           </section>
@@ -93,6 +73,7 @@
   </main>
   <%= require('html-loader!../../partials/footer.html').default %>
   <%= require('html-loader!../../partials/forms.html').default %>
+</div>
 </body>
 
 </html>
