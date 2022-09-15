@@ -2,6 +2,7 @@ import { IUserResponse } from '../types';
 import createElemWithClass from '../helpers/createElementWithClass';
 import * as userService from '../api/userService';
 import { ENDPOINTS } from '../config/api.config';
+import { MOCK_INGREDIENTS } from '../constants';
 
 export const deleteUserProduct = (targetProduct: HTMLElement, parentList: HTMLElement, productName: string): void => {
   parentList.removeChild(targetProduct);
@@ -144,7 +145,7 @@ export function addProductToLStorage(str: string, listName: 'own' | 'shopping'):
 }
 
 export function addProductToDropdown(productName: string, dropdownList: string[]) {
-  if (!dropdownList.includes(productName)) {
+  if (MOCK_INGREDIENTS.includes(productName) && !dropdownList.includes(productName)) {
     dropdownList.push(productName);
     dropdownList.sort();
   }
