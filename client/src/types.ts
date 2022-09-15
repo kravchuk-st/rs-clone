@@ -105,7 +105,7 @@ interface IRecipeQueryOptions {
   'min-health-score'?: number;
   'max-ready'?: number;
   'serving-price'?: [number, number];
-  ingredients?: string[];
+  ingredientsAll?: string[];
   cuisines?: string[];
   'dish-types'?: string[];
   diets?: string[];

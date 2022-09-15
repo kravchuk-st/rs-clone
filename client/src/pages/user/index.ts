@@ -6,9 +6,9 @@ import * as Render from './render';
 import { ILoadUserArticles, ILoadUserRecipes } from '../../types';
 import { getUserName } from '../../helpers/manageUserName';
 import popupHandler from '../../features/popup';
-// import productListControlsHandler from '../../features/productListControlsHandler';
-import '../../features/productListInputHandler';
-import { renderListsfromStorage } from '../../features/productListInputHandler';
+import addListenersToUserInput from '../../features/productListInputHandler';
+import { renderListsFromLStorage } from '../../features/productHandlerHelpers';
+import { MOCK_INGREDIENTS } from '../../constants';
 
 Controller.fetchUserData()
   .then(userData => {
@@ -22,10 +22,16 @@ Controller.fetchUserData()
       Controller.loadPageContent(recipesLoadConfig, articlesLoadConfig).then(() => Controller.addListeners());
     }
   });
-renderListsfromStorage();
+
 getUserName();
 burgerMenu();
 popupHandler();
 tabHandler('recipes');
 tabHandler('forms-container');
-// productListControlsHandler();
+
+const dropdownProductsNeeded = MOCK_INGREDIENTS.slice();
+const dropdownProductsStocked = MOCK_INGREDIENTS.slice();
+
+renderListsFromLStorage(dropdownProductsStocked, dropdownProductsNeeded);
+addListenersToUserInput('products-needed', dropdownProductsNeeded, dropdownProductsStocked);
+addListenersToUserInput('products-stocked', dropdownProductsStocked, dropdownProductsNeeded);

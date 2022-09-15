@@ -1,3 +1,13 @@
+.wrapper {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.constructor-main {
+  flex-grow: 1;
+}
+
 .constructor {
   &__title {
     margin-bottom: 70px;
