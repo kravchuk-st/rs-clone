@@ -34,7 +34,7 @@ const recipesQueryMap = {
   },
   ingredients: (passedValue) => {
     const ingredients = passedValue.split(',');
-    return ['extendedIngredients.name', { $in: ingredients }];
+    return ['extendedIngredients.nameClean', { $all: ingredients }];
   },
   cuisines: (passedValue) => {
     const cuisines = passedValue.split(',');
