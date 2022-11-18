@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Articles</title>
+</head>
+<body>
+ 
+    <%= require('html-loader!../../partials/header.html').default %>
+    <main class="about">
+      <h1 class="title">About us</h1>
+      <div class="container">
+        <section class="developer" id="stas">
+          <div class="developer__img">
+          <a href="https://github.com/kravchuk-st" class="github-link" target="_blank" rel="noreferrer"></a></div>
+          <div class="developer__info">
+            <h2 class="developer__name"><a href="https://github.com/kravchuk-st" class="github-link" target="_blank" rel="noreferrer">Stanislav Kravchuk</a></h2>
+            <h3 class="developer__role">Team lead, frontend developer</h3>
+            <p class="developer__descr">Managed team work.</p>
+            <p class="developer__descr">Developed the front-end of the project: made layouts of most of pages, implemented responsible design for the application using HTML and SCSS.</p>
+            <p class="developer__descr">Linked side library elements like Swiper on the main page. Handled DOM events using Typescript and programming approach.</p>
+          </div>
+        </section>
+        <section class="developer" id="phil">
+          <div class="developer__img">
+            <a href="https://github.com/foxtrotkilomike" class="github-link" target="_blank" rel="noreferrer"></a>
+          </div>
+          <div class="developer__info">
+            
+            <h2 class="developer__name"><a href="https://github.com/foxtrotkilomike" class="github-link" target="_blank" rel="noreferrer">Philipp Khromov</a></h2>
+            <h3 class="developer__role">Fullstack developer</h3>
+            <p class="developer__descr">Developed the back-end part of the project (server on NodeJS + Express, integration with MongoDB, setting up and populating the database, developing a REST API, adding user registration and authorization).</p>
+            <p class="developer__descr">Implemented the logic of receiving and sending data using the written API on the front-end (data of recipes, articles, user data), rendering content based on the received data and processing front-end events (adding to favorites, filtering on the recipe page and working recipe builder).</p>
+            <p class="developer__descr">Came up with the application concept. Implemented design of main page and recipes page.</p>
+          </div>
+        </section>
+        <section class="developer" id="alina">
+          <div class="developer__img">
+            <a href="https://github.com/malinka775" class="github-link" target="_blank" rel="noreferrer"></a>
+          </div>
+          <div class="developer__info">
+            <h2 class="developer__name"><a href="https://github.com/malinka775" class="github-link" target="_blank" rel="noreferrer">Khasanova Alina</a></h2>
+            <h3 class="developer__role">Frontend developer</h3>
+            <p class="developer__descr">Using Figma developed design that meets the needs of functionality and allows to keep the user's attention on the application as a result of ease of interaction.
+             Came up with the location of the elements, the color scheme and the animations. Tested UI and UX. Developed design of user page, constructor, recipes page. </p>
+            <p class="developer__descr">Handled DOM events using Typescript and programming approach. Added UI elements from side libraries like noUiSlider on constructor page.</p>
+          </div>
+        </section>
+      </div>
+    </main>
+    <%= require('html-loader!../../partials/footer.html').default %>
+    <%= require('html-loader!../../partials/forms.html').default %>
+</body>
+</html>

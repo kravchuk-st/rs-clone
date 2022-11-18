@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User page</title>
+</head>
+<body>
+  <div class="wrapper">
+    <%= require('html-loader!../../partials/header.html').default %>
+    <main class="user-main">
+      <section>
+        <div class="container">
+          <div class="flex">
+            <div class="controls">
+              <div class="profile"></div>
+              <div class="profile-meta">
+                <div class="buttons mt-20" id="userpage-controls">
+                  <button class="btn-reset btn tabs-btn btn_outlined buttons__item" id="articles-btn" data-link-to="articles">Articles</button>
+                  <button class="btn-reset btn tabs-btn btn_outlined btn-active buttons__item" id="recipes-btn" data-link-to="recipes">Recipes</button>
+                  <button class="btn-reset btn tabs-btn btn_outlined buttons__item" id="lists-btn" data-link-to="lists">Product lists</button>
+                  <button class="btn-reset btn btn_outlined buttons__item" disabled>Edit profile info</button>
+                  <button class="btn-reset btn btn-secondary buttons__item" id="logout-btn">Log out</button>
+                  <div class="search">
+                    <input class="search__input" type="text" autocomplete="off" autofocus>
+                    <button class="search__btn btn-reset"></button>
+                  </div>
+                </div>
+                <div class="categories mt-20 categories_justified" id="categories">
+                  <div class="categories__item categories__item_active">Bakery</div>
+                  <div class="categories__item">Vegan</div>
+                  <div class="categories__item">Dairy</div>
+                  <div class="categories__item categories__item_active">Dinner</div>
+                  <div class="categories__item">Vegeterian</div>
+                  <div class="categories__item">Healthy</div>
+                  <div class="categories__item">Gluten-free</div>
+                  <div class="categories__item">Lunch</div>
+                </div>
+              </div>
+            </div>
+            <div class="content">
+                <div class="tabs" id="recipes">
+                  <div class="tabs__nav tabs-nav" id="tab-navs">
+                    <button class="btn-reset btn btn_outlined tabs-nav__item is-active" data-tab-name="saved-recipes">Saved </button>
+                    <button class="btn-reset btn btn_outlined tabs-nav__item" data-tab-name="favorites-recipes">Favorites</button>
+                  </div>
+                  <div class="tabs__content tabs-content is-active" id="tab-recipes">
+                    <div class="tabs-content__item is-active" data-tab-content="saved-recipes" >
+                      <section class="recipes-saved">
+                        <ul class="recipes__list list-reset recipes__list_user">
+                        </ul>
+                        <p id="empty-recipes-saved">This list is currently empty</p>
+                      </section>
+                    </div>
+                    <div class="tabs-content__item" data-tab-content="favorites-recipes" >
+                      <section class="recipes-favorite">
+                        <ul class="recipes__list list-reset recipes__list_user">
+                        </ul>
+                        <p id="empty-recipes-favorite">This list is currently empty</p>
+                      </section>
+                    </div>
+                  </div>
+                </div>
+                <div class="tabs hidden" id="articles">
+                  <div class="tabs__nav tabs-nav" id="tab-navs">
+                    <button class="btn-reset btn btn_outlined tabs-nav__item is-active" data-tab-name="saved-articles">Saved </button>
+                    <button class="btn-reset btn btn_outlined tabs-nav__item" data-tab-name="favorites-articles">Favorites</button>
+                  </div>
+                  <div class="tabs__content tabs-content" id="tab-articles">
+                    <div class="tabs-content__item is-active" data-tab-content="saved-articles" >
+                      <section class="articles-saved">
+                        <div class="articles__list">
+                        </div>
+                        <p id="empty-articles-saved">This list is currently empty</p>
+                      </section>
+                    </div>
+                    <div class="tabs-content__item" data-tab-content="favorites-articles" >
+                      <section class="articles-favorite">
+                        <div class="articles__list">
+                        </div>
+                        <p id="empty-articles-favorite">This list is currently empty</p>
+                      </section>
+                    </div>
+                  </div>
+                </div>
+                <div class="tabs hidden" id="lists">
+                  <div class="tabs__nav tabs-nav">
+                      <button class="btn-reset btn btn_outlined tabs-nav__item is-active" data-tab-name="products-stocked">Products list </button>
+                      <button class="btn-reset btn btn_outlined tabs-nav__item" data-tab-name="products-needed">Shopping list</button> 
+                    </div>   
+                  <div class="tabs__content tabs-content" id="tab-lists">
+              
+                    <div class="tabs-content__item is-active" data-tab-content="products-stocked" >
+                        <div class="select-wrapper" id="products-stocked">
+                          <input class='products-input' id="stocked-products-input" type="text" placeholder="start typing product" autocomplete="off">
+                          <div class="product-options" id="stocked-product-options">
+                            <ul class="scrolling-area" id="stocked-relevant-options">
+                            </ul>
+                          </div>
+                        </div>
+                        <ul class="list-reset products-list products-list_stocked">
+                          <p class="message">You haven't added anything yet...</p>
+                        </ul>
+                    </div>
+                    <div class="tabs-content__item" data-tab-content="products-needed">
+                      <div class="select-wrapper" id="products-needed">
+                        <input class='products-input' id="products-input" type="text" placeholder="start typing product" autocomplete="off">
+                        <div class="product-options" id="product-options">
+                          <ul class="scrolling-area" id="relevant-options">
+                          </ul>
+                        </div>
+                      </div>
+                      <ul class="list-reset products-list products-list_needed">
+                        <p class="message">You haven't added anything yet...</p>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <%= require('html-loader!../../partials/footer.html').default %>
+    <%= require('html-loader!../../partials/forms.html').default %>
+  </div>
+</body>
+</html>

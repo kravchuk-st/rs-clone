@@ -1,0 +1,5 @@
+@mixin font-rule($size, $weight:$font-weight-normal, $family: $font-family-main) {
+  font-family: $family;
+  font-size: $size;
+  font-weight: $weight;
+}

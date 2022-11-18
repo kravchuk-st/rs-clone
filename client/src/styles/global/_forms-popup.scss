@@ -1,0 +1,96 @@
+.popup {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba($color-underlayer, 0.8);
+  top: 0;
+  left: 0;
+  z-index: 15;
+  opacity: 0;
+  visibility: hidden;
+  overflow-y: auto;
+  transition: all $animation-duration-popup ease-in-out;
+  cursor: pointer;
+  &.is-open {
+    opacity: 1;
+    visibility: visible;
+    & .popup__content {
+      opacity: 1;
+      transform: translateX(0);
+      cursor: default;
+    }
+  }
+  &__body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 10px;
+    min-height: 100%;
+  }
+  &__content {
+    background-color: $color-body-bg;
+    width: 450px;
+    padding: 20px;
+    border-radius: $border-radius-basic;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: all $animation-duration-popup ease-in-out;
+  }
+}
+
+.forms-tabs {
+  text-align: left;
+  margin-bottom: 20px;
+  &__item {
+    @include font-rule($font-size-xl, bold, $font-family-secondary);
+    margin-right: 15px;
+    display: inline-block;
+    color: $color-text-inactive;
+    cursor: pointer;
+    & a {
+      color: inherit;
+    }
+    &.is-active{
+      color: $color-text;
+      background-color: $color-body-bg;
+      border-bottom: 1px solid $color-main;
+    }
+  }
+}
+
+.form-field {
+  margin-top: 20px;
+  @include font-rule($font-size-sm);
+  width: 100%;
+  text-align: left;
+  label {
+    color: $color-text;
+  }
+  input[type="text"],
+  input[type="password"],
+  input[type="email"] {
+    margin-top: 10px;
+    border: 1px solid $color-main;
+    border-radius: $border-radius-btn;
+    padding: 5px 10px;
+    display: block;
+    width: 100%;
+    &:focus,
+    &:active {
+      outline: $color-main;
+    }
+  }
+  &__link {
+    margin-left: 5px;
+    text-decoration: underline;
+  }
+}
+
+.form__btn {
+  margin-top: 20px;
+}
+
+.form-error {
+  margin-top: 10px;
+  color: $color-main;
+}

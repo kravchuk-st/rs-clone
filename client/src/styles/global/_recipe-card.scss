@@ -1,0 +1,309 @@
+.card {
+  padding: 20px 0 30px;
+  background: $color-bg-card;
+  box-shadow: 0px 10px 34px -10px rgba(0, 0, 0, 0.15);
+  border-radius: 15px;
+  color: $color-text;
+  transition: scale $animation-duration-basic ease-in-out;
+  &:hover{
+    scale: 1.02;
+  }
+}
+
+.card:not(.card_lg) {
+  height: auto;
+  display: flex;
+  flex-direction: column;
+
+  .card__body {
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+
+    .card__title {
+      flex: 1 0 auto;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -moz-box;
+      -moz-box-orient: vertical;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      line-clamp: 2;
+      box-orient: vertical;
+    }
+  }
+}
+
+.card__header {
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .card__dish {
+    font-weight: $font-weight-bold;
+    font-size: $font-size-md;
+  }
+}
+
+.recipe__btns {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  column-gap: 20px;
+}
+
+.card__img {
+  margin-top: 10px;
+  width: 100%;
+  height: 165px;
+  object-fit: cover;
+}
+
+.card__meta {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 15px;
+
+  .time__title,
+  .calories__title,
+  .rating__title {
+    display: none;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-bold;
+  }
+
+  .time__info,
+  .calories__info,
+  .rating__info {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-bold;
+    background-position: left top 1px;
+    background-repeat: no-repeat;
+  }
+
+  .time__info {
+    padding-left: 20px;
+    background-size: 13px 13px;
+    background-image: url(../assets/svg/clock.svg);
+  }
+
+  .calories__info {
+    padding-left: 18px;
+    background-size: 15px 15px;
+    background-image: url(../assets/svg/fire.svg);
+  }
+
+  .rating__info {
+    padding-left: 16px;
+    background-size: 12px 11px;
+    background-image: url(../assets/svg/star.svg);
+  }
+}
+
+.data__time {
+  text-align: left;
+}
+
+.data__calories {
+  text-align: center;
+}
+
+.data__rating {
+  text-align: right;
+}
+
+.card_lg .card-anchor {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.card__body {
+  padding: 0 15px;
+}
+
+.card__title {
+  margin-top: 15px;
+  font-weight: $font-weight-bold;
+  text-align: center;
+}
+
+.card__text {
+  margin-top: 10px;
+  font-size: $font-size-sm;
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  line-clamp: 4;
+  box-orient: vertical;
+}
+
+.card_lg {
+  padding: 0 20px 0 0;
+  grid-column: 2 span;
+  display: grid;
+  grid-template-areas:
+    "card-img card-header"
+    "card-img card-body"
+    "card-img card-body";
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 25px;
+
+  .card__img {
+    grid-area: card-img;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px 0px 0px 15px;
+  }
+
+  .card__header {
+    grid-area: card-header;
+    padding: 0;
+  }
+
+  .card__body {
+    grid-area: card-body;
+    padding: 0 0 35px;
+
+    .card__title {
+      margin-top: 0;
+      font-size: $font-size-3xl;
+      text-align: left;
+    }
+
+    .card__text {
+      margin-top: 30px;
+      font-size: $font-size-md;
+      -webkit-line-clamp: 7;
+      line-clamp: 7;
+    }
+  }
+
+  .card__meta {
+    grid-area: card-date;
+    justify-content: flex-start;
+    column-gap: 30px;
+
+    .time__title,
+    .calories__title,
+    .rating__title {
+      margin-bottom: 5px;
+      display: block;
+    }
+
+    .time__info,
+    .calories__info {
+      font-weight: $font-weight-normal;
+    }
+
+    .rating__info {
+      font-weight: $font-weight-normal;
+    }
+  }
+}
+
+@media (min-width: 981px) {
+  .card_lg {
+    .card__meta {
+      margin-top: 0;
+      margin-left: 5px;
+
+
+      .time__info,
+      .calories__info {
+        padding: 0;
+        background-image: none;
+      }
+    }
+  }
+}
+
+@media (max-width: 980px) {
+  .card.card_lg {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+  
+    .card__body {
+      flex: 1 0 auto;
+      display: flex;
+      flex-direction: column;
+  
+      .card__title {
+        flex: 1 0 auto;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -moz-box;
+        -moz-box-orient: vertical;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        line-clamp: 2;
+        box-orient: vertical;
+      }
+    }
+  }
+
+  .card_lg {
+    padding: 20px 0 30px;
+    display: flex;
+    flex-direction: column;
+
+    .card__header {
+      padding: 0 20px;
+    }
+
+    .card__img {
+      margin-top: 10px;
+      height: 165px;
+      border-radius: 0;
+    }
+
+    .card__meta {
+      margin-top: 15px;
+      margin-left: 0;
+      justify-content: center;
+
+      .time__title,
+      .calories__title,
+      .rating__title {
+        display: none;
+      }
+    }
+
+    .card__body {
+      padding: 0 15px;
+  
+      .card__title {
+        margin-top: 15px;
+        font-size: $font-size-lg;
+        text-align: center;
+      }
+  
+      .card__text {
+        margin-top: 10px;
+        font-size: $font-size-sm;
+        -webkit-line-clamp: 4;
+        line-clamp: 4;
+      }
+    }
+  }
+}
+
+@media (max-width: 678px) {
+  .recipes__list {
+    .recipe__item:not(:nth-child(-n+3)) {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,38 @@
+<section class="articles">
+  <div class="container">
+    <h1 class="articles__title">Recent food articles</h1>
+    <div class="articles__content">
+      <div class="select-container">
+        <div class="select-container__text">Choose category:</div>
+          <div class="select-box">
+            <div class="options-container">
+              <label class="option">
+                Cooking tips
+                <input type="radio" class="radio" id="cooking-tips" name="article-category" value="cooking-tips">
+              </label>
+              <label class="option">
+                Tutorial
+                <input type="radio" class="radio" id="tutorial" name="article-category" value="tutorial">
+              </label>
+              <label class="option">
+                Good to know
+                <input type="radio" class="radio" id="good-to-know" name="article-category" value="good-to-know">
+              </label>
+              <label class="option">
+                Diets
+                <input type="radio" class="radio" id="diets" name="article-category" value="diets">
+              </label>
+            </div>
+            <div id="selected">Cooking tips</div>
+          </div>
+      </div>
+      <ul class="articles__list list-reset">
+      </ul>
+      <div class="pagination">
+        <button class="pagination__btn btn-reset page-prev" disabled></button>
+        <span class="page-number">1</span>
+        <button class="pagination__btn btn-reset page-next"></button>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,140 @@
+@import './reset';
+@import './normalize';
+
+body {
+  font-family: $font-family-main;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-normal;
+  line-height: 1.3;
+  text-align: center;
+  color: $color-text;
+  background-color: $color-body-bg;
+}
+
+h1 {
+  font-family: $font-family-secondary;
+  font-weight: $font-weight-bold;
+  font-size: $font-size-4xl;
+}
+
+h2 {
+  font-family: $font-family-secondary;
+  font-weight: $font-weight-bold;
+  font-size: $font-size-4xl;
+}
+
+h3 {
+  font-family: $font-family-secondary;
+  font-weight: $font-weight-normal;
+  font-size: $font-size-lg;
+}
+
+.btn-reset {
+  color: $color-text;
+  border: none;
+  text-decoration: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.btn {
+  font-family: $font-family-main;
+  font-weight: $font-weight-normal;
+  font-size: $font-size-lg;
+  line-height: 1.15;
+  border-radius: $border-radius-btn;
+  display: inline-block;
+}
+
+
+.btn_outlined {
+  padding: 10px 45px;
+  color: $color-btn;
+  background-color: $color-btn-light;
+  border: solid 1px $color-btn;
+}
+
+.btn-active {
+  padding: 10px 45px;
+  color:  $color-btn-light;
+  border-radius: $border-radius-btn;
+  background-color: $color-btn;
+  &:hover {
+    background-color: lighten($color-btn, 5%);
+    box-shadow: 0px 10px 34px -10px rgba(0, 0, 0, 0.25);
+  }
+  &:active {
+    background-color: darken($color-btn, 5%);
+  }
+}
+
+.btn-secondary {
+  padding: 10px 45px;
+  color: $color-info;
+  background-color: $color-btn-light;
+  border: 1px solid $color-info;
+}
+
+.card .favorite-btn,
+.card .save-btn {
+  width: 25px;
+  height: 25px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.card .favorite-btn {
+  background-image: url(../assets/svg/heart-color.svg);
+
+  &.is-active {
+    background-image: url(../assets/svg/heart-fill.svg);
+  }
+}
+
+.card .save-btn {
+  background-image: url(../assets/svg/save-color.svg);
+
+  &.is-active {
+    background-image: url(../assets/svg/save-fill.svg);
+  }
+}
+
+.favorite-article.favorite-btn.is-active,
+.btn_outlined.favorite-btn.is-active {
+  background-image: url(../assets/svg/heart-fill.svg);
+}
+
+.instruction__btn_favorite.btn-active.is-active,
+.btn-active.favorite-btn.is-active {
+  background-image: url(../assets/svg/heart-fill-light.svg);
+}
+
+.save-article.save-btn.is-active,
+.btn_outlined.save-btn.is-active {
+  background-image: url(../assets/svg/save-fill.svg);
+}
+
+.instruction__btn_save.btn-active.is-active,
+.btn-active.save-btn.is-active {
+  background-image: url(../assets/svg/save-fill-light.svg);
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0 30px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+section {
+  padding: 25px 0;
+}
+
+.mt-20 {
+  margin-top: 20px;
+}
+
+.hidden {
+  display: none;
+}

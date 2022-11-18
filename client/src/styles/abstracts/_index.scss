@@ -1,0 +1,30 @@
+@import './variables';
+@import './mixins';
+
+@font-face {
+  font-family: "Kadwa";
+  src: local("Kadwa Regular"), local("Kadwa-Regular"),
+       url(../assets/fonts/kadwa-regular.ttf) format('truetype');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Kadwa";
+  src: local("Kadwa Bold"), local("Kadwa-Bold"),
+       url(../assets/fonts/kadwa-bold.ttf) format('truetype');
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Karla";
+  src: local("Karla Regular"), local("Karla-Regular"),
+       url(../assets/fonts/karla-regular.ttf) format('truetype');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Karla";
+  src: local("Karla Bold"), local("Karla-Bold"),
+       url(../assets/fonts/karla-bold.ttf) format('truetype');
+  font-weight: 700;
+}
